@@ -21,6 +21,9 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         backgroundColor: colors.white,
         overflow: "hidden",
+        marginVertical: 200,
+        marginHorizontal: 20,
+        margin: 10,
 
     },
     detailsContainer: {
