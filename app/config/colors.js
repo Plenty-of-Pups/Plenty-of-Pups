@@ -7,4 +7,6 @@ export default {
   white: "#fff",
   light: "#F5F5F5",
   beigebackground: '#F8F4F1',
+  lineseparatorgray: '#ECE9E9',
+  danger: '#ff5252',
 };
