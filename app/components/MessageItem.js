@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     container: {
         // flex: 1,
         flexDirection: "row",
-        padding: 15,
+        padding: 10,
     },
     detailsContainer: {
         marginLeft: 10,
