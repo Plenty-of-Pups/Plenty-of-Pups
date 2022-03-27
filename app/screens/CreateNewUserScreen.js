@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import * as Yup from "yup";
 
 import {
@@ -33,6 +33,7 @@ const categories = [
 function CreateNewUserScreen() {
   return (
     <Screen style={styles.container}>
+      <Text style={[styles.text]}>First, let's create your profile</Text>
       <AppForm
         initialValues={{
           name: "",
@@ -45,7 +46,7 @@ function CreateNewUserScreen() {
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        <FormImagePicker style={styles.imagecontainer} name="images" />
+        <FormImagePicker name="images" />
         <AppFormField
           maxLength={50}
           name="name"
@@ -92,8 +93,10 @@ const styles = StyleSheet.create({
     padding: 10,
     justifyContent: "flex-end",
   },
-  imagecontainer: {
-    alignSelf: "center",
+  text: {
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center",
   },
 });
 
