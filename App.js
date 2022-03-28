@@ -6,7 +6,7 @@ import CreateNewUserScreen from "./app/screens/CreateNewUserScreen";
 import NewDogProfileScreen from "./app/screens/NewDogProfileScreen";
 
 export default function App() {
-  // return <LoginScreen />;
-  // return <CreateNewUserScreen />;
-  return <NewDogProfileScreen />;
+  return <LoginScreen />;
+  //return <CreateNewUserScreen />;
+  //return <NewDogProfileScreen />;
 }
