@@ -10,7 +10,7 @@ export default function PreferencesScreen() {
   }
 
   const thumbColorOn = Platform.OS === "android" ? "#0cd1e8" : "#f3f3f3"
-  const thumbColorOff = Platform.OS === "android" ? "#f04141" : "#f3f3f3"
+  const thumbColorOff = Platform.OS === "android" ? "grey" : "#f3f3f3"
   const trackColorOn = Platform.OS === "android" ? "#98e7f0" : "#0cd1e8"
   const trackColorOff = Platform.OS === "android" ? "#f3adad" : "#f04141"
 
