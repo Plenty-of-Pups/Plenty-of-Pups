@@ -1,72 +1,38 @@
-import React from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import { StatusBar } from "expo-status-bar"
+import React, { useState } from "react"
+import { StyleSheet, Text, View, Switch, Platform } from "react-native"
 
-import Screen from '../components/Screen';
-import colors from '../config/colors';
-import Icon from '../components/Icon';
-import AppText from '../components/AppText';
+export default function PreferencesScreen() {
+  const [enabled, setEnabled] = useState(false)
 
-const menuItems = [
-    {
-        title: "Text Size",
-        icon: {
-            name: "format-size",
-            backgroundColor: colors.white,
-            iconColor: colors.greytext
-        }
-    },
-    {
-        title: "Screen Reader",
-        icon: {
-            name: "cellphone-sound",
-            backgroundColor: colors.white,
-            iconColor: colors.greytext
-        }
-    }
-]
+  const toggleSwitch = () => {
+    setEnabled(oldValue => !oldValue)
+  }
 
-function PreferencesScreen(props) {
-    return (
-        <View style={styles.backgroundContainer}>
-            <Screen>
+  const thumbColorOn = Platform.OS === "android" ? "#0cd1e8" : "#f3f3f3"
+  const thumbColorOff = Platform.OS === "android" ? "#f04141" : "#f3f3f3"
+  const trackColorOn = Platform.OS === "android" ? "#98e7f0" : "#0cd1e8"
+  const trackColorOff = Platform.OS === "android" ? "#f3adad" : "#f04141"
 
-                <View style={styles.container}>
-                    <AppText style={styles.title}>Accessibility</AppText>
-                    <FlatList
-                        data={menuItems}
-                        keyExtractor={menuItem => menuItem.title}
-                        renderItem={({ item }) =>
-                            <MessageItem
-                                title={item.title}
-                                ImageComponent={
-                                    <Icon name={item.icon.name}
-                                        backgroundColor={item.icon.backgroundColor}
-                                        iconColor={item.icon.iconColor} />
-                                } />
-                        }
-                    />
-                </View>
-            </Screen>
-        </View>
-    );
+  return (
+    <View style={styles.container}>
+      <Switch
+        onValueChange={toggleSwitch}
+        value={enabled}
+        thumbColor={enabled ? thumbColorOn : thumbColorOff}
+        trackColor={{ false: trackColorOff, true: trackColorOn }}
+        ios_backgroundColor={trackColorOff}
+      />
+      <StatusBar style="auto" />
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
     container: {
-        borderRadius: 15,
-        backgroundColor: colors.white,
-        marginHorizontal: 15,
-        marginVertical: 10,
+      flex: 1,
+      backgroundColor: "#fff",
+      alignItems: "center",
+      justifyContent: "center",
     },
-    backgroundContainer: {
-        backgroundColor: colors.lightgraybackground,
-        flex: 1,
-    },
-    title: {
-        paddingTop: 5,
-        paddingLeft: 5,
-        fontWeight: "500"
-    }
-});
-
-export default PreferencesScreen;
+  })
