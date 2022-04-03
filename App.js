@@ -19,7 +19,7 @@ export default function App() {
   //return <PremiumScreen />;
   //return <MessagesScreen />;
   //return <DiscoveryTabScreen />;
-  //return <CreateNewUserScreen />;
+  return <CreateNewUserScreen />;
   //return <NewDogProfileScreen />;
-  return <SettingScreen />
+  //return <SettingScreen />
 }
