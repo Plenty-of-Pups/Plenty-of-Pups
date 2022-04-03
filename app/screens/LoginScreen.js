@@ -20,41 +20,45 @@ const validationSchema = Yup.object().shape({
 
 function LoginScreen(props) {
   return (
-    <Screen style={styles.background}>
-      <Image style={styles.logo} source={require("../assets/PofP1.png")} />
 
-      <AppForm
-        initialValues={{ email: "", password: "" }}
-        onSubmit={(values) => console.log(values)}
-        validationSchema={validationSchema}
-      >
-        <AppFormField
-          autoCapitalize="none"
-          autoCorrect={false}
-          icon="email"
-          keyboardtype="email-address"
-          name="email"
-          //   onBlur={() => setFieldTouched("email")}
-          //   onChangeText={handleChange("email")}
-          placeholder="Email"
-          textContentType="emailAddress"
-        />
-        <AppFormField
-          autoCapitalize="none"
-          autoCorrect={false}
-          icon="lock"
-          name="password"
-          //   onBlur={() => setFieldTouched("password")}
-          //   onChangeText={handleChange("password")}
-          placeholder="Password"
-          secureTextEntry
-          textContentType="password"
-        />
-        <Text style={styles.forgotpassword}>Forgot my password</Text>
-        <SubmitButton title="Login" />
-      </AppForm>
-      <PurpleAppButton title="Register"></PurpleAppButton>
-    </Screen>
+    <View style={styles.background}>
+      <Screen>
+        <Image style={styles.logo} source={require("../assets/PofP1.png")} />
+
+        <AppForm
+          initialValues={{ email: "", password: "" }}
+          onSubmit={(values) => console.log(values)}
+          validationSchema={validationSchema}
+        >
+          <AppFormField
+            autoCapitalize="none"
+            autoCorrect={false}
+            icon="email"
+            keyboardtype="email-address"
+            name="email"
+            //   onBlur={() => setFieldTouched("email")}
+            //   onChangeText={handleChange("email")}
+            placeholder="Email"
+            textContentType="emailAddress"
+          />
+          <AppFormField
+            autoCapitalize="none"
+            autoCorrect={false}
+            icon="lock"
+            name="password"
+            //   onBlur={() => setFieldTouched("password")}
+            //   onChangeText={handleChange("password")}
+            placeholder="Password"
+            secureTextEntry
+            textContentType="password"
+          />
+          <Text style={styles.forgotpassword}>Forgot my password</Text>
+          <SubmitButton title="Login" />
+        </AppForm>
+        <PurpleAppButton title="Register"></PurpleAppButton>
+      </Screen>
+    </View>
+
   );
 }
 
@@ -67,6 +71,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   background: {
+    flex: 1,
     backgroundColor: colors.pinkbackground,
   },
   forgotpassword: {
