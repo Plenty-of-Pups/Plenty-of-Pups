@@ -21,6 +21,7 @@ const PreferencesScreen = () => {
         <Text style={styles.section}>
         Distance
         </Text>
+      
         <Text style={styles.title}>
           {sliderValue} mi
         </Text>
@@ -36,25 +37,45 @@ const PreferencesScreen = () => {
             (sliderValue) => setSliderValue(sliderValue)
           }
         />
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+        </View>
         <Text style={styles.section}>
         Dog Gender
         </Text>
-      
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+        </View>
         <Text style={styles.section}>
         Dog Size
         </Text>
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+        </View>
         <Text style={styles.section}>
         Dog Age
         </Text>
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+        </View>
         <Text style={styles.section}>
         Neutered/Spayed
         </Text>
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+        </View>
         <Text style={styles.section}>
         User Gender
         </Text>
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+        </View>
         <Text style={styles.section}>
         User Age
         </Text>
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+        </View>
       </View>
     </SafeAreaView>
   );
