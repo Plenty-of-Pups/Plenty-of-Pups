@@ -1,41 +1,57 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
 import Slider from '@react-native-community/slider';
-import Screen from '../components/Screen';
-import { StyleSheet, View, FlatList } from 'react-native';
-import colors from '../config/colors';
-import AppText from '../components/AppText';
 
-function PreferencesScreen(props) {
-  return(
-    <View style={styles.backgroundContainer}>
-    <Screen>
-        <View style={styles.container}>
-        <AppText style={styles.title}>Match Preferences</AppText>
-  <Slider
-    style={{width: 400, height: 40}}
-    minimumValue={0}
-    maximumValue={1}
-    minimumTrackTintColor="#F17C87"
-    maximumTrackTintColor="#EBEBEB"
-  />
-  </View>
-  </Screen>
-  </View>);
-}
+
+const PreferencesScreen = () => {
+  const [sliderValue, setSliderValue] = useState(15);
+
+  return (
+    <SafeAreaView style={{flex: 1}}>
+      <View style={styles.container}>
+      <Text style={styles.header}>
+        Match Preferences
+        </Text>
+        <Text style={styles.title}>
+          {sliderValue} mi
+        </Text>
+
+        <Slider
+          maximumValue={100}
+          minimumValue={0}
+          minimumTrackTintColor="#F17C87"
+          maximumTrackTintColor="#EBEBEB"
+          step={1}
+          value={sliderValue}
+          onValueChange={
+            (sliderValue) => setSliderValue(sliderValue)
+          }
+        />
+      </View>
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
-  backgroundContainer: {
-      backgroundColor: colors.white,
-      flex: 1,
-      padding: 10, 
-      justifyContent: 'center',
-      alignItems: 'center',
+  container: {
+  
+    padding: 20,
+    justifyContent: 'center',
+    backgroundColor: '#FFFFFF',
   },
   title: {
-    paddingTop: 5,
+    textAlign: 'right',
+    color: '#8C8C8C',
+    fontSize: 18,
+  },
+  header: {
+    paddingTop: 0,
     textAlign: 'center',
+    color: 'black',
+    fontSize: 18,
     fontWeight: 'bold'
-    
-}
+  }
+
 });
+
 export default PreferencesScreen;
