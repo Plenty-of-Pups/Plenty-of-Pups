@@ -3,7 +3,11 @@ import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
 import Slider from '@react-native-community/slider';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import colors from '../config/colors';
-import CircleCheckBox, {LABEL_POSITION} from 'react-native-circle-checkbox';  
+import BouncyCheckbox from "react-native-bouncy-checkbox";
+import { boolean } from 'yup';
+
+
+
 
 const PreferencesScreen = () => {
   const [sliderValue, setSliderValue] = useState(50);
@@ -14,13 +18,14 @@ const PreferencesScreen = () => {
             <MaterialCommunityIcons name="keyboard-backspace" color={colors.pink} size={30} />
             <Text style={styles.backText}>Back</Text>
             <Text style={styles.saveText}>Save</Text>
-        </View>
+      </View>
       <View style={styles.container}>
-      <Text style={styles.header}>
-        Match Preferences
+        <Text style={styles.header}>
+          Match Preferences
         </Text>
+
         <Text style={styles.section}>
-        Distance
+         Distance
         </Text>
       
         <Text style={styles.title}>
@@ -34,24 +39,27 @@ const PreferencesScreen = () => {
           maximumTrackTintColor="#EBEBEB"
           step={1}
           value={sliderValue}
-          onValueChange={
-            (sliderValue) => setSliderValue(sliderValue)
-          }
+          onValueChange={(sliderValue) => setSliderValue(sliderValue)}
         />
+
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
         </View>
+
         <Text style={styles.section}>
-        Dog Gender
+          Dog Gender
         </Text>
-        <CircleCheckBox
-        checked={true}
-        onToggle={(checked) => console.log('My state is: ', checked)}
-        labelPosition={LABEL_POSITION.RIGHT}
-        label="Female"
-        innerColor={'#FC9527'}
-        outerColor='#FC9527'
-      />
+        
+        <BouncyCheckbox
+        size={25}
+        fillColor="#F17C87"
+        unfillColor="#FFFFFF"
+        text="Female"
+        iconStyle={{ borderColor: "#F17C87" }}
+        onPress={(isChecked = boolean) => {}}
+        />
+        
+
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
         </View>
@@ -64,6 +72,9 @@ const PreferencesScreen = () => {
         <Text style={styles.section}>
         Dog Age
         </Text>
+        <View style={{flex: 1, flexDirection: 'row'}}>
+      
+        </View>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
         </View>
