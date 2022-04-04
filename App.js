@@ -13,13 +13,17 @@ import Screen from "./app/components/Screen";
 import Icon from "./app/components/Icon";
 import MessageItem from "./app/components/MessageItem";
 import SettingScreen from "./app/screens/SettingScreen";
+import EditUserProfileScreen from "./app/screens/EditUserProfileScreen";
+import EditDogProfileScreen from "./app/screens/EditDogProfileScreen";
 
 export default function App() {
   //return <LoginScreen />;
   //return <PremiumScreen />;
   //return <MessagesScreen />;
   //return <DiscoveryTabScreen />;
-  return <CreateNewUserScreen />;
-  //return <NewDogProfileScreen />;
-  //return <SettingScreen />
+  //return <CreateNewUserScreen />;
+  // return <NewDogProfileScreen />;
+  // return <EditUserProfileScreen />;
+  //return <SettingScreen />;
+  return <EditDogProfileScreen />;
 }
