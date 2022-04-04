@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, TouchableHighlight } from 'react-native';
 
 import AppText from './AppText';
 
+import colors from '../config/colors';
 
 function ListItem({ title, leftIconComponent, rightIconComponent, onPress }) {
     return (
-
 
         <View style={styles.container}>
             {leftIconComponent}
@@ -18,7 +18,6 @@ function ListItem({ title, leftIconComponent, rightIconComponent, onPress }) {
                 {rightIconComponent}
             </View>
         </View>
-
     );
 }
 
@@ -27,7 +26,7 @@ const styles = StyleSheet.create({
     container: {
         alignItems: "center",
         flexDirection: "row",
-        height: 60,
+        height: 55,
         padding: 10,
     },
     detailsContainer: {
