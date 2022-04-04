@@ -11,6 +11,8 @@ import {
 import Screen from "../components/Screen";
 import FormImagePicker from "../components/forms/FormImagePicker";
 import CategoryPickerItem from "../components/CategoryPickerItem";
+import BackNavigation from "../components/BackNavigation";
+import colors from "../config/colors";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().min(1).label("Name"),
@@ -42,8 +44,8 @@ const neuteredSpayedStatus = [
 function EditDogProfileScreen(props) {
   return (
     <Screen style={styles.container}>
+      <BackNavigation title="Edit Pet's Profile" backgroundColor={colors.white} rightIconColor={colors.pink} />
       <ScrollView>
-        <Text style={[styles.text]}>Edit Pet's Profile</Text>
         <AppForm
           initialValues={{
             name: "",

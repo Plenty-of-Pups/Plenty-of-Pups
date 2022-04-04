@@ -16,7 +16,7 @@ function PremiumScreen(props) {
 
             <Screen>
 
-                <BackNavigation backgroundColor={colors.beigebackground}></BackNavigation>
+                <BackNavigation rightIconColor={colors.beigebackground} backgroundColor={colors.beigebackground}></BackNavigation>
                 <PremiumCard
                     title="Premium features coming soon!"
                 />

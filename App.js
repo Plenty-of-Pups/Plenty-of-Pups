@@ -17,12 +17,12 @@ import EditUserProfileScreen from "./app/screens/EditUserProfileScreen";
 import EditDogProfileScreen from "./app/screens/EditDogProfileScreen";
 
 export default function App() {
-  // return <LoginScreen />;
-  // return <CreateNewUserScreen />;
-  // return <NewDogProfileScreen />;
-  // return <DiscoveryTabScreen />;
-  // return <MessagesScreen />;
-  return <EditUserProfileScreen />;
-  //return <SettingScreen />;
-  //return <EditDogProfileScreen />;
+  //return <LoginScreen />;
+  //return <PremiumScreen />;
+  //return <MessagesScreen />;
+  //return <DiscoveryTabScreen />;
+  //return <CreateNewUserScreen />;
+  //return <NewDogProfileScreen />;
+  //return <EditUserProfileScreen />;
+ 
 }
