@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
 
-import MessageItem from '../components/MessageItem';
+import ListItem from '../components/ListItem';
 import Screen from '../components/Screen';
 import colors from '../config/colors';
 import Icon from '../components/Icon';
@@ -11,18 +11,31 @@ import AppText from '../components/AppText';
 const menuItems = [
     {
         title: "Text Size",
-        icon: {
+        lefticon: {
             name: "format-size",
             backgroundColor: colors.white,
             iconColor: colors.greytext
+        },
+        righticon: {
+            name: "chevron-right",
+            backgroundColor: colors.white,
+            iconColor: colors.greytext,
+            size: 60
         }
     },
     {
         title: "Screen Reader",
-        icon: {
+        lefticon: {
             name: "cellphone-sound",
             backgroundColor: colors.white,
             iconColor: colors.greytext
+        },
+        righticon: {
+            name: "toggle-switch",
+            backgroundColor: colors.white,
+            iconColor: colors.pink,
+            size: 85
+
         }
     }
 ]
@@ -33,10 +46,8 @@ function SettingScreen(props) {
             <Screen>
                 <View style={styles.container}>
 
-                    <MessageItem
-                        title="Gaby"
-                        subTitle="gaby@gmail.com"
-                        image={require('../assets/girl1.png')}
+                    <ListItem
+                        title="This is where the top nav comp will go"
                     />
                 </View>
 
@@ -46,12 +57,18 @@ function SettingScreen(props) {
                         data={menuItems}
                         keyExtractor={menuItem => menuItem.title}
                         renderItem={({ item }) =>
-                            <MessageItem
+                            <ListItem
                                 title={item.title}
-                                ImageComponent={
-                                    <Icon name={item.icon.name}
-                                        backgroundColor={item.icon.backgroundColor}
-                                        iconColor={item.icon.iconColor} />
+                                leftIconComponent={
+                                    <Icon name={item.lefticon.name}
+                                        backgroundColor={item.lefticon.backgroundColor}
+                                        iconColor={item.lefticon.iconColor} />
+                                }
+                                rightIconComponent={
+                                    <Icon name={item.righticon.name}
+                                        backgroundColor={item.righticon.backgroundColor}
+                                        iconColor={item.righticon.iconColor}
+                                        size={item.righticon.size} />
                                 } />
                         }
                     />
@@ -66,7 +83,7 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         backgroundColor: colors.white,
         marginHorizontal: 15,
-        marginVertical: 10,
+        marginVertical: 10
     },
     backgroundContainer: {
         backgroundColor: colors.lightgraybackground,

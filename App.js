@@ -14,12 +14,14 @@ import Icon from "./app/components/Icon";
 import MessageItem from "./app/components/MessageItem";
 import SettingScreen from "./app/screens/SettingScreen";
 
+
+
 export default function App() {
   //return <LoginScreen />;
   //return <PremiumScreen />;
   //return <MessagesScreen />;
   //return <DiscoveryTabScreen />;
-  return <CreateNewUserScreen />;
+  //  return <CreateNewUserScreen />;
   //return <NewDogProfileScreen />;
-  //return <SettingScreen />
+  return <SettingScreen />
 }
