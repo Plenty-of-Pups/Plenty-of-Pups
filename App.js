@@ -2,6 +2,9 @@ import React from "react";
 import { View } from "react-native";
 import LoginScreen from "./app/screens/LoginScreen";
 import DiscoveryTabScreen from "./app/screens/DiscoveryTabScreen";
+
+import CreateNewUserScreen from "./app/screens/CreateNewUserScreen";
+import NewDogProfileScreen from "./app/screens/NewDogProfileScreen";
 import PremiumCard from "./app/components/premiumCard";
 import PremiumScreen from "./app/screens/PremiumScreen";
 import MessagesScreen from "./app/screens/MessagesScreen";
@@ -18,8 +21,7 @@ export default function App() {
   //return <PremiumScreen />;
   //return <MessagesScreen />;
   //return <DiscoveryTabScreen />;
-  return <SettingScreen />
-
-
-
+  return <CreateNewUserScreen />;
+  //return <NewDogProfileScreen />;
+  //return <SettingScreen />
 }

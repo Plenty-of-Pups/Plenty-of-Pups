@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     width: 300,
     height: 300,
     alignSelf: "center",
-    marginTop: 20,
+    marginTop: 10,
     marginBottom: 10,
   },
   background: {
