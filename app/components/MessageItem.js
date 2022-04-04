@@ -34,10 +34,12 @@ const styles = StyleSheet.create({
 
     container: {
         // flex: 1,
+        alignItems: "center",
         flexDirection: "row",
         padding: 10,
     },
     detailsContainer: {
+        flex: 1,
         marginLeft: 10,
         justifyContent: "center"
     },
