@@ -113,7 +113,9 @@ function SettingScreen(props) {
     return (
         <View style={styles.backgroundContainer}>
             <Screen>
-                <BackNavigation title="Settings" />
+                <BackNavigation title="Settings"
+                    rightIconColor={colors.lightgraybackground}
+                    backgroundColor={colors.lightgraybackground} />
 
 
                 <View style={styles.container}>

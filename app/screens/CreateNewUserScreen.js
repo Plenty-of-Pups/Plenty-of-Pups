@@ -10,6 +10,9 @@ import {
 } from "../components/forms";
 import Screen from "../components/Screen";
 import FormImagePicker from "../components/forms/FormImagePicker";
+import BackNavigation from "../components/BackNavigation";
+import colors from "../config/colors";
+
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().min(2).label("Name"),
@@ -33,6 +36,7 @@ const categories = [
 function CreateNewUserScreen() {
   return (
     <Screen style={styles.container}>
+      <BackNavigation backgroundColor={colors.white} rightIconColor={colors.white} />
       <Text style={[styles.text]}>First, let's create your profile</Text>
       <AppForm
         initialValues={{

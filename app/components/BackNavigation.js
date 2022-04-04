@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import colors from "../config/colors";
 
-function BackNavigation({ title, onPress, backgroundColor }) {
+function BackNavigation({ title, onPress, backgroundColor, rightIconColor }) {
   return (
 
 
@@ -17,9 +17,9 @@ function BackNavigation({ title, onPress, backgroundColor }) {
 
       <Text style={styles.text}>{title}</Text>
 
-      <TouchableOpacity style={styles.button}>
-        <MaterialCommunityIcons name="chevron-left" color={colors.lightgraybackground} size={40} />
-        <Text style={styles.backText}>    </Text>
+      <TouchableOpacity backgroundColor={backgroundColor} style={styles.button}>
+
+        <Text style={{ color: rightIconColor, fontWeight: "bold", marginRight: 5 }}>Save</Text>
       </TouchableOpacity>
 
 
@@ -48,16 +48,25 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     paddingTop: 20,
     paddingBottom: 20,
-    paddingLeft: 15,
-    paddingRight: 20,
+    paddingLeft: 10,
+    paddingRight: 10,
     flexDirection: "row",
+    //justifyContent: "flex-start",
     justifyContent: "space-between",
+    //justifyContent: "space-evenly",
+
   },
   text: {
     color: colors.black,
     fontSize: 18,
     textAlign: "center",
     fontWeight: "bold",
+  },
+  saveText: {
+    fontWeight: "bold",
+    marginLeft: 5,
+    marginRight: 5,
+
   },
 });
 
