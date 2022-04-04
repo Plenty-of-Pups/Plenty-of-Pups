@@ -60,7 +60,9 @@ const styles = StyleSheet.create({
     color: colors.black,
     fontSize: 18,
     textAlign: "center",
+    textAlignVertical: "center",
     fontWeight: "bold",
+    paddingTop: 9
   },
   saveText: {
     fontWeight: "bold",

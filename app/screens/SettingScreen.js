@@ -9,21 +9,16 @@ import Icon from '../components/Icon';
 import AppText from '../components/AppText';
 import PurpleAppButton from '../components/PurpleAppButton';
 import BackNavigation from '../components/BackNavigation';
+import ToggleSwitch from '../components/ToggleSwitch';
 
 
 const accessibilityItems = [
     {
-        title: "Text Size",
+        title: "Larger Text Size",
         lefticon: {
             name: "format-size",
             backgroundColor: colors.white,
             iconColor: colors.greytext
-        },
-        righticon: {
-            name: "chevron-right",
-            backgroundColor: colors.white,
-            iconColor: colors.greytext,
-            size: 60
         }
     },
     {
@@ -32,13 +27,14 @@ const accessibilityItems = [
             name: "cellphone-sound",
             backgroundColor: colors.white,
             iconColor: colors.greytext
-        },
-        righticon: {
-            name: "toggle-switch",
+        }
+    },
+    {
+        title: "Notifications",
+        lefticon: {
+            name: "bell-ring-outline",
             backgroundColor: colors.white,
-            iconColor: colors.pink,
-            size: 85
-
+            iconColor: colors.greytext
         }
     }
 ]
@@ -59,17 +55,17 @@ const securityItems = [
         }
     },
     {
-        title: "Notifications",
+        title: "Privacy",
         lefticon: {
-            name: "bell-ring-outline",
+            name: "monitor-eye",
             backgroundColor: colors.white,
             iconColor: colors.greytext
         },
         righticon: {
-            name: "toggle-switch",
+            name: "chevron-right",
             backgroundColor: colors.white,
-            iconColor: colors.pink,
-            size: 85
+            iconColor: colors.greytext,
+            size: 60
 
         }
     }
@@ -132,10 +128,7 @@ function SettingScreen(props) {
                                         iconColor={item.lefticon.iconColor} />
                                 }
                                 rightIconComponent={
-                                    <Icon name={item.righticon.name}
-                                        backgroundColor={item.righticon.backgroundColor}
-                                        iconColor={item.righticon.iconColor}
-                                        size={item.righticon.size} />
+                                    <ToggleSwitch />
                                 } />
                         }
                     />
