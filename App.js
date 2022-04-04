@@ -24,7 +24,5 @@ export default function App() {
   //return <CreateNewUserScreen />;
   //return <NewDogProfileScreen />;
   //return <EditUserProfileScreen />;
-  return <SettingScreen />;
-  //return <EditDogProfileScreen />;
-
+ 
 }

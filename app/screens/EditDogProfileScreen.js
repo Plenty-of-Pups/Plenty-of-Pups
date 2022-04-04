@@ -98,9 +98,9 @@ function EditDogProfileScreen(props) {
             placeholder="Sweet potato"
           />
           <AppFormField
-            maxLength={300}
+            maxLength={500}
             multiline
-            numberOfLines={5}
+            numberOfLines={10}
             name="biography"
             placeholder="Hi! My name is Peanut and I am 
             looking for a new friend who has

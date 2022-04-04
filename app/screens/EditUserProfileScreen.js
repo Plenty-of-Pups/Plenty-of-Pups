@@ -58,9 +58,9 @@ function EditUserProfileScreen() {
             placeholder="27"
           />
           <AppFormField
-            maxLength={300}
+            maxLength={500}
             multiline
-            numberOfLines={6}
+            numberOfLines={10}
             name="biography"
             placeholder="Hi! My name is Aurora and I am a busy wedding photographer and dog mom. During my free time, I enjoy going on hikes, swimming at Barton Springs pool, and jogs around Lady Bird Lake."
           />
