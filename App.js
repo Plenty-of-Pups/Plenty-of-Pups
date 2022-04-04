@@ -1,7 +1,9 @@
 import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import Tabs from "./app/navigation/tabs";
 import { View } from "react-native";
 import LoginScreen from "./app/screens/LoginScreen";
-import DiscoveryTabScreen from "./app/screens/DiscoveryTabScreen";
+import DiscoveryScreen from "./app/screens/DiscoveryScreen";
 
 import CreateNewUserScreen from "./app/screens/CreateNewUserScreen";
 import NewDogProfileScreen from "./app/screens/NewDogProfileScreen";
@@ -17,12 +19,21 @@ import EditUserProfileScreen from "./app/screens/EditUserProfileScreen";
 import EditDogProfileScreen from "./app/screens/EditDogProfileScreen";
 
 export default function App() {
-  //return <LoginScreen />;
+  return <LoginScreen />;
   //return <PremiumScreen />;
   //return <MessagesScreen />;
   //return <DiscoveryTabScreen />;
   //return <CreateNewUserScreen />;
   //return <NewDogProfileScreen />;
   //return <EditUserProfileScreen />;
- 
 }
+// /* uncomment to test bottom tab navigation */ 
+// const App = () => {
+//   return (
+//     <NavigationContainer>
+//       <Tabs />
+//     </NavigationContainer>
+//   );
+// };
+
+// export default App;

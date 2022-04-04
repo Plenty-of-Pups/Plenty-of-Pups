@@ -1,39 +1,22 @@
-import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import React from "react";
+import { View, StyleSheet, Text, Button } from "react-native";
+// import styles from "../config/styles";
 
-
-function DiscoveryTabScreen(props) {
+const DiscoveryScreen = ({ navigation }) => {
   return (
-    <View style={styles.pageContainer}>
-      <View style={styles.card}>
-        <Image 
-          source={{
-            uri: 'https://www.petmd.com/sites/default/files/2020-11/picture-of-shih-tzu-dog.jpg',
-          }}
-          style={styles.image}
-          />
-        </View>
+    <View style={styles.container}>
+      <Text>Discovery Screen</Text>
     </View>
   );
 };
 
+export default DiscoveryScreen;
+
 const styles = StyleSheet.create({
-  pageContainer: { 
-    justifyContent: 'center',
-    alignItems: 'center',
+  container: {
     flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#F8F4F1",
   },
-  card: {
-    width: '95%',
-    height: '60%',
-    borderRadius: 10,
-  },
-  image: {
-    width: '100%',
-    height:'100%',
-    borderRadius: 10,
-  }
 });
-  
-export default DiscoveryTabScreen;
