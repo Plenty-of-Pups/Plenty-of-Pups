@@ -3,6 +3,7 @@ import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
 import Slider from '@react-native-community/slider';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import colors from '../config/colors';
+import CircleCheckBox, {LABEL_POSITION} from 'react-native-circle-checkbox';  
 
 const PreferencesScreen = () => {
   const [sliderValue, setSliderValue] = useState(50);
@@ -43,6 +44,14 @@ const PreferencesScreen = () => {
         <Text style={styles.section}>
         Dog Gender
         </Text>
+        <CircleCheckBox
+        checked={true}
+        onToggle={(checked) => console.log('My state is: ', checked)}
+        labelPosition={LABEL_POSITION.RIGHT}
+        label="Female"
+        innerColor={'#FC9527'}
+        outerColor='#FC9527'
+      />
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
         </View>
