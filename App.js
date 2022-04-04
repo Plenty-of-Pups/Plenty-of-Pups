@@ -18,10 +18,10 @@ import SettingScreen from "./app/screens/SettingScreen";
 
 export default function App() {
   //return <LoginScreen />;
-  //return <PremiumScreen />;
+  return <PremiumScreen />;
   //return <MessagesScreen />;
   //return <DiscoveryTabScreen />;
-  //  return <CreateNewUserScreen />;
+  //return <CreateNewUserScreen />;
   //return <NewDogProfileScreen />;
-  return <SettingScreen />
+  //return <SettingScreen />
 }
