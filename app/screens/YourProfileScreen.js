@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../assets/styles';
-
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import {
   ScrollView,
   View,
@@ -9,8 +9,8 @@ import {
   TouchableOpacity
 } from 'react-native';
 import ProfileItem from '../components/ProfileItem.js';
-import Icon2 from '../components/Icon2.js';
 import Demo from '../assets/data/demo.js';
+
 
 const YourProfileScreen = () => {
   const {
@@ -28,11 +28,11 @@ const YourProfileScreen = () => {
   return (
     
       <ScrollView style={styles.containerProfile}>
-        
         <ImageBackground source={image} style={styles.photo}>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-        <View style={{ flex: 1, height: 100, backgroundColor: '#FFFFFF'}} />
-        </View>
+        <View style={styles.backIcon}>
+            <MaterialCommunityIcons name="keyboard-backspace" size={30} />
+            <Text style={{color:"#F17C87"}}>Back</Text>
+      </View>
           <View style={styles.top}>
 
             <TouchableOpacity>

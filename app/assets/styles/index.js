@@ -1,5 +1,6 @@
 import { StyleSheet, Dimensions } from "react-native";
 
+
 const PRIMARY_COLOR = "#7444C0";
 const SECONDARY_COLOR = "#5636B8";
 const WHITE = "#FFFFFF";
@@ -58,5 +59,18 @@ export default StyleSheet.create({
 		width: DIMENSION_WIDTH,
 		height: 600
 	},
+	backIcon: {
+		flexDirection: "row",
+		position: "absolute",
+		top: 50,
+		left: 15,
+	},
+	backText: {
+		top: 0,
+		left: 10,
+		fontWeight: 'bold',
+		
+	},
+
 	
 });
