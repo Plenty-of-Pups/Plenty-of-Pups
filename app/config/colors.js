@@ -9,5 +9,6 @@ export default {
   beigebackground: '#F8F4F1',
   lineseparatorgray: '#ECE9E9',
   danger: '#ff5252',
+  purple: '#7c87f1',
   lightgraybackground: "#E5E5E5"
 };

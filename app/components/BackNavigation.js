@@ -46,8 +46,8 @@ const styles = StyleSheet.create({
   },
   toolbarContainer: {
     alignSelf: "stretch",
-    paddingTop: 20,
-    paddingBottom: 20,
+    paddingTop: 15,
+    paddingBottom: 5,
     paddingLeft: 10,
     paddingRight: 10,
     flexDirection: "row",

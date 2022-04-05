@@ -17,22 +17,26 @@ import EditDogProfileScreen from "./app/screens/EditDogProfileScreen";
 import FAQScreen from "./app/screens/FAQScreen";
 
 export default function App() {
-  return <LoginScreen />;
+  //return <LoginScreen />;
   //return <PremiumScreen />;
   //return <MessagesScreen />;
   //return <DiscoveryTabScreen />;
   //return <CreateNewUserScreen />;
   //return <NewDogProfileScreen />;
-  //return <EditUserProfileScreen />;
+  ///return <EditUserProfileScreen />;
   return <FAQScreen />;
   //return <SettingScreen />;
 
 }
-// /* uncomment to test bottom tab navigation */
-// const App = () => {
-//   return (
-//     <NavigationContainer>
-//       <Tabs />
-//     </NavigationContainer>
-//   );
-// };
+
+/* uncomment to test bottom tab navigation
+const App = () => {
+ return (
+   <NavigationContainer>
+     <Tabs />
+   </NavigationContainer>
+ );
+};
+*/
+
+//export default App;
