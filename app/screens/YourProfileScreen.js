@@ -17,7 +17,8 @@ const YourProfileScreen = () => {
     image,
     info1,
     location,
-    name
+    name,
+    dog
   } = Demo[7];
 
   return (
@@ -38,6 +39,7 @@ const YourProfileScreen = () => {
           age={age}
           location={location}
           info1={info1}
+          dog={dog}
         />
       </ScrollView>
   );

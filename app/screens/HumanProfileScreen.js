@@ -5,7 +5,8 @@ import {
   View,
   Text,
   ImageBackground,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from 'react-native';
 import ProfileItem from '../components/ProfileItem.js';
 import Demo from '../assets/data/demo.js';
@@ -17,8 +18,10 @@ const HumanProfileScreen = () => {
     image,
     info1,
     location,
-    name
-  } = Demo[7];
+    name,
+    dog,
+    dogImage
+  } = Demo[8];
 
   return (
     
@@ -29,15 +32,18 @@ const HumanProfileScreen = () => {
               <View style={styles.backIcon}>
                <MaterialCommunityIcons name="keyboard-backspace" color="#F17C87" size={40} />
               </View>
+              
             </TouchableOpacity>
           </View>
         </ImageBackground>
-
+      
         <ProfileItem
           name={name}
           age={age}
           location={location}
           info1={info1}
+          dog={dog}
+          dogImage={dogImage}
         />
       </ScrollView>
   );

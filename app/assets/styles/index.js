@@ -5,6 +5,7 @@ const PRIMARY_COLOR = "#7444C0";
 const SECONDARY_COLOR = "#5636B8";
 const WHITE = "#FFFFFF";
 const GRAY = "#757E90";
+const PINK = "#F17C87";
 const DARK_GRAY = "#363636";
 const BLACK = "#000000";
 const DIMENSION_WIDTH = Dimensions.get("window").width;
@@ -14,6 +15,7 @@ export default StyleSheet.create({
 
 	// COMPONENT - PROFILE ITEM
 	containerProfileItem: {
+		flex: 1,
 		backgroundColor: WHITE,
 		paddingHorizontal: 30,
 		paddingBottom: 250,
@@ -50,10 +52,22 @@ export default StyleSheet.create({
 		color: GRAY,
 		fontSize: 15,
 	},
+	bioContent: {
+		top: 10,
+		color: PINK,
+		fontSize: 20,
+	},
+	dogName: {
+		bottom: -50,
+		left: 165,
+		color: BLACK,
+		fontSize: 20,
+	},
 
 	// CONTAINER - PROFILE
 	containerProfile: { marginHorizontal: 0 },
 	photo: {
+		flex: 1,
 		width: DIMENSION_WIDTH,
 		height: 600
 	},
@@ -63,6 +77,13 @@ export default StyleSheet.create({
 		top: 50,
 		left: 15,
 	},
+	circle: {
+		left: 110,
+		bottom:-50,
+		width: 150,
+		height: 150,
+		borderRadius: 150 / 2,
+	  }
 
 	
 });

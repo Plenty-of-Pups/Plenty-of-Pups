@@ -38,14 +38,20 @@ module.exports = [
 		id: 8,
 		name: 'Aurora',
 		age: '29',
+		dog: 'Lulu',
 		location: 'Houston, TX',
 		info1: "Hi! My name is Aurora and I am a busy wedding photographer and dog mom. During my free time, I enjoy going on hikes, swimming at Barton Springs pool, and jogs around Lady Bird Lake. Looking for a playmate for my little boy who enjoys staying active and exploring the city.",
 		image: require('../images/08.jpg')
 	},
 	{
 		id: 9,
-		name: 'Glenna Reichert',
-		image: require('../images/09.jpg')
+		name: 'Maribeth',
+		age: '23',
+		dog: 'Bella',
+		location: 'San Antonio, TX',
+		info1: "I’m an extroverted introvert who loves chilling with dogs and eating food. Primarily here to look for a new playmate for Bella, but also down to make new human friends too (if you’re nice). ",
+		image: require('../images/09.jpg'),
+		dogImage: require('../images/09.jpg')
 	},
 	{
 		id: 10,
