@@ -20,8 +20,8 @@ export default function App() {
   //return <DiscoveryTabScreen />;
   //return <SettingScreen />
   //return <PreferencesScreen />
-  //return <YourProfileScreen />
-  return <HumanProfileScreen />
+  return <YourProfileScreen />
+  //return <HumanProfileScreen />
 
 
 
