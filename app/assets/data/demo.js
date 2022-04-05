@@ -75,13 +75,12 @@ module.exports = [
 	},
 	{
 		id: 8,
-		name: 'Nicky Runol',
-		match: '85',
+		name: 'Aurora',
 		description:
 			'Full-time Traveller. Globe Trotter. Occasional Photographer. Part time Singer/Dancer.',
-		age: '27',
+		age: '29',
 		location: 'Irvine, CA',
-		info1: 'Straight, Single, 5"10',
+		info1: "Hi! My name is Aurora and I am a busy wedding photographer and dog mom. During my free time, I enjoy going on hikes, swimming at Barton Springs pool, and jogs around Lady Bird Lake. Looking for a playmate for my little boy who enjoys staying active and exploring the city.",
 		info2: 'Tea Totaller, Loves Photography & Travel',
 		info3: 'Beaches, Mountain, Cafe, Movies',
 		info4: 'Last seen: 23h ago',

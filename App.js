@@ -10,6 +10,7 @@ import Screen from "./app/components/Screen";
 import Icon from "./app/components/Icon";
 import MessageItem from "./app/components/MessageItem";
 import SettingScreen from "./app/screens/SettingScreen";
+import YourProfileScreen from "./app/screens/YourProfileScreen";
 
 export default function App() {
   //return <LoginScreen />;
@@ -17,7 +18,8 @@ export default function App() {
   //return <MessagesScreen />;
   //return <DiscoveryTabScreen />;
   //return <SettingScreen />
-  return <PreferencesScreen />
+  //return <PreferencesScreen />
+  return <YourProfileScreen />
 
 
 
