@@ -4,13 +4,23 @@ import DiscoveryScreen from "../screens/DiscoveryScreen";
 import MessagesScreen from "../screens/MessagesScreen";
 import DogHomeScreen from "../screens/DogHomeScreen";
 import UserHomeScreen from "../screens/UserHomeScreen";
+import colors from "../config/colors";
 
 const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
   return (
     <Tab.Navigator
-      tabBarOptions={{
+      screenOptions={{
+
+        "tabBarShowLabel": false,
+        "tabBarStyle": [
+          {
+            "display": "flex"
+          },
+          null
+        ],
+
         showLabel: false,
         style: {
           position: "absolute",
