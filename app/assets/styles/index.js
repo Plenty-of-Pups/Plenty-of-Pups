@@ -7,7 +7,6 @@ const WHITE = "#FFFFFF";
 const GRAY = "#757E90";
 const DARK_GRAY = "#363636";
 const BLACK = "#000000";
-
 const DIMENSION_WIDTH = Dimensions.get("window").width;
 const DIMENSION_HEIGHT = Dimensions.get("window").height;
 
@@ -51,7 +50,6 @@ export default StyleSheet.create({
 		color: GRAY,
 		fontSize: 15,
 	},
-
 
 	// CONTAINER - PROFILE
 	containerProfile: { marginHorizontal: 0 },

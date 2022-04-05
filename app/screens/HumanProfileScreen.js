@@ -11,7 +11,7 @@ import ProfileItem from '../components/ProfileItem.js';
 import Demo from '../assets/data/demo.js';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-const YourProfileScreen = () => {
+const HumanProfileScreen = () => {
   const {
     age,
     image,
@@ -43,4 +43,4 @@ const YourProfileScreen = () => {
   );
 };
 
-export default YourProfileScreen;
+export default HumanProfileScreen;

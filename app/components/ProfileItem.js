@@ -2,16 +2,12 @@ import React from 'react';
 import styles from '../assets/styles';
 
 import { Text, View } from 'react-native';
-import Icon from './Icon';
+import Icon from './Icon2';
 
 const ProfileItem = ({
   age,
   info1,
-  info2,
-  info3,
-  info4,
   location,
-  matches,
   name
 }) => {
   return (
