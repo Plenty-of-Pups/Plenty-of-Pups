@@ -65,12 +65,6 @@ export default StyleSheet.create({
 		top: 50,
 		left: 15,
 	},
-	backText: {
-		top: 0,
-		left: 10,
-		fontWeight: 'bold',
-		
-	},
 
 	
 });

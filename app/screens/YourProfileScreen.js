@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from '../assets/styles';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import {
   ScrollView,
   View,
@@ -10,7 +9,7 @@ import {
 } from 'react-native';
 import ProfileItem from '../components/ProfileItem.js';
 import Demo from '../assets/data/demo.js';
-
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const YourProfileScreen = () => {
   const {
@@ -29,14 +28,12 @@ const YourProfileScreen = () => {
     
       <ScrollView style={styles.containerProfile}>
         <ImageBackground source={image} style={styles.photo}>
-        <View style={styles.backIcon}>
-            <MaterialCommunityIcons name="keyboard-backspace" size={30} />
-            <Text style={{color:"#F17C87"}}>Back</Text>
-      </View>
           <View style={styles.top}>
 
             <TouchableOpacity>
-              
+            <View style={styles.backIcon}>
+        <MaterialCommunityIcons name="keyboard-backspace" color="#F17C87" size={40} />
+      </View>
             </TouchableOpacity>
 
           </View>
@@ -46,7 +43,7 @@ const YourProfileScreen = () => {
           //matches={match}
           name={name}
           age={age}
-          //location={location}
+          location={location}
           info1={info1}
           //info2={info2}
           //info3={info3}
