@@ -1,13 +1,29 @@
 module.exports = [
 	{
 		id: 1,
-		name: 'Leanne Graham',
-		image: require('../images/01.jpg')
+		dogName: 'Bella',
+		breed: 'Shih tzu',
+		age: '2 years old',
+		size: '13',
+		neutered: 'Yes',
+		hobby: 'Taking naps',
+		snack: 'Blueberries',
+		info1: 'I may be a little shy at first but I love to make new friends! Especially those with lots of energy (just like me!)',
+		gender: require('../images/female.png'),
+		image: require('../images/Bella.jpg')
 	},
 	{
 		id: 2,
-		name: 'Clementine Bauch',
-		image: require('../images/02.jpg')
+		dogName: 'Bob',
+		breed: 'German Shepherd',
+		age: '3 years old',
+		size: '20',
+		neutered: 'Yes',
+		hobby: 'Sleep',
+		snack: 'Dog Biscuit',
+		info1: 'My fashion philosophy is, if you are not covered in dog hair, your life is empty.',
+		gender: require('../images/male.png'),
+		image: require('../images/Bob.jpg')
 	},
 	{
 		id: 3,
@@ -53,10 +69,5 @@ module.exports = [
 		info1: "I’m an extroverted introvert who loves chilling with dogs and eating food. Primarily here to look for a new playmate for Bella, but also down to make new human friends too (if you’re nice). ",
 		image: require('../images/09.jpg'),
 		dogImage: require('../images/dog08.jpg')
-	},
-	{
-		id: 10,
-		name: 'Kurtis DuBuque',
-		image: require('../images/10.jpg')
 	}
 ];

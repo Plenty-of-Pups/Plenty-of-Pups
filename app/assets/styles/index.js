@@ -47,8 +47,17 @@ export default StyleSheet.create({
 		flexDirection: "row",
 		alignItems: "center"
 	},
+	dogInfo: {
+		paddingVertical: 10,
+		flexDirection: "row",
+		alignItems: "center"
+	},
 	
 	infoContent: {
+		color: GRAY,
+		fontSize: 15,
+	},
+	dogInfoContent: {
 		color: GRAY,
 		fontSize: 15,
 	},
@@ -56,6 +65,10 @@ export default StyleSheet.create({
 		top: 10,
 		color: PINK,
 		fontSize: 20,
+	},
+	dogContent: {
+		color: PINK,
+		fontSize: 18,
 	},
 	dogName: {
 		bottom: -50,
@@ -83,6 +96,13 @@ export default StyleSheet.create({
 		width: 150,
 		height: 150,
 		borderRadius: 150 / 2,
+	  },
+	  genderIcon: {
+		bottom: 25,
+		left: 220,
+		width: 20,
+		height: 20,
+		//borderRadius: 20 / 2,
 	  }
 
 	

@@ -12,6 +12,7 @@ import MessageItem from "./app/components/MessageItem";
 import SettingScreen from "./app/screens/SettingScreen";
 import YourProfileScreen from "./app/screens/YourProfileScreen";
 import HumanProfileScreen from "./app/screens/HumanProfileScreen";
+import YourDogScreen from "./app/screens/YourDogScreen";
 
 export default function App() {
   //return <LoginScreen />;
@@ -20,8 +21,9 @@ export default function App() {
   //return <DiscoveryTabScreen />;
   //return <SettingScreen />
   //return <PreferencesScreen />
-  return <YourProfileScreen />
+  //return <YourProfileScreen />
   //return <HumanProfileScreen />
+  return < YourDogScreen/>
 
 
 
