@@ -54,6 +54,7 @@ export default StyleSheet.create({
 	},
 	
 	infoContent: {
+		paddingVertical: 15,
 		color: GRAY,
 		fontSize: 15,
 	},

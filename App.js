@@ -21,9 +21,9 @@ export default function App() {
   //return <DiscoveryTabScreen />;
   //return <SettingScreen />
   //return <PreferencesScreen />
-  //return <YourProfileScreen />
+  return <YourProfileScreen />
   //return <HumanProfileScreen />
-  return < YourDogScreen/>
+  //return < YourDogScreen/>
 
 
 
