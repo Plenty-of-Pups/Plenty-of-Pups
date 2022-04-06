@@ -15,12 +15,13 @@ import SettingScreen from "./app/screens/SettingScreen";
 import EditUserProfileScreen from "./app/screens/EditUserProfileScreen";
 import EditDogProfileScreen from "./app/screens/EditDogProfileScreen";
 import FAQScreen from "./app/screens/FAQScreen";
+import DiscoveryScreen from "./app/screens/DiscoveryScreen";
 
 export default function App() {
   //return <LoginScreen />;
   //return <PremiumScreen />;
   //return <MessagesScreen />;
-  //return <DiscoveryTabScreen />;
+  //return <DiscoveryScreen />;
   //return <CreateNewUserScreen />;
   //return <NewDogProfileScreen />;
   ///return <EditUserProfileScreen />;
@@ -29,7 +30,7 @@ export default function App() {
 
 }
 
-/* uncomment to test bottom tab navigation
+/*// uncomment to test bottom tab navigation
 const App = () => {
  return (
    <NavigationContainer>

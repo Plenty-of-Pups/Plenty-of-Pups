@@ -13,7 +13,7 @@ const CONTENT = [
         category_name: 'What is the minimum age I have to be to use Plenty of Pups?',
         subCategory: [
             { id: 1, val: 'You must be at least 18 years old' },
-            { id: 2, val: 'Sub 2' }
+
         ]
     },
     {
@@ -21,7 +21,7 @@ const CONTENT = [
         category_name: 'How do I add additional dogs to my account?',
         subCategory: [
             { id: 3, val: 'This premium feature has not yet been released.' },
-            { id: 4, val: 'In the meantime, you can add pictures of all your pups to your one dog profile!' }
+
         ]
     },
     {
@@ -103,7 +103,7 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
 }
 
 const ExpandableList = () => {
-    const [multiSelect] = useState(true);
+    const [multiSelect] = useState(false);
     const [listDataSource, setlistDataSource] = useState(CONTENT);
 
     const updateLayout = (index) => {

@@ -1,7 +1,8 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Platform, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, Text, TextInput } from "react-native";
 import * as Yup from "yup";
 import { ScrollView } from 'react-native-gesture-handler';
+import Constants from "expo-constants";
 
 
 import Screen from '../components/Screen';
@@ -27,18 +28,24 @@ import FormImagePicker from "../components/forms/FormImagePicker";
 
 function FAQScreen(props) {
     return (
-        <View style={styles.backgroundContainer}>
+        <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            style={styles.backgroundContainer}
+        >
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 
-            <Screen>
-                <BackNavigation title="FAQ"
-                    rightIconColor={colors.lightgraybackground}
-                    backgroundColor={colors.lightgraybackground} />
-                <ExpandableList />
+                <View style={styles.inner}>
+                    <BackNavigation title="FAQ"
+                        rightIconColor={colors.lightgraybackground}
+                        backgroundColor={colors.lightgraybackground} />
+                    <ScrollView>
+                        <ExpandableList />
 
-                <View style={styles.questionContainer}>
+                    </ScrollView>
                     <AppText style={styles.text}>Still need help? Submit a new question:</AppText>
-                </View>
-                <View>
+
+
+
 
                     <AppForm
                         initialValues={{
@@ -54,39 +61,47 @@ function FAQScreen(props) {
                             placeholder="Type your question in here and press the submit button below."
 
                         />
-                        <SubmitButton title="Submit" />
+                        <SubmitButton title="Submit" onPress={Keyboard.dismiss} />
                     </AppForm>
+
+
+
+
+
+
                 </View>
 
+            </TouchableWithoutFeedback>
+        </KeyboardAvoidingView>
 
-            </Screen>
 
-        </View>
+
     );
 }
 
 const styles = StyleSheet.create({
     text: {
         fontWeight: "700",
-        marginTop: 50,
+        marginTop: 20,
         fontSize: 17,
         alignSelf: "center"
     },
+    inner: {
+
+        flex: 1,
+        justifyContent: 'space-around',
+        alignContent: "center"
+    },
     container: {
 
-        borderRadius: 15,
-        backgroundColor: colors.white,
-        marginHorizontal: 15,
-        marginVertical: 10
+        flex: 1,
     },
     backgroundContainer: {
         backgroundColor: colors.lightgraybackground,
         flex: 1,
+        paddingTop: Constants.statusBarHeight,
     },
-    questionContainer: {
-        alignContent: "center"
 
-    }
 });
 
 export default FAQScreen;

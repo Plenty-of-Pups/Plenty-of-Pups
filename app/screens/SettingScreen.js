@@ -203,7 +203,7 @@ function SettingScreen(props) {
                     />
                 </View>
                 <View paddingTop={30}>
-                    <PurpleAppButton title="Register"></PurpleAppButton>
+                    <PurpleAppButton title="Log Out"></PurpleAppButton>
                 </View>
 
             </Screen>
