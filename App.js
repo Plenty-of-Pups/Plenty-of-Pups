@@ -20,12 +20,12 @@ import DiscoveryScreen from "./app/screens/DiscoveryScreen";
 export default function App() {
   //return <LoginScreen />;
   //return <PremiumScreen />;
-  //return <MessagesScreen />;
+  return <MessagesScreen />;
   //return <DiscoveryScreen />;
   //return <CreateNewUserScreen />;
   //return <NewDogProfileScreen />;
   ///return <EditUserProfileScreen />;
-  return <FAQScreen />;
+  //return <FAQScreen />;
   //return <SettingScreen />;
 
 }

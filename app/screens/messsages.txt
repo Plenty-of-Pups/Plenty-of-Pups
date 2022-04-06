@@ -1,0 +1,97 @@
+import React, { useState } from 'react';
+import { FlatList, View, StyleSheet, Platform, StatusBar } from 'react-native';
+
+
+
+import Screen from '../components/Screen';
+import MessageItem from '../components/MessageItem';
+import ListItemSeparator from '../components/ListItemSeparator';
+import ListItemDeleteAction from '../components/ListItemDeleteAction';
+
+
+const initialMessages = [
+    {
+        id: 1,
+        name: 'Aurora',
+        message: 'Hi',
+        time: '11:11 AM',
+        image: require('../assets/girl1.png'),
+        numMessages: 2
+    },
+    {
+        id: 2,
+        name: 'Bob',
+        message: 'Hello',
+        time: '4:20 PM',
+        image: {uri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.jpg'},
+        numMessages: 1
+    },
+    {
+        id: 3,
+        name: 'Tom',
+        message: 'Hello',
+        time: '5:20 PM',
+        image: require('../assets/girl2.png'),
+        numMessages: 5
+    },
+    {
+        id: 4,
+        name: 'Angelina',
+        message: 'Hsjdflksdlfjlsdkfjlkdflksdj;asdjfl;',
+        time: '2:11 PM',
+        image: {uri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/4.jpg'},
+        numMessages: 0
+    },
+]
+
+function MessagesScreen(props) {
+    const [messages, setMessages] = useState(initialMessages);
+    const [refreshing, setRefreshing] = useState(false);
+
+
+    const handleDelete = (message) => {
+        //delete the message from messages
+        setMessages(messages.filter((m) => m.id !== message.id));
+    };
+
+    return (
+        <Screen>
+            <FlatList
+                data={messages}
+                keyExtractor={message => message.id.toString()}
+                renderItem={({ item }) => (
+                    <MessageItem
+                        name={item.name}
+                        message={item.message}
+                        image={item.image}
+                        time={item.time}
+                        numMessages={item.numMessages}
+                        onPress={() => console.log("Message selected", item)}
+                        renderRightActions={() =>
+                            <ListItemDeleteAction onPress={() => handleDelete(item)} />}
+                    />
+                )}
+                ItemSeparatorComponent={ListItemSeparator}
+                refreshing={refreshing}
+                onRefresh={() => {
+                    setMessages([
+                        {
+                            id: 2,
+                            name: 'Aurora',
+                            message: 'YOOO',
+                            time: '1:23 PM',
+                            image: require('../assets/girl2.png')
+                        },
+                    ])
+                }}
+            />
+        </Screen>
+    );
+}
+
+const styles = StyleSheet.create({
+
+
+});
+
+export default MessagesScreen;
