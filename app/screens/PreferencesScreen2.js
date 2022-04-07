@@ -29,8 +29,11 @@ const [sliderValue, setSliderValue] = useState(50);
           </TouchableOpacity>
         </View>
 
+        <View style={styles.section}></View>
+
         <View style={styles.section}>
           <Text style={styles.title}>Distance</Text>
+          <Text style={styles.title2}>{sliderValue} mi</Text>
           <Slider 
           maximumValue={100}
           minimumValue={0}
@@ -47,6 +50,14 @@ const [sliderValue, setSliderValue] = useState(50);
 
         <View style={styles.section}>
         <Text style={styles.title}>Dog Gender</Text>
+          <BouncyCheckbox
+            size={25}
+            fillColor="#F17C87"
+            unfillColor="#FFFFFF"
+            text="Female"
+            iconStyle={{ borderColor: "#F17C87" }}
+            onPress={(isChecked = boolean) => {}}
+          />
           <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
            <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
           </View>
@@ -82,7 +93,7 @@ const [sliderValue, setSliderValue] = useState(50);
 
         <View style={styles.section}>
         <Text style={styles.title}>User Age</Text>
-          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
+          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 10}}>
            <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
           </View>
         </View>
@@ -136,8 +147,16 @@ const styles = StyleSheet.create({
     paddingBottom: 20
   },
 
+  title2: {
+    color: '#8C8C8C',
+    fontSize: 18, 
+    fontWeight: '400',
+    paddingLeft: 310,
+    marginTop: -40
+  },
+
   section: {
-    paddingVertical: 30,
+    paddingVertical: 10,
     color: '#302C2C',
     fontSize: 18,
     textAlign: 'left',
