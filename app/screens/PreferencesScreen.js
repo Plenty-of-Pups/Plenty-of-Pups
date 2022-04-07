@@ -11,10 +11,10 @@ import { Touchable } from 'react-native-web';
 
 
 const PreferencesScreen = () => {
-const [sliderValue, setSliderValue] = useState(50);
+const[sliderValue, setSliderValue] = useState(50);
 
   return (
-    <ScrollView style={styles.background}>
+    <View style={styles.background}>
 
         <View style={styles.container}>
           <Text style={styles.header}>Match Preferences</Text>
@@ -76,6 +76,16 @@ const [sliderValue, setSliderValue] = useState(50);
 
         <View style={styles.section}>
         <Text style={styles.title}>Dog Size</Text>
+        <Text style={styles.title2}>{sliderValue} lb</Text>
+        <Slider 
+          maximumValue={100}
+          minimumValue={0}
+          minimumTrackTintColor="#F17C87"
+          maximumTrackTintColor="#EBEBEB"
+          step={1}
+          value={sliderValue}
+          onValueChange={(sliderValue) => setSliderValue(sliderValue)}
+        />
           <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
            <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
           </View>
@@ -83,6 +93,16 @@ const [sliderValue, setSliderValue] = useState(50);
 
         <View style={styles.section}>
         <Text style={styles.title}>Dog Age</Text>
+        <Text style={styles.title2}>Age {sliderValue}</Text>
+        <Slider 
+          maximumValue={100}
+          minimumValue={0}
+          minimumTrackTintColor="#F17C87"
+          maximumTrackTintColor="#EBEBEB"
+          step={1}
+          value={sliderValue}
+          onValueChange={(sliderValue) => setSliderValue(sliderValue)}
+        />
           <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
            <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
           </View>
@@ -148,12 +168,22 @@ const [sliderValue, setSliderValue] = useState(50);
 
         <View style={styles.section}>
         <Text style={styles.title}>User Age</Text>
+        <Text style={styles.title2}>Age {sliderValue}</Text>
+        <Slider 
+          maximumValue={100}
+          minimumValue={0}
+          minimumTrackTintColor="#F17C87"
+          maximumTrackTintColor="#EBEBEB"
+          step={1}
+          value={sliderValue}
+          onValueChange={(sliderValue) => setSliderValue(sliderValue)}
+        />
           <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 10}}>
            <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
           </View>
         </View>
 
-        </ScrollView>
+        </View>
   );
 };
 
