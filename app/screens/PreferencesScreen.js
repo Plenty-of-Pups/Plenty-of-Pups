@@ -10,7 +10,7 @@ import { Touchable } from 'react-native-web';
 
 
 
-const PreferencesScreen2 = () => {
+const PreferencesScreen = () => {
 const [sliderValue, setSliderValue] = useState(50);
 
   return (
@@ -50,7 +50,8 @@ const [sliderValue, setSliderValue] = useState(50);
 
         <View style={styles.section}>
         <Text style={styles.title}>Dog Gender</Text>
-          <BouncyCheckbox
+        <View style={{flexDirection: 'row', paddingBottom: 20, justifyContent: 'space-around'}}>
+        <BouncyCheckbox
             size={25}
             fillColor="#F17C87"
             unfillColor="#FFFFFF"
@@ -58,6 +59,16 @@ const [sliderValue, setSliderValue] = useState(50);
             iconStyle={{ borderColor: "#F17C87" }}
             onPress={(isChecked = boolean) => {}}
           />
+          <BouncyCheckbox
+            size={25}
+            fillColor="#F17C87"
+            unfillColor="#FFFFFF"
+            text="Male"
+            iconStyle={{ borderColor: "#F17C87" }}
+            onPress={(isChecked = boolean) => {}}
+          />
+        </View>
+      
           <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
            <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
           </View>
@@ -79,6 +90,24 @@ const [sliderValue, setSliderValue] = useState(50);
 
         <View style={styles.section}>
         <Text style={styles.title}>Neutered/Spayed</Text>
+        <View style={{flexDirection: 'row', paddingBottom: 20, justifyContent: 'space-around'}}>
+        <BouncyCheckbox
+            size={25}
+            fillColor="#F17C87"
+            unfillColor="#FFFFFF"
+            text="Yes"
+            iconStyle={{ borderColor: "#F17C87" }}
+            onPress={(isChecked = boolean) => {}}
+          />
+          <BouncyCheckbox
+            size={25}
+            fillColor="#F17C87"
+            unfillColor="#FFFFFF"
+            text="No"
+            iconStyle={{ borderColor: "#F17C87" }}
+            onPress={(isChecked = boolean) => {}}
+          />
+        </View>
           <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
            <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
           </View>
@@ -86,6 +115,32 @@ const [sliderValue, setSliderValue] = useState(50);
 
         <View style={styles.section}>
         <Text style={styles.title}>User Gender</Text>
+        <View style={{flexDirection: 'row', paddingBottom: 20, justifyContent: 'space-around'}}>
+        <BouncyCheckbox
+            size={25}
+            fillColor="#F17C87"
+            unfillColor="#FFFFFF"
+            text="Female"
+            iconStyle={{ borderColor: "#F17C87" }}
+            onPress={(isChecked = boolean) => {}}
+          />
+          <BouncyCheckbox
+            size={25}
+            fillColor="#F17C87"
+            unfillColor="#FFFFFF"
+            text="Male"
+            iconStyle={{ borderColor: "#F17C87" }}
+            onPress={(isChecked = boolean) => {}}
+          />
+          <BouncyCheckbox
+            size={25}
+            fillColor="#F17C87"
+            unfillColor="#FFFFFF"
+            text="Non-Binary"
+            iconStyle={{ borderColor: "#F17C87" }}
+            onPress={(isChecked = boolean) => {}}
+          />
+        </View>
           <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
            <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
           </View>
@@ -165,4 +220,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default PreferencesScreen2;
+export default PreferencesScreen;
