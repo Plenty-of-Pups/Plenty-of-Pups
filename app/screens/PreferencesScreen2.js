@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { View, Text, SafeAreaView, StyleSheet , TouchableOpacity} from 'react-native';
+import { View, Text, ScrollView, StyleSheet , TouchableOpacity} from 'react-native';
 import Slider from '@react-native-community/slider';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import colors from '../config/colors';
@@ -14,7 +14,7 @@ const PreferencesScreen2 = () => {
 const [sliderValue, setSliderValue] = useState(50);
 
   return (
-    <View style={styles.background}>
+    <ScrollView style={styles.background}>
 
         <View style={styles.container}>
           <Text style={styles.header}>Match Preferences</Text>
@@ -31,22 +31,63 @@ const [sliderValue, setSliderValue] = useState(50);
 
         <View style={styles.section}>
           <Text style={styles.title}>Distance</Text>
-          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 10}}>
+          <Slider 
+          maximumValue={100}
+          minimumValue={0}
+          minimumTrackTintColor="#F17C87"
+          maximumTrackTintColor="#EBEBEB"
+          step={1}
+          value={sliderValue}
+          onValueChange={(sliderValue) => setSliderValue(sliderValue)}
+        />
+          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
            <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
           </View>
         </View>
+
         <View style={styles.section}>
-        <Text style={styles.title}>Gender</Text>
-          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 10}}>
+        <Text style={styles.title}>Dog Gender</Text>
+          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
            <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
           </View>
         </View>
 
-        
-     
-      
-
+        <View style={styles.section}>
+        <Text style={styles.title}>Dog Size</Text>
+          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
+           <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+          </View>
         </View>
+
+        <View style={styles.section}>
+        <Text style={styles.title}>Dog Age</Text>
+          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
+           <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+          </View>
+        </View>
+
+        <View style={styles.section}>
+        <Text style={styles.title}>Neutered/Spayed</Text>
+          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
+           <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+          </View>
+        </View>
+
+        <View style={styles.section}>
+        <Text style={styles.title}>User Gender</Text>
+          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
+           <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+          </View>
+        </View>
+
+        <View style={styles.section}>
+        <Text style={styles.title}>User Age</Text>
+          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
+           <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+          </View>
+        </View>
+
+        </ScrollView>
   );
 };
 
@@ -91,6 +132,8 @@ const styles = StyleSheet.create({
   title: {
     color: 'black',
     fontSize: 18, 
+    fontWeight: '400',
+    paddingBottom: 20
   },
 
   section: {
