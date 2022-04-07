@@ -14,7 +14,7 @@ function AppTextInput({ icon, ...otherProps }) {
           style={styles.icon}
         />
       )}
-      <TextInput style={styles.TextInput} {...otherProps} />
+      <TextInput style={styles.textInput} {...otherProps} />
     </View>
   );
 }
@@ -33,6 +33,8 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   textInput: {
+    flex: 1,
+    flexDirection: 'row',
     fontSize: 18,
     fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
   },

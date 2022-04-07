@@ -16,17 +16,19 @@ import EditUserProfileScreen from "./app/screens/EditUserProfileScreen";
 import EditDogProfileScreen from "./app/screens/EditDogProfileScreen";
 import FAQScreen from "./app/screens/FAQScreen";
 import DiscoveryScreen from "./app/screens/DiscoveryScreen";
+import DMScreen from "./app/screens/DMScreen";
 
 export default function App() {
   //return <LoginScreen />;
   //return <PremiumScreen />;
-  return <MessagesScreen />;
+  //return <MessagesScreen />;
   //return <DiscoveryScreen />;
   //return <CreateNewUserScreen />;
   //return <NewDogProfileScreen />;
   ///return <EditUserProfileScreen />;
   //return <FAQScreen />;
   //return <SettingScreen />;
+  return <DMScreen />;
 
 }
 

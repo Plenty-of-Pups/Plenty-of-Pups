@@ -8,7 +8,7 @@ import MessageItem from '../components/MessageItem';
 import ListItemSeparator from '../components/ListItemSeparator';
 import ListItemDeleteAction from '../components/ListItemDeleteAction';
 import PicIcon from '../components/PicIcon';
-import TopNav from '../components/topNav';
+import TopNav from '../components/TopNav';
 
 
 const initialMessages = [
@@ -25,7 +25,7 @@ const initialMessages = [
         name: 'Bob',
         message: 'Hello',
         time: '4:20 PM',
-        image: {uri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.jpg'},
+        image: { uri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.jpg' },
         numMessages: 1
     },
     {
@@ -41,7 +41,7 @@ const initialMessages = [
         name: 'Angelina',
         message: 'Hsjdflksdlfjlsdkfjlkdflksdj;asdjfl;',
         time: '2:11 PM',
-        image: {uri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/4.jpg'},
+        image: { uri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/4.jpg' },
         numMessages: 0
     },
 ]
@@ -57,26 +57,26 @@ function MessagesScreen(props) {
     };
 
     return (
-        <View  paddingTop={Constants.statusBarHeight}>
+        <View paddingTop={Constants.statusBarHeight}>
             <TopNav title="Matches" />
-               <FlatList
-               horizontal
-              
+            <FlatList
+                horizontal
+
                 data={messages}
                 keyExtractor={message => message.id.toString()}
                 renderItem={({ item }) => (
-                   <PicIcon
-                   image={item.image} />
+                    <PicIcon
+                        image={item.image} />
                 )}>
-                 
-                </FlatList>
+
+            </FlatList>
             <FlatList
-             ListHeaderComponent={() => <Text>Messages</Text>}
+                ListHeaderComponent={() => <Text>Messages</Text>}
                 data={messages}
                 keyExtractor={message => message.id.toString()}
                 renderItem={({ item }) => (
                     <MessageItem
-                       
+
                         name={item.name}
                         message={item.message}
                         image={item.image}
@@ -102,7 +102,7 @@ function MessagesScreen(props) {
                 }}
             />
 
-         
+
         </View>
     );
 }
