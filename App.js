@@ -14,6 +14,7 @@ import YourProfileScreen from "./app/screens/YourProfileScreen";
 import HumanProfileScreen from "./app/screens/HumanProfileScreen";
 import YourDogScreen from "./app/screens/YourDogScreen";
 import OtherDogScreen from "./app/screens/OtherDogScreen";
+import PreferencesScreen2 from "./app/screens/PreferencesScreen2";
 
 export default function App() {
   //return <LoginScreen />;
@@ -25,7 +26,9 @@ export default function App() {
   //return <YourProfileScreen />
   //return <HumanProfileScreen />
   //return < YourDogScreen/>
-    return < OtherDogScreen/>
+  //return < OtherDogScreen/>
+  return < PreferencesScreen2/>
+
 
 
 
