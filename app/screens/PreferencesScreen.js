@@ -1,38 +1,40 @@
 import React, {useState} from 'react';
-import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, StyleSheet , TouchableOpacity} from 'react-native';
 import Slider from '@react-native-community/slider';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import colors from '../config/colors';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import { boolean } from 'yup';
+import { Touchable } from 'react-native-web';
 
 
 
 
-const PreferencesScreen = () => {
-  const [sliderValue, setSliderValue] = useState(50);
+const PreferencesScreen2 = () => {
+const [sliderValue, setSliderValue] = useState(50);
 
   return (
-    <SafeAreaView style={{flex: 1, justifyContent: 'space-between'}}>
-      <View style={styles.backIcon}>
-            <MaterialCommunityIcons name="keyboard-backspace" color={colors.pink} size={30} />
-            <Text style={styles.backText}>Back</Text>
-            <Text style={styles.saveText}>Save</Text>
-      </View>
-      <View style={styles.container}>
-        <Text style={styles.header}>
-          Match Preferences
-        </Text>
+    <ScrollView style={styles.background}>
 
-        <Text style={styles.section}>
-         Distance
-        </Text>
-      
-        <Text style={styles.title}>
-          {sliderValue} mi
-        </Text>
+        <View style={styles.container}>
+          <Text style={styles.header}>Match Preferences</Text>
+        </View>
 
-        <Slider 
+        <View style={styles.rowContainer}>
+          <TouchableOpacity>
+          <Text style={styles.backText}>Back</Text>
+          </TouchableOpacity>
+          <TouchableOpacity>
+          <Text style={styles.saveText}>Save</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.section}></View>
+
+        <View style={styles.section}>
+          <Text style={styles.title}>Distance</Text>
+          <Text style={styles.title2}>{sliderValue} mi</Text>
+          <Slider 
           maximumValue={100}
           minimumValue={0}
           minimumTrackTintColor="#F17C87"
@@ -41,116 +43,126 @@ const PreferencesScreen = () => {
           value={sliderValue}
           onValueChange={(sliderValue) => setSliderValue(sliderValue)}
         />
-
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-        <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
+           <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+          </View>
         </View>
 
-        <Text style={styles.section}>
-          Dog Gender
-        </Text>
-        
-        <BouncyCheckbox
-        size={25}
-        fillColor="#F17C87"
-        unfillColor="#FFFFFF"
-        text="Female"
-        iconStyle={{ borderColor: "#F17C87" }}
-        onPress={(isChecked = boolean) => {}}
-        />
-        
+        <View style={styles.section}>
+        <Text style={styles.title}>Dog Gender</Text>
+          <BouncyCheckbox
+            size={25}
+            fillColor="#F17C87"
+            unfillColor="#FFFFFF"
+            text="Female"
+            iconStyle={{ borderColor: "#F17C87" }}
+            onPress={(isChecked = boolean) => {}}
+          />
+          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
+           <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+          </View>
+        </View>
 
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-        <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+        <View style={styles.section}>
+        <Text style={styles.title}>Dog Size</Text>
+          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
+           <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+          </View>
         </View>
-        <Text style={styles.section}>
-        Dog Size
-        </Text>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-        <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+
+        <View style={styles.section}>
+        <Text style={styles.title}>Dog Age</Text>
+          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
+           <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+          </View>
         </View>
-        <Text style={styles.section}>
-        Dog Age
-        </Text>
-        <View style={{flex: 1, flexDirection: 'row'}}>
-      
+
+        <View style={styles.section}>
+        <Text style={styles.title}>Neutered/Spayed</Text>
+          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
+           <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+          </View>
         </View>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-        <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+
+        <View style={styles.section}>
+        <Text style={styles.title}>User Gender</Text>
+          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
+           <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+          </View>
         </View>
-        <Text style={styles.section}>
-        Neutered/Spayed
-        </Text>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-        <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+
+        <View style={styles.section}>
+        <Text style={styles.title}>User Age</Text>
+          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 10}}>
+           <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
+          </View>
         </View>
-        <Text style={styles.section}>
-        User Gender
-        </Text>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-        <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
-        </View>
-        <Text style={styles.section}>
-        User Age
-        </Text>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-        <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
-        </View>
-      </View>
-    </SafeAreaView>
+
+        </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  backIcon: {
-    flexDirection: "row",
-    position: "absolute",
-    top: 50,
-    left: 15,
-},
+
+  background: {
+    flex: 1,
+    marginTop: 20,
+    backgroundColor: 'white',
+    paddingHorizontal: 30,
+  },
+    
   container: {
-    //flex: 1,
-    padding: 20,
-    justifyContent: 'center',
+    paddingVertical: 30,
+		alignItems: "center"
   },
-  title: {
-    top: -30,
-    textAlign: 'right',
-    color: '#8C8C8C',
-    fontSize: 18, 
+
+  rowContainer: {
+    flexDirection: 'row',
+    marginTop: -50,
+    paddingBottom: 20
   },
+
+  backText: {
+    color: colors.pink,
+    fontWeight: 'bold',
+    paddingLeft: 10,
+  },
+  saveText: {
+    color: colors.pink,
+    fontWeight: 'bold',
+    paddingLeft: 270,
+  },
+
   header: {
-    //flex: 1,
-    top: -15,
-    //paddingTop: 0,
     textAlign: 'center',
     color: 'black',
     fontSize: 18,
     fontWeight: 'bold',
-    
   },
+
+  title: {
+    color: 'black',
+    fontSize: 18, 
+    fontWeight: '400',
+    paddingBottom: 20
+  },
+
+  title2: {
+    color: '#8C8C8C',
+    fontSize: 18, 
+    fontWeight: '400',
+    paddingLeft: 310,
+    marginTop: -40
+  },
+
   section: {
-    paddingBottom: 30,
-    top: 25,
+    paddingVertical: 10,
     color: '#302C2C',
     fontSize: 18,
     textAlign: 'left',
     direction: 'ltr'
   },
-  backText: {
-    color: colors.pink,
-    top: 6,
-    fontWeight: 'bold',
-    
-},
-saveText: {
-  color: colors.pink,
-  top: 6,
-  left: 290,
-  fontWeight: 'bold',
- 
-}
 
 });
 
-export default PreferencesScreen;
+export default PreferencesScreen2;
