@@ -3,7 +3,6 @@ import { View } from "react-native";
 import LoginScreen from "./app/screens/LoginScreen";
 import DiscoveryTabScreen from "./app/screens/DiscoveryTabScreen";
 import PremiumCard from "./app/components/premiumCard";
-import PremiumScreen from "./app/screens/PremiumScreen";
 import MessagesScreen from "./app/screens/MessagesScreen";
 import PreferencesScreen from "./app/screens/PreferencesScreen";
 import Screen from "./app/components/Screen";
