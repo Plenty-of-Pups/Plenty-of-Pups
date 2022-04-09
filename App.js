@@ -17,18 +17,27 @@ import EditDogProfileScreen from "./app/screens/EditDogProfileScreen";
 import FAQScreen from "./app/screens/FAQScreen";
 import DiscoveryScreen from "./app/screens/DiscoveryScreen";
 import DMScreen from "./app/screens/DMScreen";
+import YourProfileScreen from "./app/screens/YourProfileScreen";
+import YourDogScreen from "./app/screens/YourDogScreen";
+import OtherDogScreen from "./app/screens/OtherDogScreen";
+import HumanProfileScreen from "./app/screens/HumanProfileScreen";
 
 export default function App() {
-  //return <LoginScreen />;
-  //return <PremiumScreen />;
-  //return <MessagesScreen />;
-  //return <DiscoveryScreen />;
-  //return <CreateNewUserScreen />;
-  //return <NewDogProfileScreen />;
-  ///return <EditUserProfileScreen />;
-  //return <FAQScreen />;
-  //return <SettingScreen />;
-  return <DMScreen />;
+  //return <LoginScreen />
+  //return <PremiumScreen />
+  //return <MessagesScreen />
+  //return <DiscoveryScreen />
+  //return <CreateNewUserScreen />
+  //return <NewDogProfileScreen />
+  ///return <EditUserProfileScreen />
+  //return <FAQScreen />
+  //return <SettingScreen />
+  //return <DMScreen />
+  return <YourDogScreen />
+  //return <YourProfileScreen />
+  //return <OtherDogScreen />
+  //return <HumanProfileScreen/>
+
 
 }
 
