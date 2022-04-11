@@ -24,7 +24,7 @@ import HumanProfileScreen from "./app/screens/HumanProfileScreen";
 
 export default function App() {
   //return <LoginScreen />
-  return <PremiumScreen />
+  //return <PremiumScreen />
   //return <MessagesScreen />
   //return <DiscoveryScreen />
   //return <CreateNewUserScreen />
@@ -36,7 +36,7 @@ export default function App() {
   //return <YourDogScreen />
   //return <YourProfileScreen />
   //return <OtherDogScreen />
-  //return <HumanProfileScreen/>
+  return <HumanProfileScreen/>
 
 
 }
