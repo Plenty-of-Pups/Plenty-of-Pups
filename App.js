@@ -1,6 +1,6 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import Tabs from "./app/navigation/tabs";
+//import { NavigationContainer } from "@react-navigation/native";
+//import Tabs from "./app/navigation/tabs";
 import { View } from "react-native";
 import LoginScreen from "./app/screens/LoginScreen";
 
@@ -9,6 +9,9 @@ import NewDogProfileScreen from "./app/screens/NewDogProfileScreen";
 import PremiumCard from "./app/components/premiumCard";
 import PremiumScreen from "./app/screens/PremiumScreen";
 import MessagesScreen from "./app/screens/MessagesScreen";
+import DiscoveryScreen from "./app/screens/DiscoveryScreen";
+import MatchScreen from "./app/screens/MatchScreen";
+
 //import TopScreen from "./app/components/topScreen";
 
 import SettingScreen from "./app/screens/SettingScreen";
@@ -17,14 +20,15 @@ import EditDogProfileScreen from "./app/screens/EditDogProfileScreen";
 import FAQScreen from "./app/screens/FAQScreen";
 
 export default function App() {
-  return <LoginScreen />;
+  //return <LoginScreen />;
   //return <PremiumScreen />;
   //return <MessagesScreen />;
-  //return <DiscoveryTabScreen />;
+  //return <DiscoveryScreen />;
+  return <MatchScreen />;
   //return <CreateNewUserScreen />;
   //return <NewDogProfileScreen />;
   //return <EditUserProfileScreen />;
-  return <FAQScreen />;
+  //return <FAQScreen />;
   //return <SettingScreen />;
 
 }
@@ -37,4 +41,4 @@ export default function App() {
 //   );
 // };
 
-export default App;
+//export default App;

@@ -1,16 +1,31 @@
 import React from "react";
-import { View, StyleSheet, Text, Button } from "react-native";
+import { View, StyleSheet, Text, Button, TouchableOpacity } from "react-native";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import Screen from "../components/Screen";
+import ListItem from "../components/ListItem";
+import colors from "../config/colors";
+
 // import styles from "../config/styles";
 
-const DiscoveryScreen = ({ navigation }) => {
+function DiscoveryScreen(props) {
   return (
     <View style={styles.container}>
-      <Text>Discovery Screen</Text>
+      <Screen>
+        <ListItem title="Discovery"
+          leftIconComponent={<TouchableOpacity backgroundColor={colors.lightgraybackground} style={styles.button}>
+            <MaterialCommunityIcons name="settings" color={colors.pink} size={40} />
+            </TouchableOpacity>}
+          rightIconComponent={<TouchableOpacity backgroundColor={colors.lightgraybackground} style={styles.button}>
+            <MaterialCommunityIcons name="chevron-left" color={colors.pink} size={40} />
+            </TouchableOpacity>}
+        />
+
+        <Text>Discovery Screen</Text>
+      </Screen>
     </View>
   );
 };
 
-export default DiscoveryScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -20,3 +35,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#F8F4F1",
   },
 });
+
+export default DiscoveryScreen;
