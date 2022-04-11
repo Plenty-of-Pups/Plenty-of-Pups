@@ -10,7 +10,7 @@ import PremiumCard from "./app/components/premiumCard";
 import PremiumScreen from "./app/screens/PremiumScreen";
 import MessagesScreen from "./app/screens/MessagesScreen";
 //import TopScreen from "./app/components/topScreen";
-
+import MatchScreen from "./app/screens/MatchScreen";
 import SettingScreen from "./app/screens/SettingScreen";
 import EditUserProfileScreen from "./app/screens/EditUserProfileScreen";
 import EditDogProfileScreen from "./app/screens/EditDogProfileScreen";
@@ -24,7 +24,7 @@ import HumanProfileScreen from "./app/screens/HumanProfileScreen";
 
 export default function App() {
   //return <LoginScreen />
-  return <PremiumScreen />
+  //return <PremiumScreen />
   //return <MessagesScreen />
   //return <DiscoveryScreen />
   //return <CreateNewUserScreen />
@@ -37,6 +37,7 @@ export default function App() {
   //return <YourProfileScreen />
   //return <OtherDogScreen />
   //return <HumanProfileScreen/>
+  return <MatchScreen />
 
 
 }
