@@ -7,10 +7,21 @@ import { boolean } from 'yup';
 import NumericInput from 'react-native-numeric-input';
 
 
-
+const Checkbox = ({ onValueChange, selected }) => (
+  <TouchableOpacity
+    activeOpacity={0.8}
+    onPress={onValueChange}
+    style={styles.checkbox}>
+    {selected && <Text style={styles.checkmark}>✓</Text>}
+  </TouchableOpacity>
+);
 
 const PreferencesScreen = () => {
 const[sliderValue, setSliderValue] = useState(50);
+const [isSelected, setSelected] = useState(false);
+const [isSelected2, setSelected2] = useState(false);
+const toggleCheckbox = () => setSelected(!isSelected);
+const toggleCheckbox2 = () => setSelected2(!isSelected2);
 
   return (
     <ScrollView style={styles.background}>
@@ -50,22 +61,18 @@ const[sliderValue, setSliderValue] = useState(50);
         <View style={styles.section}>
         <Text style={styles.title}>Dog Gender</Text>
         <View style={{flexDirection: 'row', paddingBottom: 20, justifyContent: 'space-around'}}>
-        <BouncyCheckbox
-            size={25}
-            fillColor="#F17C87"
-            unfillColor="#FFFFFF"
-            text="Female"
-            iconStyle={{ borderColor: "#F17C87" }}
-            onPress={(isChecked = boolean) => {}}
-          />
-          <BouncyCheckbox
-            size={25}
-            fillColor="#F17C87"
-            unfillColor="#FFFFFF"
-            text="Male"
-            iconStyle={{ borderColor: "#F17C87" }}
-            onPress={(isChecked = boolean) => {}}
-          />
+
+        <View style={styles.container2}>
+      <Checkbox onValueChange={toggleCheckbox} selected={isSelected} />
+      <TouchableOpacity activeOpacity={0.8} onPress={toggleCheckbox}>
+        <Text style={styles.label}>{'Female'}</Text>
+      </TouchableOpacity>
+      <Checkbox onValueChange={toggleCheckbox2} selected={isSelected2} />
+      <TouchableOpacity activeOpacity={0.8} onPress={toggleCheckbox2}>
+        <Text style={styles.label}>{'Male'}</Text>
+      </TouchableOpacity>
+    </View>
+
         </View>
       
           <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
@@ -308,6 +315,34 @@ const styles = StyleSheet.create({
     fontSize: 18, 
     fontWeight: '400',
     paddingVertical: 10
+  },
+  container2: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 8,
+  },
+
+  checkbox: {
+    width: 25,
+    height: 25,
+    backgroundColor: '#ffffff',
+    borderWidth: 1,
+    borderColor: '#202020',
+    borderRadius: 25 / 2,
+  },
+
+  checkmark: {
+    textAlign: 'center',
+    alignSelf: 'center',
+    fontSize: 20,
+  },
+
+  label: {
+    margin: 24,
+    fontSize: 18,
+    textAlign: 'center',
   },
 
 });
