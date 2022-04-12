@@ -342,6 +342,7 @@ const styles = StyleSheet.create({
   label: {
     margin: 24,
     fontSize: 18,
+    color: "#8C8C8C",
     textAlign: 'center',
   },
 
