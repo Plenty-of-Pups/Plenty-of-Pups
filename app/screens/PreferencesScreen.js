@@ -1,11 +1,9 @@
 import React, {useState} from 'react';
 import { View, Text, ScrollView, StyleSheet , TouchableOpacity} from 'react-native';
 import Slider from '@react-native-community/slider';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import colors from '../config/colors';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import { boolean } from 'yup';
-import { Touchable } from 'react-native-web';
 import NumericInput from 'react-native-numeric-input';
 
 
