@@ -26,10 +26,10 @@ export default function App() {
   //return <LoginScreen />
   //return <PremiumScreen />
   //return <MessagesScreen />
-  //return <DiscoveryScreen />
+  return <DiscoveryScreen />
   //return <CreateNewUserScreen />
   //return <NewDogProfileScreen />
-  ///return <EditUserProfileScreen />
+  //return <EditUserProfileScreen />
   //return <FAQScreen />
   //return <SettingScreen />
   //return <DMScreen />
@@ -37,7 +37,7 @@ export default function App() {
   //return <YourProfileScreen />
   //return <OtherDogScreen />
   //return <HumanProfileScreen/>
-  return <MatchScreen />
+  //return <MatchScreen />
 
 
 }
