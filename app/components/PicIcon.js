@@ -13,14 +13,14 @@ import colors from '../config/colors';
 function PicIcon({ image, name }) {
     return (
 
-                <View style={styles.container}>
-                    <Image style={styles.image} source={image} />
-                    
-                </View>
-                
+        <View style={styles.container}>
+            <Image style={styles.image} source={image} />
 
-               
-          
+        </View>
+
+
+
+
     );
 }
 
@@ -32,16 +32,16 @@ const styles = StyleSheet.create({
         padding: 5,
         marginVertical: 10,
         borderColor: colors.greytext
-     },
+    },
     detailsContainer: {
         flex: 1,
         justifyContent: 'center'
     },
-     image: {
-       width: 70,
-       height: 70,
-       borderRadius: 35,
-      marginRight: 10,
+    image: {
+        width: 70,
+        height: 70,
+        borderRadius: 35,
+        marginRight: 10,
     },
     message: {
         color: colors.greytext,
@@ -54,12 +54,12 @@ const styles = StyleSheet.create({
     },
     row: {
         flexDirection: 'row',
-        justifyContent: 'space-between',      
+        justifyContent: 'space-between',
     },
     text: {
         color: colors.greytext,
     }
-    
+
 
 });
 

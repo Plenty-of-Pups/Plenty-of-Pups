@@ -22,6 +22,9 @@ import YourDogScreen from "./app/screens/YourDogScreen";
 import OtherDogScreen from "./app/screens/OtherDogScreen";
 import HumanProfileScreen from "./app/screens/HumanProfileScreen";
 import MatchScreen from "./app/screens/MatchScreen";
+import UserHomeScreen from "./app/screens/UserHomeScreen";
+import DogHomeScreen from "./app/screens/DogHomeScreen";
+
 export default function App() {
   //return <LoginScreen />
   //return <PremiumScreen />
@@ -37,8 +40,9 @@ export default function App() {
   //return <YourProfileScreen />
   //return <OtherDogScreen />
   //return <HumanProfileScreen/>
-  return < MatchScreen/>
-
+  //return < MatchScreen/>
+  //return <UserHomeScreen />
+  return <DogHomeScreen />
 }
 
 /*// uncomment to test bottom tab navigation
