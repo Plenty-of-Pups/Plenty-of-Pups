@@ -1,7 +1,8 @@
 import React from "react";
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet, Text, KeyboardAvoidingView } from "react-native";
 import * as Yup from "yup";
-
+import Constants from "expo-constants";
+import { ScrollView } from "react-native-gesture-handler";
 import {
   AppForm,
   AppFormField,
@@ -12,7 +13,6 @@ import Screen from "../components/Screen";
 import FormImagePicker from "../components/forms/FormImagePicker";
 import BackNavigation from "../components/BackNavigation";
 import colors from "../config/colors";
-
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().min(2).label("Name"),
@@ -35,72 +35,88 @@ const categories = [
 
 function CreateNewUserScreen() {
   return (
-    <Screen style={styles.container}>
-
-      <Text style={[styles.text]}>First, let's create your profile</Text>
-      <AppForm
-        initialValues={{
-          name: "",
-          email: "",
-          password: "",
-          gender: null,
-          age: "",
-          images: [],
-        }}
-        onSubmit={(values) => console.log(values)}
-        validationSchema={validationSchema}
-      >
-        <FormImagePicker name="images" />
-        <AppFormField
-          maxLength={50}
-          name="name"
-          placeholder="Enter your full name"
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
+      <ScrollView style={styles.scrollView}>
+        <BackNavigation
+          backgroundColor={colors.white}
+          rightIconColor={colors.white}
         />
-        <AppFormField
-          keyboardtype="email-address"
-          name="email"
-          autoCapitalize="none"
-          autoCorrect={false}
-          placeholder="Enter your email address"
-          textContentType="emailAddress"
-        />
-        <AppFormField
-          autoCapitalize="none"
-          autoCorrect={false}
-          name="password"
-          placeholder="Create a password"
-          secureTextEntry
-          textContentType="password"
-        />
-        <AppFormField
-          autoCapitalize="none"
-          autoCorrect={false}
-          name="passwordConfirmation"
-          placeholder="Confirm password"
-          secureTextEntry
-          textContentType="password"
-        />
-        <AppFormPicker items={categories} name="gender" placeholder="Gender" />
-        <AppFormField
-          keyboardtype="numeric"
-          maxLength={3}
-          name="age"
-          placeholder="Enter your age"
-        />
-        <SubmitButton title="Continue" nextScreen="NewDogProfileScreen" />
-      </AppForm>
-    </Screen>
+        <Text style={[styles.text]}>First, let's create your profile</Text>
+        <AppForm
+          initialValues={{
+            name: "",
+            email: "",
+            password: "",
+            gender: null,
+            age: "",
+            images: [],
+          }}
+          onSubmit={(values) => console.log(values)}
+          validationSchema={validationSchema}
+        >
+          <FormImagePicker name="images" />
+          <AppFormField
+            maxLength={50}
+            name="name"
+            placeholder="Enter your full name"
+          />
+          <AppFormField
+            keyboardtype="email-address"
+            name="email"
+            autoCapitalize="none"
+            autoCorrect={false}
+            placeholder="Enter your email address"
+            textContentType="emailAddress"
+          />
+          <AppFormField
+            autoCapitalize="none"
+            autoCorrect={false}
+            name="password"
+            placeholder="Create a password"
+            secureTextEntry
+            textContentType="password"
+          />
+          <AppFormField
+            autoCapitalize="none"
+            autoCorrect={false}
+            name="passwordConfirmation"
+            placeholder="Confirm password"
+            secureTextEntry
+            textContentType="password"
+          />
+          <AppFormPicker
+            items={categories}
+            name="gender"
+            placeholder="Gender"
+          />
+          <AppFormField
+            keyboardtype="numeric"
+            maxLength={3}
+            name="age"
+            placeholder="Enter your age"
+          />
+          <SubmitButton title="Continue" nextScreen="NewDogProfileScreen" />
+        </AppForm>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    // padding: 10,
     justifyContent: "flex-end",
+    flex: 1,
   },
   text: {
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
+  },
+  scrollView: {
+    marginVertical: 50,
   },
 });
 
