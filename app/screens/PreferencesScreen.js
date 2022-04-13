@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import { View, Text, ScrollView, StyleSheet , TouchableOpacity} from 'react-native';
 import Slider from '@react-native-community/slider';
 import colors from '../config/colors';
-import BouncyCheckbox from "react-native-bouncy-checkbox";
 import { boolean } from 'yup';
 import NumericInput from 'react-native-numeric-input';
 
@@ -22,10 +21,18 @@ const [isSelected, setSelected] = useState(false);
 const [isSelected2, setSelected2] = useState(false);
 const [isSelected3, setSelected3] = useState(false);
 const [isSelected4, setSelected4] = useState(false);
+const [isSelected5, setSelected5] = useState(false);
+const [isSelected6, setSelected6] = useState(false);
+const [isSelected7, setSelected7] = useState(false);
+const [isSelected8, setSelected8] = useState(false);
 const toggleCheckbox = () => setSelected(!isSelected);
 const toggleCheckbox2 = () => setSelected2(!isSelected2);
 const toggleCheckbox3 = () => setSelected3(!isSelected3);
 const toggleCheckbox4 = () => setSelected4(!isSelected4);
+const toggleCheckbox5 = () => setSelected5(!isSelected5);
+const toggleCheckbox6 = () => setSelected6(!isSelected6);
+const toggleCheckbox7 = () => setSelected7(!isSelected7);
+const toggleCheckbox8 = () => setSelected8(!isSelected8);
 
   return (
     <ScrollView style={styles.background}>
@@ -64,19 +71,21 @@ const toggleCheckbox4 = () => setSelected4(!isSelected4);
 
         <View style={styles.section}>
         <Text style={styles.title}>Dog Gender</Text>
-        <View style={{flexDirection: 'row', paddingBottom: 10, justifyContent: 'space-around'}}>
 
-        
-        <Checkbox onValueChange={toggleCheckbox} selected={isSelected} />
-        <TouchableOpacity activeOpacity={0.8} onPress={toggleCheckbox}>
-        <Text style={styles.label}>{'Female'}</Text>
-        </TouchableOpacity>
-        <Checkbox onValueChange={toggleCheckbox2} selected={isSelected2} />
-        <TouchableOpacity activeOpacity={0.8} onPress={toggleCheckbox2}>
-        <Text style={styles.label}>{'Male'}</Text>
-        </TouchableOpacity>
-       
+        <View style={styles.container2}>
+        <View style={{flexDirection: 'row', paddingBottom: 20}}>
+          <Checkbox onValueChange={toggleCheckbox} selected={isSelected} />
+          <TouchableOpacity activeOpacity={0.8} onPress={toggleCheckbox}>
+          <Text style={styles.label}>{'Female'}</Text>
+          </TouchableOpacity>
+        </View>
 
+        <View style={{flexDirection: 'row', paddingBottom: 20}}>
+          <Checkbox onValueChange={toggleCheckbox2} selected={isSelected2} />
+          <TouchableOpacity activeOpacity={0.8} onPress={toggleCheckbox2}>
+          <Text style={styles.label}>{'Male'}</Text>
+          </TouchableOpacity>
+        </View>
         </View>
       
           <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
@@ -158,18 +167,31 @@ const toggleCheckbox4 = () => setSelected4(!isSelected4);
 
         <View style={styles.section}>
         <Text style={styles.title}>Neutered/Spayed</Text>
-        <View style={{flexDirection: 'row', paddingBottom: 20, justifyContent: 'space-around'}}>
+        <View style={styles.container2}>
 
-        <Checkbox onValueChange={toggleCheckbox3} selected={isSelected3} />
-        <TouchableOpacity activeOpacity={0.8} onPress={toggleCheckbox3}>
-        <Text style={styles.label}>{'Yes'}</Text>
-        </TouchableOpacity>
-        <Checkbox onValueChange={toggleCheckbox4} selected={isSelected4} />
-        <TouchableOpacity activeOpacity={0.8} onPress={toggleCheckbox4}>
-        <Text style={styles.label}>{'No'}</Text>
-        </TouchableOpacity>
+          <View style={{flexDirection: 'row', paddingBottom: 20}}>
+            <Checkbox onValueChange={toggleCheckbox3} selected={isSelected3} />
+            <TouchableOpacity activeOpacity={0.8} onPress={toggleCheckbox3}>
+            <Text style={styles.label}>{'Yes'}</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={{flexDirection: 'row', paddingBottom: 20}}>
+            <Checkbox onValueChange={toggleCheckbox4} selected={isSelected4} />
+            <TouchableOpacity activeOpacity={0.8} onPress={toggleCheckbox4}>
+            <Text style={styles.label}>{'No'}</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={{flexDirection: 'row', paddingBottom: 20}}>
+            <Checkbox onValueChange={toggleCheckbox8} selected={isSelected8} />
+            <TouchableOpacity activeOpacity={0.8} onPress={toggleCheckbox8}>
+            <Text style={styles.label}>{'No preference'}</Text>
+            </TouchableOpacity>
+          </View>
 
         </View>
+
           <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
            <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
           </View>
@@ -177,32 +199,31 @@ const toggleCheckbox4 = () => setSelected4(!isSelected4);
 
         <View style={styles.section}>
         <Text style={styles.title}>User Gender</Text>
-        <View style={{flexDirection: 'row', paddingBottom: 20, justifyContent: 'space-around'}}>
-        <BouncyCheckbox
-            size={25}
-            fillColor="#F17C87"
-            unfillColor="#FFFFFF"
-            text="Female"
-            iconStyle={{ borderColor: "#F17C87" }}
-            onPress={(isChecked = boolean) => {}}
-          />
-          <BouncyCheckbox
-            size={25}
-            fillColor="#F17C87"
-            unfillColor="#FFFFFF"
-            text="Male"
-            iconStyle={{ borderColor: "#F17C87" }}
-            onPress={(isChecked = boolean) => {}}
-          />
-          <BouncyCheckbox
-            size={25}
-            fillColor="#F17C87"
-            unfillColor="#FFFFFF"
-            text="Non-Binary"
-            iconStyle={{ borderColor: "#F17C87" }}
-            onPress={(isChecked = boolean) => {}}
-          />
+
+        <View style={styles.container2}>
+        <View style={{flexDirection: 'row', paddingBottom: 20}}>
+          <Checkbox onValueChange={toggleCheckbox5} selected={isSelected5} />
+          <TouchableOpacity activeOpacity={0.8} onPress={toggleCheckbox5}>
+          <Text style={styles.label}>{'Female'}</Text>
+          </TouchableOpacity>
         </View>
+
+        <View style={{flexDirection: 'row', paddingBottom: 20}}>
+          <Checkbox onValueChange={toggleCheckbox6} selected={isSelected6} />
+          <TouchableOpacity activeOpacity={0.8} onPress={toggleCheckbox6}>
+          <Text style={styles.label}>{'Male'}</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={{flexDirection: 'row', paddingBottom: 20}}>
+          <Checkbox onValueChange={toggleCheckbox7} selected={isSelected7} />
+          <TouchableOpacity activeOpacity={0.8} onPress={toggleCheckbox7}>
+          <Text style={styles.label}>{'Non-Binary'}</Text>
+          </TouchableOpacity>
+        </View>
+
+        </View>
+        
           <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
            <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
           </View>
@@ -317,7 +338,7 @@ const styles = StyleSheet.create({
   container2: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: "space-around",
     alignItems: 'center',
     padding: 8,
   },
@@ -326,7 +347,7 @@ const styles = StyleSheet.create({
     width: 25,
     height: 25,
     backgroundColor: '#ffffff',
-    borderWidth: 1,
+    borderWidth: 1.5,
     borderColor: '#F17C87',
     borderRadius: 25 / 3,
   },
@@ -339,7 +360,7 @@ const styles = StyleSheet.create({
   },
 
   label: {
-    
+    paddingLeft:20,
     fontSize: 16,
     color: "#8C8C8C",
   },
