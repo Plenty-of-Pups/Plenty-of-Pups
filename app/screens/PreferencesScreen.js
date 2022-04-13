@@ -20,8 +20,12 @@ const PreferencesScreen = () => {
 const[sliderValue, setSliderValue] = useState(50);
 const [isSelected, setSelected] = useState(false);
 const [isSelected2, setSelected2] = useState(false);
+const [isSelected3, setSelected3] = useState(false);
+const [isSelected4, setSelected4] = useState(false);
 const toggleCheckbox = () => setSelected(!isSelected);
 const toggleCheckbox2 = () => setSelected2(!isSelected2);
+const toggleCheckbox3 = () => setSelected3(!isSelected3);
+const toggleCheckbox4 = () => setSelected4(!isSelected4);
 
   return (
     <ScrollView style={styles.background}>
@@ -60,18 +64,18 @@ const toggleCheckbox2 = () => setSelected2(!isSelected2);
 
         <View style={styles.section}>
         <Text style={styles.title}>Dog Gender</Text>
-        <View style={{flexDirection: 'row', paddingBottom: 20, justifyContent: 'space-around'}}>
+        <View style={{flexDirection: 'row', paddingBottom: 10, justifyContent: 'space-around'}}>
 
-        <View style={styles.container2}>
-      <Checkbox onValueChange={toggleCheckbox} selected={isSelected} />
-      <TouchableOpacity activeOpacity={0.8} onPress={toggleCheckbox}>
+        
+        <Checkbox onValueChange={toggleCheckbox} selected={isSelected} />
+        <TouchableOpacity activeOpacity={0.8} onPress={toggleCheckbox}>
         <Text style={styles.label}>{'Female'}</Text>
-      </TouchableOpacity>
-      <Checkbox onValueChange={toggleCheckbox2} selected={isSelected2} />
-      <TouchableOpacity activeOpacity={0.8} onPress={toggleCheckbox2}>
+        </TouchableOpacity>
+        <Checkbox onValueChange={toggleCheckbox2} selected={isSelected2} />
+        <TouchableOpacity activeOpacity={0.8} onPress={toggleCheckbox2}>
         <Text style={styles.label}>{'Male'}</Text>
-      </TouchableOpacity>
-    </View>
+        </TouchableOpacity>
+       
 
         </View>
       
@@ -155,22 +159,16 @@ const toggleCheckbox2 = () => setSelected2(!isSelected2);
         <View style={styles.section}>
         <Text style={styles.title}>Neutered/Spayed</Text>
         <View style={{flexDirection: 'row', paddingBottom: 20, justifyContent: 'space-around'}}>
-        <BouncyCheckbox
-            size={25}
-            fillColor="#F17C87"
-            unfillColor="#FFFFFF"
-            text="Yes"
-            iconStyle={{ borderColor: "#F17C87" }}
-            onPress={(isChecked = boolean) => {}}
-          />
-          <BouncyCheckbox
-            size={25}
-            fillColor="#F17C87"
-            unfillColor="#FFFFFF"
-            text="No"
-            iconStyle={{ borderColor: "#F17C87" }}
-            onPress={(isChecked = boolean) => {}}
-          />
+
+        <Checkbox onValueChange={toggleCheckbox3} selected={isSelected3} />
+        <TouchableOpacity activeOpacity={0.8} onPress={toggleCheckbox3}>
+        <Text style={styles.label}>{'Yes'}</Text>
+        </TouchableOpacity>
+        <Checkbox onValueChange={toggleCheckbox4} selected={isSelected4} />
+        <TouchableOpacity activeOpacity={0.8} onPress={toggleCheckbox4}>
+        <Text style={styles.label}>{'No'}</Text>
+        </TouchableOpacity>
+
         </View>
           <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
            <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
@@ -329,21 +327,21 @@ const styles = StyleSheet.create({
     height: 25,
     backgroundColor: '#ffffff',
     borderWidth: 1,
-    borderColor: '#202020',
-    borderRadius: 25 / 2,
+    borderColor: '#F17C87',
+    borderRadius: 25 / 3,
   },
 
   checkmark: {
     textAlign: 'center',
     alignSelf: 'center',
-    fontSize: 20,
+    color: "#F17C87",
+    fontSize: 18,
   },
 
   label: {
-    margin: 24,
-    fontSize: 18,
+    
+    fontSize: 16,
     color: "#8C8C8C",
-    textAlign: 'center',
   },
 
 });
