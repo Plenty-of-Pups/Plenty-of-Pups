@@ -1,5 +1,11 @@
 import React from "react";
-import { StyleSheet, Text, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  KeyboardAvoidingView,
+  StatusBar,
+} from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import * as Yup from "yup";
 
 import {
@@ -27,12 +33,18 @@ const genderCategories = [
   { label: "Non-binary", value: 3 },
 ];
 
-function EditUserProfileScreen() {
+function EditUserProfileScreen(props) {
   return (
-    <Screen style={styles.container}>
-      <BackNavigation title="Edit Your Profile" backgroundColor={colors.white} rightIconColor={colors.pink} />
-      <ScrollView>
-
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
+      <ScrollView keyboardShouldPersistTaps="always" style={styles.scrollView}>
+        <BackNavigation
+          title="Edit Your Profile"
+          backgroundColor={colors.white}
+          rightIconColor={colors.pink}
+        />
         <AppForm
           initialValues={{
             name: "",
@@ -67,18 +79,22 @@ function EditUserProfileScreen() {
           <SubmitButton title="Save" />
         </AppForm>
       </ScrollView>
-    </Screen>
+    </KeyboardAvoidingView>
   );
 }
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
     justifyContent: "flex-end",
+    flex: 1,
+    paddingTop: StatusBar.currentHeight,
   },
   text: {
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
+  },
+  scrollView: {
+    marginVertical: 50,
   },
 });
 
