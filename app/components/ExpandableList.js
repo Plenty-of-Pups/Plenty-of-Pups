@@ -45,6 +45,14 @@ const CONTENT = [
             { id: 7, val: 'Answer goes here' }
         ]
     },
+    {
+        isExpanded: false,
+        category_name: 'How do match with someone',
+        subCategory: [
+            { id: 8, val: 'Answer goes here' },
+
+        ]
+    },
 ];
 
 const ExpandableComponent = ({ item, onClickFunction }) => {

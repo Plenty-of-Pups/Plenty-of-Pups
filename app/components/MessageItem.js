@@ -11,12 +11,12 @@ import colors from '../config/colors';
 import AppText from './AppText';
 
 
-function MessageItem({ name, message, image, time, numMessages, renderRightActions }) {
+function MessageItem({ name, id, message, image, time, numMessages, renderRightActions }) {
 
     const navigation = useNavigation();
 
     const onPress = () => {
-        navigation.navigate('DMScreen');
+        navigation.navigate('DMScreen', { id });
     }
 
     return (

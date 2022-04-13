@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { View, Text, ScrollView, StyleSheet , TouchableOpacity} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import Slider from '@react-native-community/slider';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import colors from '../config/colors';
@@ -11,30 +11,30 @@ import { Touchable } from 'react-native-web';
 
 
 const PreferencesScreen = () => {
-const[sliderValue, setSliderValue] = useState(50);
+  const [sliderValue, setSliderValue] = useState(50);
 
   return (
     <View style={styles.background}>
 
-        <View style={styles.container}>
-          <Text style={styles.header}>Match Preferences</Text>
-        </View>
+      <View style={styles.container}>
+        <Text style={styles.header}>Match Preferences</Text>
+      </View>
 
-        <View style={styles.rowContainer}>
-          <TouchableOpacity>
+      <View style={styles.rowContainer}>
+        <TouchableOpacity>
           <Text style={styles.backText}>Back</Text>
-          </TouchableOpacity>
-          <TouchableOpacity>
+        </TouchableOpacity>
+        <TouchableOpacity>
           <Text style={styles.saveText}>Save</Text>
-          </TouchableOpacity>
-        </View>
+        </TouchableOpacity>
+      </View>
 
-        <View style={styles.section}></View>
+      <View style={styles.section}></View>
 
-        <View style={styles.section}>
-          <Text style={styles.title}>Distance</Text>
-          <Text style={styles.title2}>{sliderValue} mi</Text>
-          <Slider 
+      <View style={styles.section}>
+        <Text style={styles.title}>Distance</Text>
+        <Text style={styles.title2}>{sliderValue} mi</Text>
+        <Slider
           maximumValue={100}
           minimumValue={0}
           minimumTrackTintColor="#F17C87"
@@ -43,21 +43,21 @@ const[sliderValue, setSliderValue] = useState(50);
           value={sliderValue}
           onValueChange={(sliderValue) => setSliderValue(sliderValue)}
         />
-          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
-           <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
-          </View>
+        <View style={{ flexDirection: 'row', alignItems: 'center', paddingTop: 15 }}>
+          <View style={{ flex: 1, height: 2, backgroundColor: '#D8D8D8' }} />
         </View>
+      </View>
 
-        <View style={styles.section}>
+      <View style={styles.section}>
         <Text style={styles.title}>Dog Gender</Text>
-        <View style={{flexDirection: 'row', paddingBottom: 20, justifyContent: 'space-around'}}>
-        <BouncyCheckbox
+        <View style={{ flexDirection: 'row', paddingBottom: 20, justifyContent: 'space-around' }}>
+          <BouncyCheckbox
             size={25}
             fillColor="#F17C87"
             unfillColor="#FFFFFF"
             text="Female"
             iconStyle={{ borderColor: "#F17C87" }}
-            onPress={(isChecked = boolean) => {}}
+            onPress={(isChecked = boolean) => { }}
           />
           <BouncyCheckbox
             size={25}
@@ -65,19 +65,19 @@ const[sliderValue, setSliderValue] = useState(50);
             unfillColor="#FFFFFF"
             text="Male"
             iconStyle={{ borderColor: "#F17C87" }}
-            onPress={(isChecked = boolean) => {}}
+            onPress={(isChecked = boolean) => { }}
           />
         </View>
-      
-          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
-           <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
-          </View>
-        </View>
 
-        <View style={styles.section}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', paddingTop: 15 }}>
+          <View style={{ flex: 1, height: 2, backgroundColor: '#D8D8D8' }} />
+        </View>
+      </View>
+
+      <View style={styles.section}>
         <Text style={styles.title}>Dog Size</Text>
         <Text style={styles.title2}>{sliderValue} lb</Text>
-        <Slider 
+        <Slider
           maximumValue={100}
           minimumValue={0}
           minimumTrackTintColor="#F17C87"
@@ -86,15 +86,15 @@ const[sliderValue, setSliderValue] = useState(50);
           value={sliderValue}
           onValueChange={(sliderValue) => setSliderValue(sliderValue)}
         />
-          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
-           <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
-          </View>
+        <View style={{ flexDirection: 'row', alignItems: 'center', paddingTop: 15 }}>
+          <View style={{ flex: 1, height: 2, backgroundColor: '#D8D8D8' }} />
         </View>
+      </View>
 
-        <View style={styles.section}>
+      <View style={styles.section}>
         <Text style={styles.title}>Dog Age</Text>
         <Text style={styles.title2}>Age {sliderValue}</Text>
-        <Slider 
+        <Slider
           maximumValue={100}
           minimumValue={0}
           minimumTrackTintColor="#F17C87"
@@ -103,21 +103,21 @@ const[sliderValue, setSliderValue] = useState(50);
           value={sliderValue}
           onValueChange={(sliderValue) => setSliderValue(sliderValue)}
         />
-          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
-           <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
-          </View>
+        <View style={{ flexDirection: 'row', alignItems: 'center', paddingTop: 15 }}>
+          <View style={{ flex: 1, height: 2, backgroundColor: '#D8D8D8' }} />
         </View>
+      </View>
 
-        <View style={styles.section}>
+      <View style={styles.section}>
         <Text style={styles.title}>Neutered/Spayed</Text>
-        <View style={{flexDirection: 'row', paddingBottom: 20, justifyContent: 'space-around'}}>
-        <BouncyCheckbox
+        <View style={{ flexDirection: 'row', paddingBottom: 20, justifyContent: 'space-around' }}>
+          <BouncyCheckbox
             size={25}
             fillColor="#F17C87"
             unfillColor="#FFFFFF"
             text="Yes"
             iconStyle={{ borderColor: "#F17C87" }}
-            onPress={(isChecked = boolean) => {}}
+            onPress={(isChecked = boolean) => { }}
           />
           <BouncyCheckbox
             size={25}
@@ -125,24 +125,24 @@ const[sliderValue, setSliderValue] = useState(50);
             unfillColor="#FFFFFF"
             text="No"
             iconStyle={{ borderColor: "#F17C87" }}
-            onPress={(isChecked = boolean) => {}}
+            onPress={(isChecked = boolean) => { }}
           />
         </View>
-          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
-           <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
-          </View>
+        <View style={{ flexDirection: 'row', alignItems: 'center', paddingTop: 15 }}>
+          <View style={{ flex: 1, height: 2, backgroundColor: '#D8D8D8' }} />
         </View>
+      </View>
 
-        <View style={styles.section}>
+      <View style={styles.section}>
         <Text style={styles.title}>User Gender</Text>
-        <View style={{flexDirection: 'row', paddingBottom: 20, justifyContent: 'space-around'}}>
-        <BouncyCheckbox
+        <View style={{ flexDirection: 'row', paddingBottom: 20, justifyContent: 'space-around' }}>
+          <BouncyCheckbox
             size={25}
             fillColor="#F17C87"
             unfillColor="#FFFFFF"
             text="Female"
             iconStyle={{ borderColor: "#F17C87" }}
-            onPress={(isChecked = boolean) => {}}
+            onPress={(isChecked = boolean) => { }}
           />
           <BouncyCheckbox
             size={25}
@@ -150,7 +150,7 @@ const[sliderValue, setSliderValue] = useState(50);
             unfillColor="#FFFFFF"
             text="Male"
             iconStyle={{ borderColor: "#F17C87" }}
-            onPress={(isChecked = boolean) => {}}
+            onPress={(isChecked = boolean) => { }}
           />
           <BouncyCheckbox
             size={25}
@@ -158,18 +158,18 @@ const[sliderValue, setSliderValue] = useState(50);
             unfillColor="#FFFFFF"
             text="Non-Binary"
             iconStyle={{ borderColor: "#F17C87" }}
-            onPress={(isChecked = boolean) => {}}
+            onPress={(isChecked = boolean) => { }}
           />
         </View>
-          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 15}}>
-           <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
-          </View>
+        <View style={{ flexDirection: 'row', alignItems: 'center', paddingTop: 15 }}>
+          <View style={{ flex: 1, height: 2, backgroundColor: '#D8D8D8' }} />
         </View>
+      </View>
 
-        <View style={styles.section}>
+      <View style={styles.section}>
         <Text style={styles.title}>User Age</Text>
         <Text style={styles.title2}>Age {sliderValue}</Text>
-        <Slider 
+        <Slider
           maximumValue={100}
           minimumValue={0}
           minimumTrackTintColor="#F17C87"
@@ -178,12 +178,12 @@ const[sliderValue, setSliderValue] = useState(50);
           value={sliderValue}
           onValueChange={(sliderValue) => setSliderValue(sliderValue)}
         />
-          <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 10}}>
-           <View style={{flex: 1, height: 2, backgroundColor: '#D8D8D8'}} />
-          </View>
+        <View style={{ flexDirection: 'row', alignItems: 'center', paddingTop: 10 }}>
+          <View style={{ flex: 1, height: 2, backgroundColor: '#D8D8D8' }} />
         </View>
+      </View>
 
-        </View>
+    </View>
   );
 };
 
@@ -195,10 +195,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     paddingHorizontal: 30,
   },
-    
+
   container: {
     paddingVertical: 30,
-		alignItems: "center"
+    alignItems: "center"
   },
 
   rowContainer: {
@@ -227,14 +227,14 @@ const styles = StyleSheet.create({
 
   title: {
     color: 'black',
-    fontSize: 18, 
+    fontSize: 18,
     fontWeight: '400',
     paddingBottom: 20
   },
 
   title2: {
     color: '#8C8C8C',
-    fontSize: 18, 
+    fontSize: 18,
     fontWeight: '400',
     paddingLeft: 310,
     marginTop: -40

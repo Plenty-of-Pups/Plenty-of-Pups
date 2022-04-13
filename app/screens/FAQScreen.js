@@ -31,13 +31,12 @@ function FAQScreen(props) {
         <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
             style={styles.backgroundContainer}
+            keyboardVerticalOffset={55}
         >
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 
                 <View style={styles.inner}>
-                    <BackNavigation title="FAQ"
-                        rightIconColor={colors.lightgraybackground}
-                        backgroundColor={colors.lightgraybackground} />
+
                     <ScrollView>
                         <ExpandableList />
 
@@ -99,7 +98,6 @@ const styles = StyleSheet.create({
     backgroundContainer: {
         backgroundColor: colors.lightgraybackground,
         flex: 1,
-        paddingTop: Constants.statusBarHeight,
     },
 
 });

@@ -7,10 +7,14 @@ import Message from '../components/Message';
 import chatRoomData from '../assets/Chats'
 import { FlatList } from 'react-native-gesture-handler';
 import MessageInput from '../components/MessageInput';
-import TopNav from '../components/TopNav';
+import { useRoute } from '@react-navigation/core';
 
 
 export default function DMScreen() {
+    const route = useRoute();
+
+    console.warn("Displaying chatroom: ", route.params?.id)
+
     return (
 
         <Screen>
