@@ -1,5 +1,10 @@
 import React from "react";
-import { StyleSheet, Text, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  ScrollView,
+  KeyboardAvoidingView,
+} from "react-native";
 import * as Yup from "yup";
 
 import {
@@ -43,9 +48,17 @@ const neuteredSpayedStatus = [
 
 function EditDogProfileScreen(props) {
   return (
-    <Screen style={styles.container}>
-      <BackNavigation title="Edit Pet's Profile" backgroundColor={colors.white} rightIconColor={colors.pink} />
-      <ScrollView>
+    // <Screen style={styles.container}>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
+      <ScrollView style={styles.scrollView}>
+        <BackNavigation
+          title="Edit Pet's Profile"
+          backgroundColor={colors.white}
+          rightIconColor={colors.pink}
+        />
         <AppForm
           initialValues={{
             name: "",
@@ -109,18 +122,21 @@ function EditDogProfileScreen(props) {
           <SubmitButton title="Save" />
         </AppForm>
       </ScrollView>
-    </Screen>
+    </KeyboardAvoidingView>
   );
 }
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    flex: 1,
     justifyContent: "flex-end",
   },
   text: {
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
+  },
+  scrollView: {
+    marginVertical: 50,
   },
 });
 export default EditDogProfileScreen;

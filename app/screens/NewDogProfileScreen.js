@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet, Text, KeyboardAvoidingView } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import * as Yup from "yup";
 
 import {
@@ -30,51 +31,67 @@ const categories = [
 
 function NewDogProfileScreen(props) {
   return (
-    <Screen style={styles.container}>
-      <BackNavigation backgroundColor={colors.white} rightIconColor={colors.white} />
-      <Text style={[styles.text]}>Next, tell us a little about your pup</Text>
-      <AppForm
-        initialValues={{
-          name: "",
-          breed: "",
-          gender: null,
-          weight: "",
-          age: "",
-          images: [],
-        }}
-        onSubmit={(values) => console.log(values)}
-        validationSchema={validationSchema}
-      >
-        <FormImagePicker name="images" />
-        <AppFormField maxLength={50} name="name" placeholder="Name" />
-        <AppFormField maxLength={50} name="breed" placeholder="Breed" />
-        <AppFormField
-          keyboardtype="numeric"
-          maxLength={3}
-          name="weight"
-          placeholder="Weight (lb)"
+    // <Screen style={styles.container}>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
+      <ScrollView style={styles.scrollView}>
+        <BackNavigation
+          backgroundColor={colors.white}
+          rightIconColor={colors.white}
         />
-        <AppFormPicker items={categories} name="gender" placeholder="Gender" />
-        <AppFormField
-          keyboardtype="numeric"
-          maxLength={3}
-          name="age"
-          placeholder="Age (years - if under 1 year old put 1)"
-        />
-        <SubmitButton title="Continue" />
-      </AppForm>
-    </Screen>
+        <Text style={[styles.text]}>Next, tell us a little about your pup</Text>
+        <AppForm
+          initialValues={{
+            name: "",
+            breed: "",
+            gender: null,
+            weight: "",
+            age: "",
+            images: [],
+          }}
+          onSubmit={(values) => console.log(values)}
+          validationSchema={validationSchema}
+        >
+          <FormImagePicker name="images" />
+          <AppFormField maxLength={50} name="name" placeholder="Name" />
+          <AppFormField maxLength={50} name="breed" placeholder="Breed" />
+          <AppFormField
+            keyboardtype="numeric"
+            maxLength={3}
+            name="weight"
+            placeholder="Weight (lb)"
+          />
+          <AppFormPicker
+            items={categories}
+            name="gender"
+            placeholder="Gender"
+          />
+          <AppFormField
+            keyboardtype="numeric"
+            maxLength={3}
+            name="age"
+            placeholder="Age (years - if under 1 year old put 1)"
+          />
+          <SubmitButton title="Continue" />
+        </AppForm>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
     justifyContent: "flex-end",
+    flex: 1,
   },
   text: {
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
+  },
+  scrollView: {
+    marginVertical: 50,
   },
 });
 export default NewDogProfileScreen;
