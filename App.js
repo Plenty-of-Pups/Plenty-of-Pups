@@ -42,7 +42,7 @@ export default function App() {
   //return <HumanProfileScreen/>
   //return < MatchScreen/>
   //return <UserHomeScreen />
-  return <DogHomeScreen />
+  return <DogHomeScreen />;
 }
 
 /*// uncomment to test bottom tab navigation
