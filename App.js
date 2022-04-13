@@ -44,7 +44,8 @@ export default function App() {
   //return < MatchScreen/>
   //return <UserHomeScreen />
   //return <DogHomeScreen />;
-  return <PreferencesScreen />
+  //return <PreferencesScreen />
+  return < DiscoveryScreen/>
 }
 
 /*// uncomment to test bottom tab navigation
