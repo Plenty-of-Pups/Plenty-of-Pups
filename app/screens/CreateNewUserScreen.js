@@ -36,7 +36,7 @@ const categories = [
 function CreateNewUserScreen() {
   return (
     <Screen style={styles.container}>
-      <BackNavigation backgroundColor={colors.white} rightIconColor={colors.white} />
+
       <Text style={[styles.text]}>First, let's create your profile</Text>
       <AppForm
         initialValues={{
@@ -87,7 +87,7 @@ function CreateNewUserScreen() {
           name="age"
           placeholder="Enter your age"
         />
-        <SubmitButton title="Continue" />
+        <SubmitButton title="Continue" nextScreen="NewDogProfileScreen" />
       </AppForm>
     </Screen>
   );

@@ -12,14 +12,14 @@ function TopNav({ title, onPress, backgroundColor, rightIconColor }) {
 
 
       <TouchableOpacity backgroundColor={backgroundColor} style={styles.button}>
-        <Feather name="settings" color={colors.purple} size={40} />
-        
+        <Feather name="settings" color={colors.purple} size={30} />
+
       </TouchableOpacity>
 
       <Text style={styles.text}>{title}</Text>
 
       <TouchableOpacity backgroundColor={backgroundColor} style={styles.button}>
-      <Octicons name="settings" size={40} color={colors.purple} />
+        <Octicons name="settings" size={30} color={colors.purple} />
       </TouchableOpacity>
 
 

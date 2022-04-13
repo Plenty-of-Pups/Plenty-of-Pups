@@ -7,19 +7,19 @@ function DiscoveryTabScreen(props) {
   return (
     <View style={styles.pageContainer}>
       <View style={styles.card}>
-        <Image 
+        <Image
           source={{
             uri: 'https://www.petmd.com/sites/default/files/2020-11/picture-of-shih-tzu-dog.jpg',
           }}
           style={styles.image}
-          />
-        </View>
+        />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  pageContainer: { 
+  pageContainer: {
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,
@@ -31,9 +31,9 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height:'100%',
+    height: '100%',
     borderRadius: 10,
   }
 });
-  
+
 export default DiscoveryTabScreen;

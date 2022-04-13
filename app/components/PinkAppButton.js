@@ -1,8 +1,16 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import colors from "../config/colors";
+import { useNavigation } from '@react-navigation/core';
 
-function PinkAppButton({ title, onPress, color = "pink" }) {
+function PinkAppButton({ title, nextScreen, color = "pink" }) {
+
+  const navigation = useNavigation();
+
+  const onPress = () => {
+    navigation.navigate(nextScreen);
+  }
+
   return (
     <TouchableOpacity
       style={[styles.button, { backgroundColor: colors[color] }]}

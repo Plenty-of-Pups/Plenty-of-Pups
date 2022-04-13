@@ -6,7 +6,7 @@ import {
     StyleSheet,
     Pressable,
     Platform
-} from 'react-native'
+} from 'react-native';
 import colors from "../config/colors";
 import { Feather } from '@expo/vector-icons';
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -41,13 +41,19 @@ const MessageInput = () => {
             keyboardVerticalOffset={50}
         >
             <View style={styles.inputContainer}>
+                <Pressable onPress={onPress} style={styles.sendButtonContainer}>
+                    <TouchableOpacity style={styles.button}>
+                        {onPress ? <Feather name="camera" size={25} color={colors.pink} /> : <Feather name="camera" size={24} color={colors.messageGray} />}
+                    </TouchableOpacity>
+                </Pressable>
                 <TextInput
                     style={styles.input}
                     value={message}
                     placeholder='Type a message...'
                     onChangeText={setMessage}
                 />
-                <Pressable onPress={onPress} style={styles.buttonContainer}>
+
+                <Pressable onPress={onPress} style={styles.sendButtonContainer}>
                     <TouchableOpacity style={styles.button}>
                         {message ? <Feather name="send" size={24} color={colors.pink} /> : <Feather name="send" size={24} color={colors.messageGray} />}
                     </TouchableOpacity>
@@ -75,16 +81,23 @@ const styles = StyleSheet.create({
         shadowOpacity: 1,
         shadowRadius: 8,
         marginVertical: 10,
-        padding: 10
+        padding: 5
     },
     input: {
         flex: 1,
     },
-    buttonContainer: {
+    sendButtonContainer: {
         width: 50,
         height: 50,
         justifyContent: 'center',
         alignItems: "center",
+
+    },
+    picButtonContainer: {
+        width: 50,
+        height: 50,
+        justifyContent: 'center',
+        alignItems: 'center'
 
     }
 })

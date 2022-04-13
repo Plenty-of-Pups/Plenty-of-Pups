@@ -1,8 +1,16 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { useNavigation } from '@react-navigation/core';
 import colors from "../config/colors";
 
-function PurpleAppButton({ title, onPress, color = "accent" }) {
+function PurpleAppButton({ title, nextScreen, color = "accent" }) {
+
+  const navigation = useNavigation();
+
+  const onPress = () => {
+    navigation.navigate(nextScreen);
+  }
+
   return (
     <TouchableOpacity
       style={[styles.button, { backgroundColor: colors[color] }]}

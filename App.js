@@ -1,5 +1,5 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, StackActions } from "@react-navigation/native";
 import Tabs from "./app/navigation/tabs";
 import { View } from "react-native";
 import LoginScreen from "./app/screens/LoginScreen";
@@ -24,25 +24,16 @@ import HumanProfileScreen from "./app/screens/HumanProfileScreen";
 import MatchScreen from "./app/screens/MatchScreen";
 import UserHomeScreen from "./app/screens/UserHomeScreen";
 import DogHomeScreen from "./app/screens/DogHomeScreen";
+import Navigation from "./app/navigation/Navigation";
+
 
 export default function App() {
-  //return <LoginScreen />
-  //return <PremiumScreen />
-  //return <MessagesScreen />
-  //return <DiscoveryScreen />
-  //return <CreateNewUserScreen />
-  //return <NewDogProfileScreen />
-  ///return <EditUserProfileScreen />
-  //return <FAQScreen />
-  //return <SettingScreen />
-  //return <DMScreen />
-  //return <YourDogScreen />
-  //return <YourProfileScreen />
-  //return <OtherDogScreen />
-  //return <HumanProfileScreen/>
-  //return < MatchScreen/>
-  //return <UserHomeScreen />
-  return <DogHomeScreen />
+  return (
+
+    <Navigation />
+
+  );
+
 }
 
 /*// uncomment to test bottom tab navigation

@@ -1,38 +1,50 @@
+
 import React from 'react';
-import { View, StyleSheet, Image, Text } from 'react-native';
+import { View, StyleSheet, Image, Text, Pressable } from 'react-native';
 import { TouchableHighlight } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 import { Swipeable } from 'react-native-gesture-handler';
+
 
 
 import colors from '../config/colors';
 import AppText from './AppText';
 
 
-function MessageItem({ name, message, image, time, numMessages, onPress, renderRightActions }) {
+function MessageItem({ name, message, image, time, numMessages, renderRightActions }) {
+
+    const navigation = useNavigation();
+
+    const onPress = () => {
+        navigation.navigate('DMScreen');
+    }
+
     return (
+
+
         <Swipeable renderRightActions={renderRightActions}>
 
             <TouchableHighlight
                 underlayColor={colors.light}
                 onPress={onPress}>
 
-                <View style={styles.container}>
-                   
+                <Pressable onPress={onPress} style={styles.container}>
+
                     {image && <Image style={styles.image} source={image} />}
 
                     {numMessages ? <View style={styles.badgeContainer}>
                         <Text style={styles.badgeText}>{numMessages}</Text>
-                        </View> : null}
+                    </View> : null}
 
                     <View style={styles.detailsContainer}>
-                        <View style={styles.row}> 
-                        <AppText style={styles.name}>{name}</AppText>
-                        <AppText style={styles.text}>{time}</AppText>
-                        
-                    </View>
+                        <View style={styles.row}>
+                            <AppText style={styles.name}>{name}</AppText>
+                            <AppText style={styles.text}>{time}</AppText>
+
+                        </View>
                         {message && <Text numberOfLines={1} style={styles.message}>{message}</Text>}
                     </View>
-                </View>
+                </Pressable>
             </TouchableHighlight>
         </Swipeable>
     );
@@ -82,12 +94,12 @@ const styles = StyleSheet.create({
     },
     row: {
         flexDirection: 'row',
-        justifyContent: 'space-between',      
+        justifyContent: 'space-between',
     },
     text: {
         color: colors.greytext,
     }
-    
+
 
 });
 

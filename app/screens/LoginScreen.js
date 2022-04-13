@@ -1,13 +1,14 @@
 import React from "react";
-import { StyleSheet, View, Image, Text } from "react-native";
+import { StyleSheet, View, Image, Text, Pressable } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
+
 
 import ErrorMessage from "../components/forms/ErrorMessage";
 import AppText from "../components/AppText";
 import PinkAppButton from "../components/PinkAppButton";
 import PurpleAppButton from "../components/PurpleAppButton";
-import AppTextInput from "../components/AppTextInput";
+
 import Screen from "../components/Screen";
 import colors from "../config/colors";
 
@@ -19,6 +20,9 @@ const validationSchema = Yup.object().shape({
 });
 
 function LoginScreen(props) {
+
+
+
   return (
 
     <View style={styles.background}>
@@ -53,9 +57,10 @@ function LoginScreen(props) {
             textContentType="password"
           />
           <Text style={styles.forgotpassword}>Forgot my password</Text>
-          <SubmitButton title="Login" />
+
+          <SubmitButton title="Login" nextScreen="DiscoveryTabScreen" />
         </AppForm>
-        <PurpleAppButton title="Register"></PurpleAppButton>
+        <PurpleAppButton title="Register" nextScreen="CreateNewUserScreen"></PurpleAppButton>
       </Screen>
     </View>
 

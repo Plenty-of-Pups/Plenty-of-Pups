@@ -61,7 +61,7 @@ function NewDogProfileScreen(props) {
           name="age"
           placeholder="Age (years - if under 1 year old put 1)"
         />
-        <SubmitButton title="Continue" />
+        <SubmitButton title="Continue" nextScreen="DiscoveryTabScreen" />
       </AppForm>
     </Screen>
   );
