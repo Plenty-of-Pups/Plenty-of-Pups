@@ -24,6 +24,7 @@ import HumanProfileScreen from "./app/screens/HumanProfileScreen";
 import MatchScreen from "./app/screens/MatchScreen";
 import UserHomeScreen from "./app/screens/UserHomeScreen";
 import DogHomeScreen from "./app/screens/DogHomeScreen";
+import PreferencesScreen from "./app/screens/PreferencesScreen";
 
 export default function App() {
   //return <LoginScreen />
@@ -42,7 +43,9 @@ export default function App() {
   //return <HumanProfileScreen/>
   //return < MatchScreen/>
   //return <UserHomeScreen />
-  return <DogHomeScreen />;
+  //return <DogHomeScreen />;
+  //return <PreferencesScreen />
+  return < DiscoveryScreen/>
 }
 
 /*// uncomment to test bottom tab navigation
