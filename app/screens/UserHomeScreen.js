@@ -46,16 +46,16 @@ const UserHomeScreen = ({ navigation }) => {
           <Text style={[styles.text]}>Aurora</Text>
           <View style={{ flexDirection: "row" }}>
             <View />
-            <View style={styles.spaceH} />
-            <SmallPinkButton title={"View Profile"} />
+
+            <SmallPinkButton title={"View Profile"} nextScreen={"YourProfileScreen"} />
             <View style={styles.spaceW} />
-            <SmallPinkButton title={"Edit Profile"} />
+            <SmallPinkButton title={"Edit Profile"} nextScreen={"EditUserProfileScreen"} />
           </View>
         </View>
 
         <View style={styles.spaceH} />
         <View style={styles.spaceH} />
-        <PurpleAppButton title={"Log Out"} />
+        <PurpleAppButton title={"Log Out"} nextScreen={"LoginScreen"} />
       </View>
 
     </View>
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     width: 50
   },
   spaceH: {
-    height: 100,
+    height: 50,
 
   },
   text: {

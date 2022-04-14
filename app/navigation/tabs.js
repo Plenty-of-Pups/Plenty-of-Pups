@@ -4,6 +4,7 @@ import DiscoveryScreen from "../screens/DiscoveryScreen";
 import MessagesScreen from "../screens/MessagesScreen";
 import DogHomeScreen from "../screens/DogHomeScreen";
 import UserHomeScreen from "../screens/UserHomeScreen";
+
 import colors from "../config/colors";
 
 const Tab = createBottomTabNavigator();
@@ -58,7 +59,7 @@ const Tabs = () => {
               <Text
                 style={{ color: focused ? "#FF5483" : "#747c94", fontSize: 12 }}
               >
-                Discovery
+
               </Text>
             </View>
           ),
@@ -88,7 +89,7 @@ const Tabs = () => {
               <Text
                 style={{ color: focused ? "#FF5483" : "#747c94", fontSize: 12 }}
               >
-                Messages
+
               </Text>
             </View>
           ),
@@ -118,7 +119,7 @@ const Tabs = () => {
               <Text
                 style={{ color: focused ? "#FF5483" : "#747c94", fontSize: 12 }}
               >
-                Pup
+
               </Text>
             </View>
           ),
@@ -148,7 +149,7 @@ const Tabs = () => {
               <Text
                 style={{ color: focused ? "#FF5483" : "#747c94", fontSize: 12 }}
               >
-                User
+
               </Text>
             </View>
           ),

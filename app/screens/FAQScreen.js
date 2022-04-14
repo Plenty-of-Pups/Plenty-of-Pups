@@ -5,10 +5,9 @@ import { ScrollView } from 'react-native-gesture-handler';
 import Constants from "expo-constants";
 
 
-import Screen from '../components/Screen';
+import BackNavigation from "../components/BackNavigation";
 import colors from '../config/colors';
 import AppText from '../components/AppText';
-import BackNavigation from '../components/BackNavigation';
 import ExpandableList from '../components/ExpandableList';
 
 import {
@@ -32,7 +31,9 @@ function FAQScreen(props) {
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
             style={styles.backgroundContainer}
             keyboardVerticalOffset={55}
+            paddingTop={Constants.statusBarHeight}
         >
+            <BackNavigation title="FAQ" rightIconColor={colors.lightgraybackground} />
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 
                 <View style={styles.inner}>
@@ -98,6 +99,7 @@ const styles = StyleSheet.create({
     backgroundContainer: {
         backgroundColor: colors.lightgraybackground,
         flex: 1,
+        paddingHorizontal: 15
     },
 
 });

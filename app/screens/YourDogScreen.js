@@ -10,7 +10,10 @@ import {
 } from 'react-native';
 import ProfileItem from '../components/DogProfileItem.js';
 import Demo from '../assets/data/demo.js';
+import Constants from "expo-constants";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import BackNavigation from '../components/BackNavigation';
+import colors from '../config/colors';
 
 const YourDogScreen = () => {
   const {
@@ -27,32 +30,26 @@ const YourDogScreen = () => {
   } = Demo[1];
 
   return (
-    
-      <ScrollView style={styles.containerProfile}>
-        <ImageBackground source={image} style={styles.photo}>
-          <View style={styles.top}>
-            <TouchableOpacity>
-              <View style={styles.backIcon}>
-               <MaterialCommunityIcons name="keyboard-backspace" color="#F17C87" size={40} />
-              </View>
-              
-            </TouchableOpacity>
-          </View>
-          
-        </ImageBackground>
 
-        <ProfileItem
-          dogName={dogName}
-          breed={breed}
-          age={age}
-          size={size}
-          neutered={neutered}
-		      hobby={hobby}
-		      snack={snack}
-          info1={info1}
-          gender={gender} 
-        />
-      </ScrollView>
+    <ScrollView style={styles.containerProfile} paddingTop={Constants.statusBarHeight}>
+      <BackNavigation title={"View Pets Profile"} rightIconColor={colors.beigebackground} />
+      <ImageBackground source={image} style={styles.photo}>
+
+
+      </ImageBackground>
+
+      <ProfileItem
+        dogName={dogName}
+        breed={breed}
+        age={age}
+        size={size}
+        neutered={neutered}
+        hobby={hobby}
+        snack={snack}
+        info1={info1}
+        gender={gender}
+      />
+    </ScrollView>
   );
 };
 

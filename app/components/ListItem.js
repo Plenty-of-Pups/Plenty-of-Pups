@@ -1,11 +1,18 @@
 import React from 'react';
-import { View, StyleSheet, TouchableHighlight } from 'react-native';
+import { View, StyleSheet, Pressable, TouchableHighlight } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import AppText from './AppText';
 
 import colors from '../config/colors';
 
-function ListItem({ title, leftIconComponent, rightIconComponent, onPress }) {
+function ListItem({ title, leftIconComponent, rightIconComponent, nextScreen }) {
+    const navigation = useNavigation();
+
+    const onPress = () => {
+        navigation.navigate(nextScreen);
+    }
     return (
 
         <View style={styles.container}>
@@ -13,10 +20,8 @@ function ListItem({ title, leftIconComponent, rightIconComponent, onPress }) {
             <View style={styles.detailsContainer}>
                 <AppText style={styles.title}>{title}</AppText>
             </View>
-            <View style={styles.rightContainer}>
 
-                {rightIconComponent}
-            </View>
+            {nextScreen ? <TouchableOpacity onPress={onPress} style={styles.rightContainer}>{rightIconComponent}</TouchableOpacity> : <TouchableOpacity style={styles.rightContainer}>{rightIconComponent}</TouchableOpacity>}
         </View>
     );
 }

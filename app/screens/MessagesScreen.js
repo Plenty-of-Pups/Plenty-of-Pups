@@ -4,6 +4,7 @@ import { FlatList, View, StyleSheet, Text, Platform, StatusBar } from 'react-nat
 
 
 
+
 import Constants from "expo-constants";
 import MessageItem from '../components/MessageItem';
 import ListItemSeparator from '../components/ListItemSeparator';
@@ -58,15 +59,18 @@ function MessagesScreen(props) {
     };
 
     return (
-        <View>
+        <View View paddingTop={Constants.statusBarHeight}>
+            <TopNav title="Matches" />
             <FlatList
+
                 horizontal
 
                 data={messages}
                 keyExtractor={message => message.id.toString()}
                 renderItem={({ item }) => (
                     <PicIcon
-                        image={item.image} />
+                        image={item.image}
+                        humanProfile={"HumanProfileScreen"} />
                 )}>
 
             </FlatList>

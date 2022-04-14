@@ -5,6 +5,7 @@ import {
   KeyboardAvoidingView,
   StatusBar,
 } from "react-native";
+import Constants from "expo-constants";
 import { ScrollView } from "react-native-gesture-handler";
 import * as Yup from "yup";
 
@@ -36,15 +37,16 @@ const genderCategories = [
 function EditUserProfileScreen(props) {
   return (
     <KeyboardAvoidingView
-      style={styles.container}
+      paddingTop={Constants.statusBarHeight}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
-      <ScrollView keyboardShouldPersistTaps="always" style={styles.scrollView}>
-        <BackNavigation
-          title="Edit Your Profile"
-          backgroundColor={colors.white}
-          rightIconColor={colors.pink}
-        />
+      <BackNavigation
+        title="Edit Your Profile"
+        rightIconColor={colors.pink}
+      />
+
+      <ScrollView keyboardShouldPersistTaps="always" style={styles.scrollView} >
+
         <AppForm
           initialValues={{
             name: "",
@@ -94,7 +96,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   scrollView: {
-    marginVertical: 50,
+    marginVertical: 15,
   },
 });
 

@@ -5,29 +5,19 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import colors from '../config/colors';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import { boolean } from 'yup';
+import Constants from "expo-constants";
+import BackNavigation from '../components/BackNavigation';
 import { Touchable } from 'react-native-web';
 
 
 
 
-const PreferencesScreen = () => {
+function PreferencesScreen() {
   const [sliderValue, setSliderValue] = useState(50);
 
   return (
-    <View style={styles.background}>
-
-      <View style={styles.container}>
-        <Text style={styles.header}>Match Preferences</Text>
-      </View>
-
-      <View style={styles.rowContainer}>
-        <TouchableOpacity>
-          <Text style={styles.backText}>Back</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={styles.saveText}>Save</Text>
-        </TouchableOpacity>
-      </View>
+    <View style={styles.background} paddingTop={Constants.statusBarHeight}>
+      <BackNavigation title="Match Preferences" rightIconColor={colors.pink} />
 
       <View style={styles.section}></View>
 
@@ -191,9 +181,8 @@ const styles = StyleSheet.create({
 
   background: {
     flex: 1,
-    marginTop: 20,
     backgroundColor: 'white',
-    paddingHorizontal: 30,
+
   },
 
   container: {

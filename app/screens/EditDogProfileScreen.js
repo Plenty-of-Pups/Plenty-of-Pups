@@ -56,7 +56,6 @@ function EditDogProfileScreen(props) {
       <ScrollView style={styles.scrollView}>
         <BackNavigation
           title="Edit Pet's Profile"
-          backgroundColor={colors.white}
           rightIconColor={colors.pink}
         />
         <AppForm

@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, KeyboardAvoidingView } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
+import Constants from "expo-constants";
 import * as Yup from "yup";
 
 import {
@@ -33,14 +34,15 @@ function NewDogProfileScreen(props) {
   return (
     // <Screen style={styles.container}>
     <KeyboardAvoidingView
-      style={styles.container}
+      paddingTop={Constants.statusBarHeight}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
+
+      <BackNavigation rightIconColor={colors.beigebackground}
+      />
+
       <ScrollView style={styles.scrollView}>
-        <BackNavigation
-          backgroundColor={colors.white}
-          rightIconColor={colors.white}
-        />
+
         <Text style={[styles.text]}>Next, tell us a little about your pup</Text>
         <AppForm
           initialValues={{
@@ -91,7 +93,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   scrollView: {
-    marginVertical: 50,
+    marginVertical: 0,
   },
 });
 export default NewDogProfileScreen;

@@ -36,14 +36,13 @@ const categories = [
 function CreateNewUserScreen() {
   return (
     <KeyboardAvoidingView
-      style={styles.container}
+      paddingTop={Constants.statusBarHeight}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
+      <BackNavigation rightIconColor={colors.beigebackground}
+      />
       <ScrollView style={styles.scrollView}>
-        <BackNavigation
-          backgroundColor={colors.white}
-          rightIconColor={colors.white}
-        />
+
         <Text style={[styles.text]}>First, let's create your profile</Text>
         <AppForm
           initialValues={{
@@ -116,7 +115,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   scrollView: {
-    marginVertical: 50,
+    marginVertical:
+      0,
   },
 });
 

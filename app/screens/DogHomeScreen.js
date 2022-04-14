@@ -47,13 +47,13 @@ const UserHomeScreen = ({ navigation }) => {
           <View style={{ flexDirection: "row" }}>
             <View />
             <View style={styles.spaceH} />
-            <SmallPinkButton title={"View Profile"} />
+            <SmallPinkButton title={"View Profile"} nextScreen={"YourDogScreen"} />
             <View style={styles.spaceW} />
-            <SmallPinkButton title={"Edit Profile"} />
+            <SmallPinkButton title={"Edit Profile"} nextScreen={"EditDogProfileScreen"} />
           </View>
         </View>
 
-        <PurpleAppButton title={"Add New Dog"} />
+        <PurpleAppButton title={"Add New Dog"} nextScreen={"PremiumScreen"} />
       </View>
 
     </View>

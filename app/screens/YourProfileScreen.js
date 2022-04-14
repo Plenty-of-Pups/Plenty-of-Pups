@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../assets/styles';
+import Constants from "expo-constants";
 import {
   ScrollView,
   View,
@@ -10,6 +11,8 @@ import {
 import ProfileItem from '../components/ProfileItem.js';
 import Demo from '../assets/data/demo.js';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import BackNavigation from '../components/BackNavigation';
+import colors from '../config/colors';
 
 const YourProfileScreen = () => {
   const {
@@ -23,27 +26,22 @@ const YourProfileScreen = () => {
   } = Demo[7];
 
   return (
-    
-      <ScrollView style={styles.containerProfile}>
-        <ImageBackground source={image} style={styles.photo}>
-          <View style={styles.top}>
-            <TouchableOpacity>
-              <View style={styles.backIcon}>
-               <MaterialCommunityIcons name="keyboard-backspace" color="#F17C87" size={40} />
-              </View>
-            </TouchableOpacity>
-          </View>
-        </ImageBackground>
 
-        <ProfileItem
-          name={name}
-          age={age}
-          location={location}
-          info1={info1}
-          dog={dog}
-          dogImage={dogImage}
-        />
-      </ScrollView>
+    <ScrollView style={styles.containerProfile} paddingTop={Constants.statusBarHeight}>
+      <BackNavigation title={"View Your Profile"} rightIconColor={colors.beigebackground} />
+      <ImageBackground source={image} style={styles.photo}>
+
+      </ImageBackground>
+
+      <ProfileItem
+        name={name}
+        age={age}
+        location={location}
+        info1={info1}
+        dog={dog}
+        dogImage={dogImage}
+      />
+    </ScrollView>
   );
 };
 

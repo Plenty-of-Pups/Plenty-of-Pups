@@ -14,6 +14,7 @@ function DiscoveryTabScreen(props) {
           style={styles.image}
         />
       </View>
+
     </View>
   );
 };

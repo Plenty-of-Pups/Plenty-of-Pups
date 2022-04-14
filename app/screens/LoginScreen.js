@@ -58,7 +58,7 @@ function LoginScreen(props) {
           />
           <Text style={styles.forgotpassword}>Forgot my password</Text>
 
-          <SubmitButton title="Login" nextScreen="DiscoveryTabScreen" />
+          <SubmitButton title="Login" nextScreen="DiscoveryScreen" />
         </AppForm>
         <PurpleAppButton title="Register" nextScreen="CreateNewUserScreen"></PurpleAppButton>
       </Screen>

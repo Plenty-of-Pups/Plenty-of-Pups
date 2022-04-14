@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
+import Constants from "expo-constants";
 
 
 import ListItem from '../components/ListItem';
@@ -74,6 +75,7 @@ const securityItems = [
 const help = [
     {
         title: "FAQ",
+        screen: "FAQScreen",
         lefticon: {
             name: "information-outline",
             backgroundColor: colors.white,
@@ -107,106 +109,108 @@ const account = [
 
 function SettingScreen(props) {
     return (
-        <View style={styles.backgroundContainer}>
-            <Screen>
-                <BackNavigation title="Settings"
-                    rightIconColor={colors.lightgraybackground}
-                    backgroundColor={colors.lightgraybackground} />
+        <View paddingTop={Constants.statusBarHeight} >
+
+            <BackNavigation title="Settings"
+                rightIconColor={colors.beigebackground}
+            />
 
 
-                <View style={styles.container}>
-                    <AppText style={styles.title}>Accessibility</AppText>
-                    <FlatList
-                        data={accessibilityItems}
-                        keyExtractor={menuItem => menuItem.title}
-                        renderItem={({ item }) =>
-                            <ListItem
-                                title={item.title}
-                                leftIconComponent={
-                                    <Icon name={item.lefticon.name}
-                                        backgroundColor={item.lefticon.backgroundColor}
-                                        iconColor={item.lefticon.iconColor} />
-                                }
-                                rightIconComponent={
-                                    <ToggleSwitch />
-                                } />
-                        }
-                    />
-                </View>
+            <View style={styles.container}>
+                <AppText style={styles.title}>Accessibility</AppText>
+                <FlatList
+                    data={accessibilityItems}
+                    keyExtractor={menuItem => menuItem.title}
+                    renderItem={({ item }) =>
+                        <ListItem
+                            title={item.title}
+                            leftIconComponent={
+                                <Icon name={item.lefticon.name}
+                                    backgroundColor={item.lefticon.backgroundColor}
+                                    iconColor={item.lefticon.iconColor} />
+                            }
+                            rightIconComponent={
+                                <ToggleSwitch />
+                            } />
+                    }
+                />
+            </View>
 
-                <View style={styles.container}>
-                    <AppText style={styles.title}>Security</AppText>
-                    <FlatList
-                        data={securityItems}
-                        keyExtractor={menuItem => menuItem.title}
-                        renderItem={({ item }) =>
-                            <ListItem
-                                title={item.title}
-                                leftIconComponent={
-                                    <Icon name={item.lefticon.name}
-                                        backgroundColor={item.lefticon.backgroundColor}
-                                        iconColor={item.lefticon.iconColor} />
-                                }
-                                rightIconComponent={
-                                    <Icon name={item.righticon.name}
-                                        backgroundColor={item.righticon.backgroundColor}
-                                        iconColor={item.righticon.iconColor}
-                                        size={item.righticon.size} />
-                                } />
-                        }
-                    />
-                </View>
+            <View style={styles.container}>
+                <AppText style={styles.title}>Security</AppText>
+                <FlatList
+                    data={securityItems}
+                    keyExtractor={menuItem => menuItem.title}
+                    renderItem={({ item }) =>
+                        <ListItem
+                            title={item.title}
+                            leftIconComponent={
+                                <Icon name={item.lefticon.name}
+                                    backgroundColor={item.lefticon.backgroundColor}
+                                    iconColor={item.lefticon.iconColor} />
+                            }
+                            rightIconComponent={
+                                <Icon name={item.righticon.name}
+                                    backgroundColor={item.righticon.backgroundColor}
+                                    iconColor={item.righticon.iconColor}
+                                    size={item.righticon.size} />
+                            } />
+                    }
+                />
+            </View>
 
-                <View style={styles.container}>
-                    <AppText style={styles.title}>Help</AppText>
-                    <FlatList
-                        data={help}
-                        keyExtractor={menuItem => menuItem.title}
-                        renderItem={({ item }) =>
-                            <ListItem
-                                title={item.title}
-                                leftIconComponent={
-                                    <Icon name={item.lefticon.name}
-                                        backgroundColor={item.lefticon.backgroundColor}
-                                        iconColor={item.lefticon.iconColor} />
-                                }
-                                rightIconComponent={
-                                    <Icon name={item.righticon.name}
-                                        backgroundColor={item.righticon.backgroundColor}
-                                        iconColor={item.righticon.iconColor}
-                                        size={item.righticon.size} />
-                                } />
-                        }
-                    />
-                </View>
+            <View style={styles.container}>
+                <AppText style={styles.title}>Help</AppText>
+                <FlatList
+                    data={help}
+                    keyExtractor={menuItem => menuItem.title}
+                    renderItem={({ item }) =>
+                        <ListItem
+                            nextScreen={item.screen}
+                            title={item.title}
+                            leftIconComponent={
+                                <Icon name={item.lefticon.name}
+                                    backgroundColor={item.lefticon.backgroundColor}
+                                    iconColor={item.lefticon.iconColor} />
+                            }
+                            rightIconComponent={
+                                <Icon name={item.righticon.name}
+                                    backgroundColor={item.righticon.backgroundColor}
+                                    iconColor={item.righticon.iconColor}
+                                    size={item.righticon.size} />
+                            } />
+                    }
+                />
+            </View>
 
-                <View style={styles.container}>
-                    <AppText style={styles.title}>Account</AppText>
-                    <FlatList
-                        data={account}
-                        keyExtractor={menuItem => menuItem.title}
-                        renderItem={({ item }) =>
-                            <ListItem
-                                title={item.title}
-                                leftIconComponent={
-                                    <Icon name={item.lefticon.name}
-                                        backgroundColor={item.lefticon.backgroundColor}
-                                        iconColor={item.lefticon.iconColor} />
-                                }
-                                rightIconComponent={
-                                    <Icon name={item.righticon.name}
-                                        backgroundColor={item.righticon.backgroundColor}
-                                        iconColor={item.righticon.iconColor}
-                                        size={item.righticon.size} />
-                                } />
-                        }
-                    />
-                </View>
-                <View paddingTop={30}>
-                    <PurpleAppButton title="Log Out"></PurpleAppButton>
-                </View>
+            <View style={styles.container}>
+                <AppText style={styles.title}>Account</AppText>
+                <FlatList
+                    data={account}
+                    keyExtractor={menuItem => menuItem.title}
+                    renderItem={({ item }) =>
+                        <ListItem
+                            title={item.title}
+                            leftIconComponent={
+                                <Icon name={item.lefticon.name}
+                                    backgroundColor={item.lefticon.backgroundColor}
+                                    iconColor={item.lefticon.iconColor} />
+                            }
+                            rightIconComponent={
+                                <Icon name={item.righticon.name}
+                                    backgroundColor={item.righticon.backgroundColor}
+                                    iconColor={item.righticon.iconColor}
+                                    size={item.righticon.size} />
+                            }
+                        />
+                    }
+                />
+            </View>
+            <View paddingTop={30}>
+                <PurpleAppButton title="Log Out" nextScreen={"LoginScreen"}></PurpleAppButton>
+            </View>
 
-            </Screen>
+
         </View>
     );
 }
@@ -217,7 +221,7 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         backgroundColor: colors.white,
         marginHorizontal: 15,
-        marginVertical: 10
+        marginVertical: 10,
     },
     backgroundContainer: {
         backgroundColor: colors.lightgraybackground,

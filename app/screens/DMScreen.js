@@ -7,13 +7,16 @@ import Message from '../components/Message';
 import chatRoomData from '../assets/Chats'
 import { FlatList } from 'react-native-gesture-handler';
 import MessageInput from '../components/MessageInput';
-import { useRoute } from '@react-navigation/core';
+import { useRoute, useNavigation } from '@react-navigation/core';
 
 
 export default function DMScreen() {
     const route = useRoute();
+    const navigation = useNavigation();
 
     console.warn("Displaying chatroom: ", route.params?.id)
+
+    navigation.setOptions({ title: 'Elon Musk' })
 
     return (
 

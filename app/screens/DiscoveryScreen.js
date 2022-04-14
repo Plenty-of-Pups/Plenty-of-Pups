@@ -7,12 +7,23 @@ import colors from "../config/colors";
 import Constants from "expo-constants";
 import TopNav from "../components/TopNav";
 import Demo from '../assets/data/demo2.js';
-import { Ionicons } from '@expo/vector-icons'; 
+import { useNavigation } from '@react-navigation/core';
+import { Ionicons } from '@expo/vector-icons';
 import { clickProps } from "react-native-web/dist/cjs/modules/forwardedProps";
 
 // import styles from "../config/styles";
 
 const DiscoveryScreen = () => {
+
+  const navigation = useNavigation();
+
+  const humanProfile = () => {
+    navigation.navigate("HumanProfileScreen");
+  }
+  const matchScreen = () => {
+    navigation.navigate("MatchScreen");
+  }
+
   const {
     dogName,
     breed,
@@ -20,44 +31,51 @@ const DiscoveryScreen = () => {
     distance,
     info1,
     gender,
-    dogImage
+    dogImage,
+    match
   } = Demo[0];
   const {
     name,
     image
   } = Demo[8];
-  
+
   return (
     <View paddingTop={Constants.statusBarHeight}>
       <TopNav title="Discovery" />
-        <Screen backgroundColor={colors.beigebackground}>
-          
-          <View alignItems='center' paddingTop={15}>
-            <Image source={dogImage} style={{height: 500, width: 350, borderRadius: 10, justifyContent: 'center'}}>
-            </Image>
-          </View>
+      <Screen backgroundColor={colors.beigebackground}>
 
-          <View style={style.profileCard}>
-            <Text style={style.dogName}>{dogName}</Text>
-            <Image source={gender} style={style.genderIcon}></Image>
-            <Image source={image} style={style.profileImage}></Image>
-            <Text style={style.ownerName}>My human:</Text>
-            <Text style={style.ownerName2}>{name}</Text>
-            <Text style={style.line2}>{breed}, {age}</Text>
-            <Ionicons style={style.pin} name="location-sharp" size={24} color={colors.pink} />
-            <Text style={style.distance}>Distance: {distance}</Text>
-            <Text style={style.bio}>{info1}</Text>
-          </View>
+        <View alignItems='center' paddingTop={15}>
+          <Image source={dogImage} style={{ height: 500, width: 350, borderRadius: 10, justifyContent: 'center' }}>
+          </Image>
+        </View>
 
-          <TouchableOpacity style={[style.xButton, 
-          { backgroundColor: colors.white }]}>
-            <Ionicons name="md-close" size={40} color={colors.accent} />
-          </TouchableOpacity>
-          <TouchableOpacity style={[style.heartButton, 
-          { backgroundColor: colors.pink }]}>
-            <Ionicons name="ios-heart-outline" size={40} color={colors.white} />
-          </TouchableOpacity>
-        </Screen>
+        <View style={style.profileCard}>
+          <Text style={style.dogName}>{dogName}</Text>
+          <Image source={gender} style={style.genderIcon}></Image>
+          <View marginTop={125}>
+            <TouchableOpacity onPress={humanProfile}>
+
+              <Image onPress={humanProfile} source={image} style={style.profileImage}></Image>
+              <Text style={style.ownerName}>My human:</Text>
+              <Text style={style.ownerName2}>{name}</Text>
+            </TouchableOpacity>
+
+          </View>
+          <Text style={style.line2}>{breed}, {age}</Text>
+          <Ionicons style={style.pin} name="location-sharp" size={24} color={colors.pink} />
+          <Text style={style.distance}>Distance: {distance}</Text>
+          <Text style={style.bio}>{info1}</Text>
+        </View>
+
+        <TouchableOpacity style={[style.xButton,
+        { backgroundColor: colors.white }]}>
+          <Ionicons name="md-close" size={40} color={colors.accent} />
+        </TouchableOpacity>
+        {{ match } && <TouchableOpacity onPress={matchScreen} style={[style.heartButton,
+        { backgroundColor: colors.pink }]}>
+          <Ionicons name="ios-heart-outline" size={40} color={colors.white} />
+        </TouchableOpacity>}
+      </Screen>
     </View>
   );
 };
@@ -71,7 +89,7 @@ const style = StyleSheet.create({
     backgroundColor: "#F8F4F1",
   },
   profileCard: {
-		height: 190,
+    height: 190,
     width: 330,
     backgroundColor: "white",
     alignSelf: "center",
@@ -86,22 +104,21 @@ const style = StyleSheet.create({
     marginTop: 410
   },
   dogName: {
-    bottom: 65,
     left: 70,
-		fontSize: 25,
-	},
+    fontSize: 25,
+  },
   genderIcon: {
-    bottom: 90,
-		left: 130,
-		width: 20,
-		height: 20,
+    bottom: 25,
+    left: 130,
+    width: 20,
+    height: 20,
   },
   profileImage: {
     left: 220,
-		bottom: 70,
-		width: 80,
-		height: 80,
-		borderRadius: 150 / 2,
+    bottom: 70,
+    width: 80,
+    height: 80,
+    borderRadius: 150 / 2,
     position: 'absolute'
   },
   ownerName: {
@@ -117,33 +134,33 @@ const style = StyleSheet.create({
   line2: {
     bottom: 125,
     left: 25,
-		fontSize: 18,
+    fontSize: 18,
     position: 'absolute'
-	},
+  },
   pin: {
-    position:'absolute',
+    position: 'absolute',
     bottom: 94,
-		left: 25,
-		width: 20,
-		height: 30,
+    left: 25,
+    width: 20,
+    height: 30,
   },
   distance: {
     bottom: 100,
     left: 50,
-		fontSize: 18,
+    fontSize: 18,
     position: 'absolute'
-	},
+  },
   bio: {
     bottom: 20,
     left: 12,
-		fontSize: 15,
+    fontSize: 15,
     width: 200,
     position: 'absolute',
     color: colors.greytext,
     textAlign: 'center'
-	},
+  },
   xButton: {
-    borderRadius: 150/2,
+    borderRadius: 150 / 2,
     justifyContent: "center",
     alignItems: "center",
     padding: 15,
@@ -156,11 +173,11 @@ const style = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 8,
     position: 'absolute',
-    top: 620,
-    left: 100
+    top: 590,
+    left: 80
   },
   heartButton: {
-    borderRadius: 150/2,
+    borderRadius: 150 / 2,
     justifyContent: "center",
     alignItems: "center",
     padding: 15,
@@ -173,8 +190,8 @@ const style = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 8,
     position: 'absolute',
-    top: 620,
-    right: 100
+    top: 590,
+    right: 80
   },
 });
 

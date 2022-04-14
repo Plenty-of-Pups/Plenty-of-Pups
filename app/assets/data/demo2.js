@@ -8,10 +8,11 @@ module.exports = [
 		neutered: 'Yes',
 		hobby: 'Taking naps',
 		snack: 'Blueberries',
-        distance: '4.8 mi',
+		distance: '4.8 mi',
 		info1: 'I may be a little shy at first but I love to make new friends! Especially those with lots of energy (just like me!)',
 		gender: require('../images/female.png'),
-		dogImage: require('../images/Bella.jpg')
+		dogImage: require('../images/Bella.jpg'),
+		match: 1
 	},
 	{
 		id: 2,
@@ -22,10 +23,10 @@ module.exports = [
 		neutered: 'Yes',
 		hobby: 'Sleep',
 		snack: 'Dog Biscuit',
-        distance: '8.3 mi',
+		distance: '8.3 mi',
 		info1: 'My fashion philosophy is, if you are not covered in dog hair, your life is empty.',
 		gender: require('../images/male.png'),
-		dogImage: require('../images/Bob.jpg')
+		dogImage: require('../images/Bob.jpg'),
 	},
 	{
 		id: 3,

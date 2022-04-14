@@ -8,9 +8,12 @@ import {
   TouchableOpacity,
   Image
 } from 'react-native';
+import Constants from "expo-constants";
 import ProfileItem from '../components/ProfileItem.js';
+import BackNavigation from '../components/BackNavigation';
 import Demo from '../assets/data/demo.js';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import colors from '../config/colors';
 
 const HumanProfileScreen = () => {
   const {
@@ -24,28 +27,22 @@ const HumanProfileScreen = () => {
   } = Demo[8];
 
   return (
-    
-      <ScrollView style={styles.containerProfile}>
-        <ImageBackground source={image} style={styles.photo}>
-          <View style={styles.top}>
-            <TouchableOpacity>
-              <View style={styles.backIcon}>
-               <MaterialCommunityIcons name="keyboard-backspace" color="#F17C87" size={40} />
-              </View>
-              
-            </TouchableOpacity>
-          </View>
-        </ImageBackground>
-      
-        <ProfileItem
-          name={name}
-          age={age}
-          location={location}
-          info1={info1}
-          dog={dog}
-          dogImage={dogImage}
-        />
-      </ScrollView>
+
+    <ScrollView style={styles.containerProfile} paddingTop={Constants.statusBarHeight}>
+      <BackNavigation rightIconColor={colors.beigebackground} title={name} />
+      <ImageBackground source={image} style={styles.photo}>
+
+      </ImageBackground>
+
+      <ProfileItem
+        name={name}
+        age={age}
+        location={location}
+        info1={info1}
+        dog={dog}
+        dogImage={dogImage}
+      />
+    </ScrollView>
   );
 };
 

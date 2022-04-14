@@ -1,20 +1,30 @@
 import React from "react";
 import { View, StyleSheet, Image, Text } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 
 
 import ListItemSeparator from '../components/ListItemSeparator';
 import colors from '../config/colors';
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 
 
 
 
 
-function PicIcon({ image, name }) {
+function PicIcon({ image, humanProfile }) {
+    const navigation = useNavigation();
+
+    const onPress = () => {
+        navigation.navigate(humanProfile);
+    }
     return (
 
         <View style={styles.container}>
-            <Image style={styles.image} source={image} />
+            <TouchableOpacity onPress={onPress} >
+
+                <Image style={styles.image} source={image} />
+            </TouchableOpacity>
 
         </View>
 
