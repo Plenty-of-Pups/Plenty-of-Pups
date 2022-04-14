@@ -10,7 +10,7 @@ import colors from '../config/colors';
 function MatchScreen(props) {
     return (
         <View style={styles.container}>
-            <BackNavigation nextScreen={"DiscoveryScreen"} backgroundColor={colors.beigebackground} rightIconColor={colors.white} />
+
 
             <Text style={styles.congratulations}>Congratulations!</Text>
             <Text style={styles.match}>It's a match!</Text>

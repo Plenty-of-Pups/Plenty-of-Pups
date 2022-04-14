@@ -85,7 +85,7 @@ function RootNavigator() {
             />
             <Stack.Screen
                 name="MatchScreen"
-                options={{ headerShown: false }}
+                options={{ headerBackTitleVisible: false }}
                 component={MatchScreen}
             />
             <Stack.Screen

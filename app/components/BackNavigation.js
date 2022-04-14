@@ -13,7 +13,7 @@ function BackNavigation({ title, backgroundColor, nextScreen, rightIconColor }) 
     navigation.dispatch(popAction);
   }
   const onPressBack = () => {
-    navigation.navigate("DiscoveryScreen");
+    navigation.dispatch(popAction);
   }
   return (
 
@@ -21,19 +21,16 @@ function BackNavigation({ title, backgroundColor, nextScreen, rightIconColor }) 
 
     <View backgroundColor={backgroundColor} style={styles.toolbarContainer}>
 
-      {{ nextScreen } ? <TouchableOpacity backgroundColor={backgroundColor} style={styles.button} onPress={onPressBack}>
-        <MaterialCommunityIcons name="chevron-left" color={colors.pink} size={40} />
-        <Text style={styles.backText}>Back</Text></TouchableOpacity> : <TouchableOpacity backgroundColor={backgroundColor} style={styles.button} onPress={onPressPop}>
+      <TouchableOpacity backgroundColor={backgroundColor} style={styles.button} onPress={onPressPop}>
         <MaterialCommunityIcons name="chevron-left" color={colors.pink} size={40} />
         <Text style={styles.backText}>Back</Text>
-      </TouchableOpacity>}
+      </TouchableOpacity>
 
       <Text style={styles.text}>{title}</Text>
 
-      <TouchableOpacity backgroundColor={backgroundColor} style={styles.button} onPress={onPressPop}>
+      {<TouchableOpacity backgroundColor={backgroundColor} style={styles.button} onPress={onPressPop} >
         <Text style={{ color: rightIconColor, textAlignVertical: "center", fontWeight: "bold", marginRight: 5 }}>Save</Text>
-      </TouchableOpacity>
-
+      </TouchableOpacity>}
 
 
 
