@@ -3,7 +3,6 @@ import { StyleSheet, View, Image, Text, Pressable } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
-
 import ErrorMessage from "../components/forms/ErrorMessage";
 import AppText from "../components/AppText";
 import PinkAppButton from "../components/PinkAppButton";
@@ -20,11 +19,7 @@ const validationSchema = Yup.object().shape({
 });
 
 function LoginScreen(props) {
-
-
-
   return (
-
     <View style={styles.background}>
       <Screen>
         <Image style={styles.logo} source={require("../assets/PofP1.png")} />
@@ -60,10 +55,13 @@ function LoginScreen(props) {
 
           <SubmitButton title="Login" nextScreen="DiscoveryScreen" />
         </AppForm>
-        <PurpleAppButton title="Register" nextScreen="CreateNewUserScreen"></PurpleAppButton>
+        <PurpleAppButton
+          title="Register"
+          nextScreen="CreateNewUserScreen"
+        ></PurpleAppButton>
       </Screen>
+      <View style={styles.bottom}></View>
     </View>
-
   );
 }
 
@@ -83,6 +81,9 @@ const styles = StyleSheet.create({
     color: colors.greytext,
     fontSize: 14,
     alignSelf: "center",
+  },
+  bottom: {
+    height: 100,
   },
 });
 // function LoginScreen(props) {

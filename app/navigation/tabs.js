@@ -13,13 +13,12 @@ const Tabs = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-
-        "tabBarShowLabel": false,
-        "tabBarStyle": [
+        tabBarShowLabel: false,
+        tabBarStyle: [
           {
-            "display": "flex"
+            display: "flex",
           },
-          null
+          null,
         ],
 
         showLabel: false,
@@ -58,9 +57,7 @@ const Tabs = () => {
               />
               <Text
                 style={{ color: focused ? "#FF5483" : "#747c94", fontSize: 12 }}
-              >
-
-              </Text>
+              ></Text>
             </View>
           ),
         }}
@@ -88,9 +85,7 @@ const Tabs = () => {
               />
               <Text
                 style={{ color: focused ? "#FF5483" : "#747c94", fontSize: 12 }}
-              >
-
-              </Text>
+              ></Text>
             </View>
           ),
         }}
@@ -118,9 +113,7 @@ const Tabs = () => {
               />
               <Text
                 style={{ color: focused ? "#FF5483" : "#747c94", fontSize: 12 }}
-              >
-
-              </Text>
+              ></Text>
             </View>
           ),
         }}
@@ -148,9 +141,7 @@ const Tabs = () => {
               />
               <Text
                 style={{ color: focused ? "#FF5483" : "#747c94", fontSize: 12 }}
-              >
-
-              </Text>
+              ></Text>
             </View>
           ),
         }}
