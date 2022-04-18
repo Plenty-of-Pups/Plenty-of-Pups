@@ -3,6 +3,10 @@ import { View, Text, ScrollView, StyleSheet , TouchableOpacity} from 'react-nati
 import Slider from '@react-native-community/slider';
 import colors from '../config/colors';
 import NumericInput from 'react-native-numeric-input';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import BackNavigation from '../components/BackNavigation';
+import { Touchable } from 'react-native-web';
+import Constants from "expo-constants";
 
 
 const Checkbox = ({ onValueChange, selected }) => (
@@ -34,20 +38,8 @@ const toggleCheckbox7 = () => setSelected7(!isSelected7);
 const toggleCheckbox8 = () => setSelected8(!isSelected8);
 
   return (
-    <ScrollView style={styles.background}>
-
-        <View style={styles.container}>
-          <Text style={styles.header}>Match Preferences</Text>
-        </View>
-
-        <View style={styles.rowContainer}>
-          <TouchableOpacity>
-          <Text style={styles.backText}>Back</Text>
-          </TouchableOpacity>
-          <TouchableOpacity>
-          <Text style={styles.saveText}>Save</Text>
-          </TouchableOpacity>
-        </View>
+    <ScrollView style={styles.background} paddingTop={Constants.statusBarHeight}>
+      <BackNavigation title="Match Preferences" rightIconColor={colors.pink} />
 
         <View style={styles.section}></View>
 
@@ -272,7 +264,6 @@ const styles = StyleSheet.create({
 
   background: {
     flex: 1,
-    marginTop: 20,
     backgroundColor: 'white',
     paddingHorizontal: 30,
   },
