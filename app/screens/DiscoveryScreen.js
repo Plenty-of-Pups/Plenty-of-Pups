@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, Button, TouchableOpacity, ImageBackground, Image } from "react-native";
+
+/*import React, { useState, useEffect } from "react";
+import { View, StyleSheet,  FlatList, Text, Button, TouchableOpacity, ImageBackground, Image } from "react-native";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Screen from "../components/Screen";
 import { DataStore } from '@aws-amplify/datastore';
@@ -11,7 +12,14 @@ import TopNav from "../components/TopNav";
 import Demo from '../assets/data/demo2.js';
 import { useNavigation } from '@react-navigation/core';
 import { Ionicons } from '@expo/vector-icons';
+import {
+  FlingGestureHandler,
+  Directions,
+  State,
+} from 'react-native-gesture-handler';
+import DiscoveryComponent from "../components/DiscoveryComponent";
 import { clickProps } from "react-native-web/dist/cjs/modules/forwardedProps";
+import DiscoveryTabScreen from "./DiscoveryTabScreen";
 
 // import styles from "../config/styles";
 
@@ -55,29 +63,8 @@ const DiscoveryScreen = () => {
     <View paddingTop={Constants.statusBarHeight}>
       <TopNav title="Discovery" />
       <Screen backgroundColor={colors.beigebackground}>
+        <DiscoveryComponent />
 
-        <View alignItems='center' paddingTop={15}>
-          <Image source={dogImage} style={{ height: 500, width: 350, borderRadius: 10, justifyContent: 'center' }}>
-          </Image>
-        </View>
-
-        <View style={style.profileCard}>
-          <Text style={style.dogName}>{dogName}</Text>
-          <Image source={gender} style={style.genderIcon}></Image>
-          <View marginTop={125}>
-            <TouchableOpacity onPress={humanProfile}>
-
-              <Image onPress={humanProfile} source={users.imageUri} style={style.profileImage}></Image>
-              <Text style={style.ownerName}>My human:</Text>
-              <Text style={style.ownerName2}>{name}</Text>
-            </TouchableOpacity>
-
-          </View>
-          <Text style={style.line2}>{breed}, {age}</Text>
-          <Ionicons style={style.pin} name="location-sharp" size={24} color={colors.pink} />
-          <Text style={style.distance}>Distance: {distance}</Text>
-          <Text style={style.bio}>{info1}</Text>
-        </View>
 
         <TouchableOpacity style={[style.xButton,
         { backgroundColor: colors.white }]}>
@@ -207,4 +194,260 @@ const style = StyleSheet.create({
   },
 });
 
-export default DiscoveryScreen;
+export default DiscoveryScreen;*/
+
+
+import React, { useState, useEffect } from "react";
+import Constants from "expo-constants";
+import { DataStore } from '@aws-amplify/datastore';
+import DiscoveryComponent from "../components/DiscoveryComponent";
+import { User } from "../../src/models"
+import TopNav from '../components/TopNav';
+import Screen from '../components/Screen';
+import colors from '../config/colors';
+import {
+  StatusBar,
+  Image,
+  FlatList,
+  Dimensions,
+  Animated,
+  Text,
+  View,
+  StyleSheet,
+  SafeAreaView,
+} from 'react-native';
+const { width } = Dimensions.get('screen');
+import { EvilIcons } from '@expo/vector-icons';
+import {
+  FlingGestureHandler,
+  Directions,
+  State,
+} from 'react-native-gesture-handler';
+
+// https://www.creative-flyers.com
+const DATA = [
+  {
+    title: 'Afro vibes',
+    location: 'Mumbai, India',
+    date: 'Nov 17th, 2020',
+    poster:
+      'https://www.creative-flyers.com/wp-content/uploads/2020/07/Afro-vibes-flyer-template.jpg',
+  },
+  {
+    title: 'Jungle Party',
+    location: 'Unknown',
+    date: 'Sept 3rd, 2020',
+    poster:
+      'https://www.creative-flyers.com/wp-content/uploads/2019/11/Jungle-Party-Flyer-Template-1.jpg',
+  },
+  {
+    title: '4th Of July',
+    location: 'New York, USA',
+    date: 'Oct 11th, 2020',
+    poster:
+      'https://www.creative-flyers.com/wp-content/uploads/2020/06/4th-Of-July-Invitation.jpg',
+  },
+  {
+    title: 'Summer festival',
+    location: 'Bucharest, Romania',
+    date: 'Aug 17th, 2020',
+    poster:
+      'https://www.creative-flyers.com/wp-content/uploads/2020/07/Summer-Music-Festival-Poster.jpg',
+  },
+  {
+    title: 'BBQ with friends',
+    location: 'Prague, Czech Republic',
+    date: 'Sept 11th, 2020',
+    poster:
+      'https://www.creative-flyers.com/wp-content/uploads/2020/06/BBQ-Flyer-Psd-Template.jpg',
+  },
+  {
+    title: 'Festival music',
+    location: 'Berlin, Germany',
+    date: 'Apr 21th, 2021',
+    poster:
+      'https://www.creative-flyers.com/wp-content/uploads/2020/06/Festival-Music-PSD-Template.jpg',
+  },
+  {
+    title: 'Beach House',
+    location: 'Liboa, Portugal',
+    date: 'Aug 12th, 2020',
+    poster:
+      'https://www.creative-flyers.com/wp-content/uploads/2020/06/Summer-Beach-House-Flyer.jpg',
+  },
+];
+
+const OVERFLOW_HEIGHT = 70;
+const SPACING = 10;
+const ITEM_WIDTH = width * 0.76;
+const ITEM_HEIGHT = ITEM_WIDTH * 1.7;
+const VISIBLE_ITEMS = 3;
+
+
+
+
+
+export default function DiscoveryScreen() {
+  const [users, setUsers] = useState([User]);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const fetchedUsers = await DataStore.query(User);
+      setUsers(fetchedUsers);
+    };
+    fetchUsers();
+  }, []);
+  const [data, setData] = React.useState(users);
+  const scrollXIndex = React.useRef(new Animated.Value(0)).current;
+  const scrollXAnimated = React.useRef(new Animated.Value(0)).current;
+  const [index, setIndex] = React.useState(0);
+  const setActiveIndex = React.useCallback((activeIndex) => {
+    scrollXIndex.setValue(activeIndex);
+    setIndex(activeIndex);
+  });
+
+  React.useEffect(() => {
+    if (index === users.length - VISIBLE_ITEMS - 1) {
+      // get new data
+      // fetch more data
+      const newData = [...users, ...users];
+      setData(newData);
+    }
+  });
+
+  React.useEffect(() => {
+    Animated.spring(scrollXAnimated, {
+      toValue: scrollXIndex,
+      useNativeDriver: true,
+    }).start();
+  });
+
+  return (
+    <FlingGestureHandler
+      key='left'
+      direction={Directions.LEFT}
+      onHandlerStateChange={(ev) => {
+        if (ev.nativeEvent.state === State.END) {
+          if (index === users.length - 1) {
+            return;
+          }
+          setActiveIndex(index + 1);
+        }
+      }}
+    >
+      <FlingGestureHandler
+        key='right'
+        direction={Directions.RIGHT}
+        onHandlerStateChange={(ev) => {
+          if (ev.nativeEvent.state === State.END) {
+            if (index === 0) {
+              return;
+            }
+            setActiveIndex(index - 1);
+          }
+        }}
+      >
+        <SafeAreaView style={styles.container}>
+          <StatusBar hidden />
+
+          <FlatList
+            data={users}
+            keyExtractor={(_, index) => String(index)}
+            horizontal
+            inverted
+            contentContainerStyle={{
+              flex: 1,
+              justifyContent: 'center',
+              padding: SPACING * 2,
+              marginTop: 50,
+            }}
+            scrollEnabled={false}
+            removeClippedSubviews={true}
+            CellRendererComponent={({
+              item,
+              index,
+              children,
+              style,
+              ...props
+            }) => {
+              const newStyle = [style, { zIndex: users.length - index }];
+              return (
+                <View style={newStyle} index={index} {...props}>
+                  {children}
+                </View>
+              );
+            }}
+            renderItem={({ item, index }) => {
+              const inputRange = [index - 1, index, index + 1];
+              const translateX = scrollXAnimated.interpolate({
+                inputRange,
+                outputRange: [50, 0, -100],
+              });
+              const scale = scrollXAnimated.interpolate({
+                inputRange,
+                outputRange: [0.8, 1, 1.3],
+              });
+              const opacity = scrollXAnimated.interpolate({
+                inputRange,
+                outputRange: [1 - 1 / VISIBLE_ITEMS, 1, 0],
+              });
+
+              return (
+                <Animated.View
+                  style={{
+                    position: 'absolute',
+                    left: -ITEM_WIDTH / 2,
+                    opacity,
+                    transform: [
+                      {
+                        translateX,
+                      },
+                      { scale },
+                    ],
+                  }}
+                >
+
+                  <DiscoveryComponent user={item} />
+                </Animated.View>
+              );
+            }}
+          />
+        </SafeAreaView>
+      </FlingGestureHandler>
+    </FlingGestureHandler>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: -1,
+  },
+  location: {
+    fontSize: 16,
+  },
+  date: {
+    fontSize: 12,
+  },
+  itemContainer: {
+    height: OVERFLOW_HEIGHT,
+    padding: SPACING * 2,
+  },
+  itemContainerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  overflowContainer: {
+    height: OVERFLOW_HEIGHT,
+    overflow: 'hidden',
+  },
+});
+

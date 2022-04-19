@@ -62,9 +62,9 @@ function RootNavigator() {
                 name="DMScreen"
                 component={DMScreen}
                 options={{
-                    headerTitle: dmHeader,
+
                     headerBackTitleVisible: false,
-                    title: 'Username'
+
                 }} />
             <Stack.Screen
                 name="HumanProfileScreen"
@@ -128,7 +128,7 @@ function RootNavigator() {
     );
 }
 
-const dmHeader = (props) => {
+/*const dmHeader = (props) => {
     const { width } = useWindowDimensions();
     return (
         <View style={{
@@ -145,7 +145,7 @@ const dmHeader = (props) => {
             <Text style={{ flex: 1, textAlign: 'left', marginLeft: 10, fontWeight: 'bold' }}>{props.children}</Text>
         </View >
     )
-}
+}*/
 
 
 

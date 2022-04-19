@@ -16,7 +16,7 @@ function MessageItem({ name, id, message, image, user, time, numMessages, render
     const navigation = useNavigation();
 
     const onPress = () => {
-        navigation.navigate('DMScreen', { id });
+        navigation.navigate('DMScreen', { user });
     }
 
     return (
