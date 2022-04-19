@@ -1,39 +1,37 @@
-import React from 'react';
-import styles from '../assets/styles';
+import React from "react";
+import styles from "../assets/styles";
 import Constants from "expo-constants";
 import {
   ScrollView,
   View,
   Text,
   ImageBackground,
-  TouchableOpacity
-} from 'react-native';
-import ProfileItem from '../components/ProfileItem.js';
-import Demo from '../assets/data/demo.js';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import BackNavigation from '../components/BackNavigation';
-import colors from '../config/colors';
+  TouchableOpacity,
+} from "react-native";
+import YourProfileItem from "../components/YourProfileItem.js";
+import Demo from "../assets/data/demo.js";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import BackNavigation from "../components/BackNavigation";
+import { useRoute, useNavigation } from "@react-navigation/core";
+import colors from "../config/colors";
 
 const YourProfileScreen = () => {
-  const {
-    age,
-    image,
-    info1,
-    location,
-    name,
-    dog,
-    dogImage
-  } = Demo[7];
+  const { age, image, info1, location, name, dog, dogImage } = Demo[7];
+  const route = useRoute();
+  const navigation = useNavigation();
 
   return (
+    <ScrollView
+      style={styles.containerProfile}
+      paddingTop={Constants.statusBarHeight}
+    >
+      <BackNavigation
+        title={"View Your Profile"}
+        rightIconColor={colors.beigebackground}
+      />
+      <ImageBackground source={image} style={styles.photo}></ImageBackground>
 
-    <ScrollView style={styles.containerProfile} paddingTop={Constants.statusBarHeight}>
-      <BackNavigation title={"View Your Profile"} rightIconColor={colors.beigebackground} />
-      <ImageBackground source={image} style={styles.photo}>
-
-      </ImageBackground>
-
-      <ProfileItem
+      <YourProfileItem
         name={name}
         age={age}
         location={location}

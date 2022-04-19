@@ -16,7 +16,7 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: WHITE,
     paddingHorizontal: 30,
-    paddingBottom: 250,
+    paddingBottom: 180,
     margin: 0,
     borderRadius: 40,
     marginTop: -60,

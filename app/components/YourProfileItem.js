@@ -1,21 +1,23 @@
 import React from "react";
 import styles from "../assets/styles";
-import { Text, View, Image, Pressable, TouchableOpacity } from "react-native";
+import { Text, View, Image, TouchableOpacity } from "react-native";
 import Demo from "../assets/data/demo.js";
 import { useNavigation } from "@react-navigation/core";
-function ProfileItem({ age, info1, location, name, dog }) {
+
+const YourProfileItem = (
+  { age, info1, location, name, dog, dogImage } = Demo[7]
+) => {
   const navigation = useNavigation();
 
   const onPress = () => {
-    navigation.navigate("OtherDogScreen", { dog });
+    navigation.navigate("YourDogScreen", { dog });
   };
-
   return (
     <View style={styles.containerProfileItem}>
       <Text style={styles.name}>
         {name}, {age}
       </Text>
-      <Text style={styles.descriptionProfileItem}>{location} miles away</Text>
+      <Text style={styles.descriptionProfileItem}>0 miles away</Text>
 
       <View style={{ flexDirection: "row", alignItems: "center" }}>
         <View style={{ flex: 1, height: 1, backgroundColor: "#D8D8D8" }} />
@@ -27,7 +29,7 @@ function ProfileItem({ age, info1, location, name, dog }) {
       <Text style={styles.infoContent}>{info1}</Text>
 
       <View style={styles.info}>
-        {/* <Text style={styles.iconProfile}></Text> */}
+        <Text style={styles.iconProfile}></Text>
       </View>
 
       <View style={styles.dogInfo}>
@@ -35,15 +37,14 @@ function ProfileItem({ age, info1, location, name, dog }) {
       </View>
       <View style={styles.pupInfo}>
         <TouchableOpacity onPress={onPress}>
-          <Image source={{ uri: dog.dogImage }} style={styles.circle}></Image>
+          <Image source={dogImage} style={styles.circle}></Image>
         </TouchableOpacity>
       </View>
-
       <View style={styles.dogNameInfo}>
-        <Text style={styles.dogName}>{dog.dogName}</Text>
+        <Text style={styles.dogName}>{dog}</Text>
       </View>
     </View>
   );
-}
+};
 
-export default ProfileItem;
+export default YourProfileItem;
