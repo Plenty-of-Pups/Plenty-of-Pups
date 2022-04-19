@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { DataStore } from '@aws-amplify/datastore';
 import { User } from "../../src/models"
+
 import {
   FlatList,
   View,
@@ -98,6 +99,7 @@ function MessagesScreen(props) {
 
         renderItem={({ item }) => (
           <MessageItem
+            user={item}
             id={item.id}
             name={item.name}
             message={item.message}

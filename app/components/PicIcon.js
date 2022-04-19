@@ -16,15 +16,15 @@ function PicIcon({ user, humanProfile }) {
     const navigation = useNavigation();
 
     const onPress = () => {
-        navigation.navigate(humanProfile);
+        navigation.navigate(humanProfile, { user });
     }
     return (
 
-        <View style={styles.container}>
-            <TouchableOpacity onPress={onPress} >
+        < View style={styles.container}>
+            {user.match && <TouchableOpacity onPress={onPress} >
 
                 <Image style={styles.image} source={{ uri: user.imageUri }} />
-            </TouchableOpacity>
+            </TouchableOpacity>}
 
         </View>
 
