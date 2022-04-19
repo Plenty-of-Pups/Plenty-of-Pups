@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-plentyofpups-staging-71456-authRole",
+      "UnauthRoleArn": "arn:aws:iam::210089955236:role/amplify-plentyofpups-staging-71456-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::210089955236:role/amplify-plentyofpups-staging-71456-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-plentyofpups-staging-71456-deployment",
+      "UnauthRoleName": "amplify-plentyofpups-staging-71456-unauthRole",
+      "StackName": "amplify-plentyofpups-staging-71456",
+      "StackId": "arn:aws:cloudformation:us-east-1:210089955236:stack/amplify-plentyofpups-staging-71456/40784770-bee7-11ec-be5a-0e36f6f58e17",
+      "AmplifyAppId": "d1umhacf3b4foz"
+    },
+    "categories": {
+      "auth": {
+        "PlentyOfPups": {}
+      }
+    }
+  }
+}
