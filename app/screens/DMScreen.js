@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, useWindowDimensions, View, Image, } from 'react-native';
 
 import colors from '../config/colors';
 import Screen from '../components/Screen';
@@ -14,9 +14,26 @@ export default function DMScreen() {
     const route = useRoute();
     const navigation = useNavigation();
 
-    console.warn("Displaying chatroom: ", route.params?.id)
+    const dmHeader = (props) => {
+        const { width } = useWindowDimensions();
+        return (
+            <View style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                width,
+                padding: 10,
+                alignItems: 'center'
+            }}>
+                <Image
+                    source={{ uri: route.params?.user.imageUri }}
+                    style={{ width: 30, height: 30, borderRadius: 30, marginLeft: -30 }}
+                />
+                <Text style={{ flex: 1, textAlign: 'left', marginLeft: 10, fontWeight: 'bold' }}>{props.children}</Text>
+            </View >
+        )
+    }
 
-    navigation.setOptions({ title: 'Elon Musk' })
+    navigation.setOptions({ headerTitle: dmHeader, title: route.params?.user.name })
 
     return (
 
