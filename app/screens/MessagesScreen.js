@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { DataStore } from '@aws-amplify/datastore';
+import { User } from "../../src/models"
 import {
   FlatList,
   View,
@@ -55,6 +57,16 @@ const initialMessages = [
 ];
 
 function MessagesScreen(props) {
+
+  const [users, setUsers] = useState([User]);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const fetchedUsers = await DataStore.query(User);
+      setUsers(fetchedUsers);
+    };
+    fetchUsers();
+  }, []);
   const [messages, setMessages] = useState(initialMessages);
   const [refreshing, setRefreshing] = useState(false);
 
@@ -69,10 +81,10 @@ function MessagesScreen(props) {
       <View style={{ paddingLeft: 6 }}>
         <FlatList
           horizontal
-          data={messages}
-          keyExtractor={(message) => message.id.toString()}
+          data={users}
+
           renderItem={({ item }) => (
-            <PicIcon image={item.image} humanProfile={"HumanProfileScreen"} />
+            <PicIcon image={item.imageUri} humanProfile={"HumanProfileScreen"} />
           )}
         ></FlatList>
       </View>
@@ -82,14 +94,14 @@ function MessagesScreen(props) {
             <Text style={styles.text}>Messages</Text>
           </View>
         )}
-        data={messages}
-        keyExtractor={(message) => message.id.toString()}
+        data={users}
+
         renderItem={({ item }) => (
           <MessageItem
             id={item.id}
             name={item.name}
             message={item.message}
-            image={item.image}
+            image={item.imageUri}
             time={item.time}
             numMessages={item.numMessages}
             onPress={() => console.log("Message selected", item)}

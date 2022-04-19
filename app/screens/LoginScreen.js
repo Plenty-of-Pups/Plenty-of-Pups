@@ -12,6 +12,7 @@ import Screen from "../components/Screen";
 import colors from "../config/colors";
 
 import { AppForm, AppFormField, SubmitButton } from "../components/forms";
+import { Auth } from "aws-amplify";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -19,6 +20,11 @@ const validationSchema = Yup.object().shape({
 });
 
 function LoginScreen(props) {
+
+  const onSignInPressed = async (data) => {
+    const response = await Auth.signIn(data.username, data.password);
+    console.log(response);
+  };
   return (
     <View style={styles.background}>
       <Screen>

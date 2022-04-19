@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Text, Button, TouchableOpacity, ImageBackground, Image } from "react-native";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Screen from "../components/Screen";
+import { DataStore } from '@aws-amplify/datastore';
+import { User } from "../../src/models"
 import ListItem from "../components/ListItem";
 import colors from "../config/colors";
 import Constants from "expo-constants";
@@ -14,6 +16,16 @@ import { clickProps } from "react-native-web/dist/cjs/modules/forwardedProps";
 // import styles from "../config/styles";
 
 const DiscoveryScreen = () => {
+
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const fetchedUsers = await DataStore.query(User);
+      setUsers(fetchedUsers);
+    };
+    fetchUsers();
+  }, []);
 
   const navigation = useNavigation();
 
@@ -55,7 +67,7 @@ const DiscoveryScreen = () => {
           <View marginTop={125}>
             <TouchableOpacity onPress={humanProfile}>
 
-              <Image onPress={humanProfile} source={image} style={style.profileImage}></Image>
+              <Image onPress={humanProfile} source={users.imageUri} style={style.profileImage}></Image>
               <Text style={style.ownerName}>My human:</Text>
               <Text style={style.ownerName2}>{name}</Text>
             </TouchableOpacity>
