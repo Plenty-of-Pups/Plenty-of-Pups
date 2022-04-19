@@ -32,7 +32,6 @@ function ProfileItem({
       </View>
       <Text style={styles.infoContent}>{info1}</Text>
 
-
       <View style={styles.info}>
         <Text style={styles.iconProfile}></Text>
       </View>

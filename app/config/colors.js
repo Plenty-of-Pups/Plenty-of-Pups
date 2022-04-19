@@ -6,10 +6,11 @@ export default {
   greytext: "#666666",
   white: "#fff",
   light: "#F5F5F5",
-  beigebackground: '#F8F4F1',
-  lineseparatorgray: '#ECE9E9',
-  danger: '#ff5252',
-  purple: '#7c87f1',
+  beigebackground: "#F8F4F1",
+  lineseparatorgray: "#ECE9E9",
+  danger: "#ff5252",
+  purple: "#7c87f1",
   lightgraybackground: "#E5E5E5",
-  messageGray: '#c8c8c8'
+  lightpinkbackground: "#FCF5F4",
+  messageGray: "#c8c8c8",
 };
