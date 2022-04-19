@@ -200,6 +200,7 @@ export default DiscoveryScreen;*/
 import React, { useState, useEffect } from "react";
 import Constants from "expo-constants";
 import { DataStore } from '@aws-amplify/datastore';
+import DiscoveryComponent from "../components/DiscoveryComponent";
 import { User } from "../../src/models"
 import TopNav from '../components/TopNav';
 import Screen from '../components/Screen';
@@ -282,42 +283,9 @@ const ITEM_WIDTH = width * 0.76;
 const ITEM_HEIGHT = ITEM_WIDTH * 1.7;
 const VISIBLE_ITEMS = 3;
 
-const OverflowItems = ({ data, scrollXAnimated }) => {
-  const inputRange = [-1, 0, 1];
-  const translateY = scrollXAnimated.interpolate({
-    inputRange,
-    outputRange: [OVERFLOW_HEIGHT, 0, -OVERFLOW_HEIGHT],
-  });
 
 
-  return (
-    <View style={styles.overflowContainer}>
-      <Animated.View style={{ transform: [{ translateY }] }}>
-        {data.map((item, index) => {
-          return (
-            <View key={index} style={styles.itemContainer}>
-              <Text style={[styles.title]} numberOfLines={1}>
-                {item.title}
-              </Text>
-              <View style={styles.itemContainerRow}>
-                <Text style={[styles.location]}>
-                  <EvilIcons
-                    name='location'
-                    size={16}
-                    color='black'
-                    style={{ marginRight: 5 }}
-                  />
-                  {item.location}
-                </Text>
-                <Text style={[styles.date]}>{item.date}</Text>
-              </View>
-            </View>
-          );
-        })}
-      </Animated.View>
-    </View>
-  );
-};
+
 
 export default function DiscoveryScreen() {
   const [users, setUsers] = useState([User]);
@@ -381,7 +349,7 @@ export default function DiscoveryScreen() {
       >
         <SafeAreaView style={styles.container}>
           <StatusBar hidden />
-          <OverflowItems data={users} scrollXAnimated={scrollXAnimated} />
+
           <FlatList
             data={users}
             keyExtractor={(_, index) => String(index)}
@@ -394,7 +362,7 @@ export default function DiscoveryScreen() {
               marginTop: 50,
             }}
             scrollEnabled={false}
-            removeClippedSubviews={false}
+            removeClippedSubviews={true}
             CellRendererComponent={({
               item,
               index,
@@ -438,14 +406,8 @@ export default function DiscoveryScreen() {
                     ],
                   }}
                 >
-                  <Image
-                    source={{ uri: item.imageUri }}
-                    style={{
-                      width: ITEM_WIDTH,
-                      height: ITEM_HEIGHT,
-                      borderRadius: 14,
-                    }}
-                  />
+
+                  <DiscoveryComponent user={item} />
                 </Animated.View>
               );
             }}
@@ -488,3 +450,4 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
 });
+

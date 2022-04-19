@@ -1,4 +1,4 @@
-/*import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Text, Button, TouchableOpacity, ImageBackground, Image } from "react-native";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Screen from "../components/Screen";
@@ -11,9 +11,10 @@ import TopNav from "../components/TopNav";
 import Demo from '../assets/data/demo2.js';
 import { useNavigation } from '@react-navigation/core';
 import { Ionicons } from '@expo/vector-icons';
+import { useRoute } from '@react-navigation/core';
 
 
-const DiscoveryComponent = ({ user }) => {
+function DiscoveryComponent({ user }) {
     const {
         dogName,
         breed,
@@ -25,32 +26,33 @@ const DiscoveryComponent = ({ user }) => {
         match
     } = Demo[0];
     const {
-        name,
+
         image
     } = Demo[8];
+    const route = useRoute();
     return (
         <View backgroundColor={colors.black}>
             <View alignItems='center' paddingTop={15}>
-                <Image source={dogImage} style={{ height: 500, width: 350, borderRadius: 10, justifyContent: 'center' }}>
+                <Image source={{ uri: user.Dog.dogImage }} style={{ height: 500, width: 350, borderRadius: 10, justifyContent: 'center' }}>
                 </Image>
             </View>
 
             <View style={style.profileCard}>
-                <Text style={style.dogName}>{dogName}</Text>
+                <Text style={style.dogName}>{user.Dog.dogName}</Text>
                 <Image source={gender} style={style.genderIcon}></Image>
                 <View marginTop={125}>
                     <TouchableOpacity>
 
-                        <Image source={dogImage} style={style.profileImage}></Image>
+                        <Image source={{ uri: user.imageUri }} style={style.profileImage}></Image>
                         <Text style={style.ownerName}>My human:</Text>
-                        <Text style={style.ownerName2}>{name}</Text>
+                        <Text style={style.ownerName2}>{user.name}</Text>
                     </TouchableOpacity>
 
                 </View>
-                <Text style={style.line2}>{breed}, {age}</Text>
+                <Text style={style.line2}>{user.Dog.breed}, {user.Dog.age} years old</Text>
                 <Ionicons style={style.pin} name="location-sharp" size={24} color={colors.pink} />
-                <Text style={style.distance}>Distance: {distance}</Text>
-                <Text style={style.bio}>{info1}</Text>
+                <Text style={style.distance}>Distance: {user.distance} mi</Text>
+                <Text style={style.bio}>{user.Dog.bio}</Text>
             </View>
         </View>
     );
@@ -172,67 +174,5 @@ const style = StyleSheet.create({
 });
 
 export default DiscoveryComponent;
-*/
 
-import React from 'react';
-import { Text, ImageBackground, View, StyleSheet } from 'react-native';
-import Constants from "expo-constants";
-const DiscoveryComponent = props => {
-    const { name, image, bio } = props.user;
-    return (
-        <View style={styles.card}>
-            <ImageBackground
-                source={{
-                    uri: image,
-                }}
-                style={styles.image}>
-                <View style={styles.cardInner}>
-                    <Text style={styles.name}>{name}</Text>
-                    <Text style={styles.bio}>{bio}</Text>
-                </View>
-            </ImageBackground>
-        </View>
-    );
-};
 
-const styles = StyleSheet.create({
-    card: {
-        width: '100%',
-        height: '100%',
-        borderRadius: 10,
-        backgroundColor: '#fefefe',
-
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 5,
-        },
-        shadowOpacity: 0.36,
-        shadowRadius: 6.68,
-
-        elevation: 11,
-    },
-    image: {
-        width: '100%',
-        height: '100%',
-        borderRadius: 10,
-        overflow: 'hidden',
-
-        justifyContent: 'flex-end',
-    },
-    cardInner: {
-        padding: 10,
-    },
-    name: {
-        fontSize: 30,
-        color: 'white',
-        fontWeight: 'bold',
-    },
-    bio: {
-        fontSize: 18,
-        color: 'white',
-        lineHeight: 25,
-    },
-});
-
-export default DiscoveryComponent;
