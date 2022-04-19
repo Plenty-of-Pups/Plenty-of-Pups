@@ -28,6 +28,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import TopNav from '../components/TopNav';
 import BackNavigation from '../components/BackNavigation';
 import colors from '../config/colors';
+import OtherDogScreen from '../screens/OtherDogScreen';
 
 
 export default function Navigation() {
@@ -82,6 +83,11 @@ function RootNavigator() {
                 name="PremiumScreen"
                 options={{ headerShown: false }}
                 component={PremiumScreen}
+            />
+            <Stack.Screen
+                name="OtherDogScreen"
+                options={{ headerShown: false }}
+                component={OtherDogScreen}
             />
             <Stack.Screen
                 name="MatchScreen"

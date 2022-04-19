@@ -12,19 +12,19 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 
 
 
-function PicIcon({ image, humanProfile }) {
+function PicIcon({ user, humanProfile }) {
     const navigation = useNavigation();
 
     const onPress = () => {
-        navigation.navigate(humanProfile);
+        navigation.navigate(humanProfile, { user });
     }
     return (
 
-        <View style={styles.container}>
-            <TouchableOpacity onPress={onPress} >
+        < View style={styles.container}>
+            {user.match && <TouchableOpacity onPress={onPress} >
 
-                <Image style={styles.image} source={image} />
-            </TouchableOpacity>
+                <Image style={styles.image} source={{ uri: user.imageUri }} />
+            </TouchableOpacity>}
 
         </View>
 
