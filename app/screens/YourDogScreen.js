@@ -1,19 +1,19 @@
-import React from 'react';
-import styles from '../assets/styles';
+import React from "react";
+import styles from "../assets/styles";
 import {
   ScrollView,
   View,
   Text,
   ImageBackground,
   TouchableOpacity,
-  Image
-} from 'react-native';
-import ProfileItem from '../components/DogProfileItem.js';
-import Demo from '../assets/data/demo.js';
+  Image,
+} from "react-native";
+import ProfileItem from "../components/DogProfileItem.js";
+import Demo from "../assets/data/demo.js";
 import Constants from "expo-constants";
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import BackNavigation from '../components/BackNavigation';
-import colors from '../config/colors';
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import BackNavigation from "../components/BackNavigation";
+import colors from "../config/colors";
 
 const YourDogScreen = () => {
   const {
@@ -27,16 +27,18 @@ const YourDogScreen = () => {
     hobby,
     snack,
     gender,
-  } = Demo[1];
+  } = Demo[9];
 
   return (
-
-    <ScrollView style={styles.containerProfile} paddingTop={Constants.statusBarHeight}>
-      <BackNavigation title={"View Pets Profile"} rightIconColor={colors.beigebackground} />
-      <ImageBackground source={image} style={styles.photo}>
-
-
-      </ImageBackground>
+    <ScrollView
+      style={styles.containerProfile}
+      paddingTop={Constants.statusBarHeight}
+    >
+      <BackNavigation
+        title={"View Pets Profile"}
+        rightIconColor={colors.beigebackground}
+      />
+      <ImageBackground source={image} style={styles.photo}></ImageBackground>
 
       <ProfileItem
         dogName={dogName}
