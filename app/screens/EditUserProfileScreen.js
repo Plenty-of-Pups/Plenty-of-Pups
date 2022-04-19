@@ -38,15 +38,12 @@ function EditUserProfileScreen(props) {
   return (
     <KeyboardAvoidingView
       paddingTop={Constants.statusBarHeight}
+      style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
-      <BackNavigation
-        title="Edit Your Profile"
-        rightIconColor={colors.pink}
-      />
+      <BackNavigation title="Edit Your Profile" rightIconColor={colors.pink} />
 
-      <ScrollView keyboardShouldPersistTaps="always" style={styles.scrollView} >
-
+      <ScrollView keyboardShouldPersistTaps="always" style={styles.scrollView}>
         <AppForm
           initialValues={{
             name: "",
@@ -89,6 +86,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     flex: 1,
     paddingTop: StatusBar.currentHeight,
+    backgroundColor: colors.lightgraybackground,
   },
   text: {
     fontSize: 20,
@@ -97,6 +95,7 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     marginVertical: 15,
+    backgroundColor: colors.lightgraybackground,
   },
 });
 

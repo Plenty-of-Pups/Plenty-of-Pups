@@ -128,6 +128,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "flex-end",
+    backgroundColor: colors.lightgraybackground,
   },
   text: {
     fontSize: 20,

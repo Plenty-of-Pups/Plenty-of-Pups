@@ -37,12 +37,11 @@ function CreateNewUserScreen() {
   return (
     <KeyboardAvoidingView
       paddingTop={Constants.statusBarHeight}
+      style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
-      <BackNavigation rightIconColor={colors.beigebackground}
-      />
+      <BackNavigation rightIconColor={colors.lightgraybackground} />
       <ScrollView style={styles.scrollView}>
-
         <Text style={[styles.text]}>First, let's create your profile</Text>
         <AppForm
           initialValues={{
@@ -108,6 +107,7 @@ const styles = StyleSheet.create({
     // padding: 10,
     justifyContent: "flex-end",
     flex: 1,
+    backgroundColor: colors.lightgraybackground,
   },
   text: {
     fontSize: 20,
@@ -115,8 +115,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   scrollView: {
-    marginVertical:
-      0,
+    marginVertical: 0,
   },
 });
 

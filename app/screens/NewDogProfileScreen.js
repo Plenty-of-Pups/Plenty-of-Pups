@@ -35,14 +35,12 @@ function NewDogProfileScreen(props) {
     // <Screen style={styles.container}>
     <KeyboardAvoidingView
       paddingTop={Constants.statusBarHeight}
+      style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
-
-      <BackNavigation rightIconColor={colors.beigebackground}
-      />
+      <BackNavigation rightIconColor={colors.lightgraybackground} />
 
       <ScrollView style={styles.scrollView}>
-
         <Text style={[styles.text]}>Next, tell us a little about your pup</Text>
         <AppForm
           initialValues={{
@@ -86,6 +84,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: "flex-end",
     flex: 1,
+    backgroundColor: colors.lightgraybackground,
   },
   text: {
     fontSize: 20,
