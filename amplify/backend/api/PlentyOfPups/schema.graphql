@@ -1,0 +1,44 @@
+type MESSAGE @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  content: String!
+  userID: ID! @index(name: "byUser")
+  chatroomID: ID! @index(name: "byChatRoom")
+}
+
+type ChatRoom @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  newMessages: Int
+  lastMessage: MESSAGE @hasOne
+  MESSAGES: [MESSAGE] @hasMany(indexName: "byChatRoom", fields: ["id"])
+  Users: [User] @manyToMany(relationName: "ChatRoomUser")
+}
+
+type Dog @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  dogName: String
+  breed: String
+  age: Int
+  weight: Int
+  neutered: Boolean
+  hobby: String
+  snack: String
+  bio: String
+  dogImage: String
+  gender: String
+}
+
+type User @model @auth(rules: [{allow: public}, {allow: owner}]) {
+  id: ID!
+  name: String!
+  imageUri: String
+  status: String
+  bio: String
+  age: String
+  distance: String
+  MESSAGES: [MESSAGE] @hasMany(indexName: "byUser", fields: ["id"])
+  Dog: Dog @hasOne
+  chatrooms: [ChatRoom] @manyToMany(relationName: "ChatRoomUser")
+  gender: String
+  match: Boolean
+}
+ 

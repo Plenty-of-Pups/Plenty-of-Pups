@@ -1,0 +1,501 @@
+
+type MESSAGE @aws_iam @aws_api_key {
+  id: ID!
+  content: String!
+  userID: ID!
+  chatroomID: ID!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+}
+
+type ChatRoom @aws_iam @aws_api_key {
+  id: ID!
+  newMessages: Int
+  lastMessage: MESSAGE
+  MESSAGES(filter: ModelMESSAGEFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelMESSAGEConnection
+  Users(filter: ModelChatRoomUserFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelChatRoomUserConnection
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+  chatRoomLastMessageId: ID
+}
+
+type Dog @aws_iam @aws_api_key {
+  id: ID!
+  dogName: String
+  breed: String
+  age: Int
+  weight: Int
+  neutered: Boolean
+  hobby: String
+  snack: String
+  bio: String
+  dogImage: String
+  gender: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+}
+
+type User @aws_iam @aws_cognito_user_pools @aws_api_key {
+  id: ID!
+  name: String!
+  imageUri: String
+  status: String
+  bio: String
+  age: String
+  distance: String
+  MESSAGES(filter: ModelMESSAGEFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelMESSAGEConnection
+  Dog: Dog
+  chatrooms(filter: ModelChatRoomUserFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelChatRoomUserConnection
+  gender: String
+  match: Boolean
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+  userDogId: ID
+  owner: String
+}
+
+type ChatRoomUser @aws_iam @aws_cognito_user_pools @aws_api_key {
+  id: ID!
+  chatRoomID: ID!
+  userID: ID!
+  chatRoom: ChatRoom!
+  user: User!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+  owner: String
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelMESSAGEConnection @aws_api_key @aws_iam @aws_cognito_user_pools {
+  items: [MESSAGE]!
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelMESSAGEFilterInput {
+  id: ModelIDInput
+  content: ModelStringInput
+  userID: ModelIDInput
+  chatroomID: ModelIDInput
+  and: [ModelMESSAGEFilterInput]
+  or: [ModelMESSAGEFilterInput]
+  not: ModelMESSAGEFilterInput
+}
+
+type Query {
+  getMESSAGE(id: ID!): MESSAGE @aws_api_key @aws_iam
+  listMESSAGES(filter: ModelMESSAGEFilterInput, limit: Int, nextToken: String): ModelMESSAGEConnection @aws_api_key @aws_iam
+  syncMESSAGES(filter: ModelMESSAGEFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelMESSAGEConnection @aws_api_key @aws_iam
+  getChatRoom(id: ID!): ChatRoom @aws_api_key @aws_iam
+  listChatRooms(filter: ModelChatRoomFilterInput, limit: Int, nextToken: String): ModelChatRoomConnection @aws_api_key @aws_iam
+  syncChatRooms(filter: ModelChatRoomFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelChatRoomConnection @aws_api_key @aws_iam
+  getDog(id: ID!): Dog @aws_api_key @aws_iam
+  listDogs(filter: ModelDogFilterInput, limit: Int, nextToken: String): ModelDogConnection @aws_api_key @aws_iam
+  syncDogs(filter: ModelDogFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelDogConnection @aws_api_key @aws_iam
+  getUser(id: ID!): User @aws_api_key @aws_iam @aws_cognito_user_pools
+  listUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String): ModelUserConnection @aws_api_key @aws_iam @aws_cognito_user_pools
+  syncUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelUserConnection @aws_api_key @aws_iam @aws_cognito_user_pools
+  getChatRoomUser(id: ID!): ChatRoomUser @aws_api_key @aws_iam @aws_cognito_user_pools
+  listChatRoomUsers(filter: ModelChatRoomUserFilterInput, limit: Int, nextToken: String): ModelChatRoomUserConnection @aws_api_key @aws_iam @aws_cognito_user_pools
+  syncChatRoomUsers(filter: ModelChatRoomUserFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelChatRoomUserConnection @aws_api_key @aws_iam @aws_cognito_user_pools
+}
+
+input ModelMESSAGEConditionInput {
+  content: ModelStringInput
+  userID: ModelIDInput
+  chatroomID: ModelIDInput
+  and: [ModelMESSAGEConditionInput]
+  or: [ModelMESSAGEConditionInput]
+  not: ModelMESSAGEConditionInput
+}
+
+input CreateMESSAGEInput {
+  id: ID
+  content: String!
+  userID: ID!
+  chatroomID: ID!
+  _version: Int
+}
+
+input UpdateMESSAGEInput {
+  id: ID!
+  content: String
+  userID: ID
+  chatroomID: ID
+  _version: Int
+}
+
+input DeleteMESSAGEInput {
+  id: ID!
+  _version: Int
+}
+
+type Mutation {
+  createMESSAGE(input: CreateMESSAGEInput!, condition: ModelMESSAGEConditionInput): MESSAGE @aws_api_key @aws_iam
+  updateMESSAGE(input: UpdateMESSAGEInput!, condition: ModelMESSAGEConditionInput): MESSAGE @aws_api_key @aws_iam
+  deleteMESSAGE(input: DeleteMESSAGEInput!, condition: ModelMESSAGEConditionInput): MESSAGE @aws_api_key @aws_iam
+  createChatRoom(input: CreateChatRoomInput!, condition: ModelChatRoomConditionInput): ChatRoom @aws_api_key @aws_iam
+  updateChatRoom(input: UpdateChatRoomInput!, condition: ModelChatRoomConditionInput): ChatRoom @aws_api_key @aws_iam
+  deleteChatRoom(input: DeleteChatRoomInput!, condition: ModelChatRoomConditionInput): ChatRoom @aws_api_key @aws_iam
+  createDog(input: CreateDogInput!, condition: ModelDogConditionInput): Dog @aws_api_key @aws_iam
+  updateDog(input: UpdateDogInput!, condition: ModelDogConditionInput): Dog @aws_api_key @aws_iam
+  deleteDog(input: DeleteDogInput!, condition: ModelDogConditionInput): Dog @aws_api_key @aws_iam
+  createUser(input: CreateUserInput!, condition: ModelUserConditionInput): User @aws_api_key @aws_iam @aws_cognito_user_pools
+  updateUser(input: UpdateUserInput!, condition: ModelUserConditionInput): User @aws_api_key @aws_iam @aws_cognito_user_pools
+  deleteUser(input: DeleteUserInput!, condition: ModelUserConditionInput): User @aws_api_key @aws_iam @aws_cognito_user_pools
+  createChatRoomUser(input: CreateChatRoomUserInput!, condition: ModelChatRoomUserConditionInput): ChatRoomUser @aws_api_key @aws_iam @aws_cognito_user_pools
+  updateChatRoomUser(input: UpdateChatRoomUserInput!, condition: ModelChatRoomUserConditionInput): ChatRoomUser @aws_api_key @aws_iam @aws_cognito_user_pools
+  deleteChatRoomUser(input: DeleteChatRoomUserInput!, condition: ModelChatRoomUserConditionInput): ChatRoomUser @aws_api_key @aws_iam @aws_cognito_user_pools
+}
+
+type Subscription {
+  onCreateMESSAGE: MESSAGE @aws_subscribe(mutations: ["createMESSAGE"]) @aws_api_key @aws_iam
+  onUpdateMESSAGE: MESSAGE @aws_subscribe(mutations: ["updateMESSAGE"]) @aws_api_key @aws_iam
+  onDeleteMESSAGE: MESSAGE @aws_subscribe(mutations: ["deleteMESSAGE"]) @aws_api_key @aws_iam
+  onCreateChatRoom: ChatRoom @aws_subscribe(mutations: ["createChatRoom"]) @aws_api_key @aws_iam
+  onUpdateChatRoom: ChatRoom @aws_subscribe(mutations: ["updateChatRoom"]) @aws_api_key @aws_iam
+  onDeleteChatRoom: ChatRoom @aws_subscribe(mutations: ["deleteChatRoom"]) @aws_api_key @aws_iam
+  onCreateDog: Dog @aws_subscribe(mutations: ["createDog"]) @aws_api_key @aws_iam
+  onUpdateDog: Dog @aws_subscribe(mutations: ["updateDog"]) @aws_api_key @aws_iam
+  onDeleteDog: Dog @aws_subscribe(mutations: ["deleteDog"]) @aws_api_key @aws_iam
+  onCreateUser(owner: String): User @aws_subscribe(mutations: ["createUser"]) @aws_api_key @aws_iam @aws_cognito_user_pools
+  onUpdateUser(owner: String): User @aws_subscribe(mutations: ["updateUser"]) @aws_api_key @aws_iam @aws_cognito_user_pools
+  onDeleteUser(owner: String): User @aws_subscribe(mutations: ["deleteUser"]) @aws_api_key @aws_iam @aws_cognito_user_pools
+  onCreateChatRoomUser(owner: String): ChatRoomUser @aws_subscribe(mutations: ["createChatRoomUser"]) @aws_api_key @aws_iam @aws_cognito_user_pools
+  onUpdateChatRoomUser(owner: String): ChatRoomUser @aws_subscribe(mutations: ["updateChatRoomUser"]) @aws_api_key @aws_iam @aws_cognito_user_pools
+  onDeleteChatRoomUser(owner: String): ChatRoomUser @aws_subscribe(mutations: ["deleteChatRoomUser"]) @aws_api_key @aws_iam @aws_cognito_user_pools
+}
+
+type ModelChatRoomConnection @aws_api_key @aws_iam {
+  items: [ChatRoom]!
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelChatRoomFilterInput {
+  id: ModelIDInput
+  newMessages: ModelIntInput
+  and: [ModelChatRoomFilterInput]
+  or: [ModelChatRoomFilterInput]
+  not: ModelChatRoomFilterInput
+  chatRoomLastMessageId: ModelIDInput
+}
+
+input ModelChatRoomConditionInput {
+  newMessages: ModelIntInput
+  and: [ModelChatRoomConditionInput]
+  or: [ModelChatRoomConditionInput]
+  not: ModelChatRoomConditionInput
+  chatRoomLastMessageId: ModelIDInput
+}
+
+input CreateChatRoomInput {
+  id: ID
+  newMessages: Int
+  _version: Int
+  chatRoomLastMessageId: ID
+}
+
+input UpdateChatRoomInput {
+  id: ID!
+  newMessages: Int
+  _version: Int
+  chatRoomLastMessageId: ID
+}
+
+input DeleteChatRoomInput {
+  id: ID!
+  _version: Int
+}
+
+type ModelDogConnection @aws_api_key @aws_iam {
+  items: [Dog]!
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelDogFilterInput {
+  id: ModelIDInput
+  dogName: ModelStringInput
+  breed: ModelStringInput
+  age: ModelIntInput
+  weight: ModelIntInput
+  neutered: ModelBooleanInput
+  hobby: ModelStringInput
+  snack: ModelStringInput
+  bio: ModelStringInput
+  dogImage: ModelStringInput
+  gender: ModelStringInput
+  and: [ModelDogFilterInput]
+  or: [ModelDogFilterInput]
+  not: ModelDogFilterInput
+}
+
+input ModelDogConditionInput {
+  dogName: ModelStringInput
+  breed: ModelStringInput
+  age: ModelIntInput
+  weight: ModelIntInput
+  neutered: ModelBooleanInput
+  hobby: ModelStringInput
+  snack: ModelStringInput
+  bio: ModelStringInput
+  dogImage: ModelStringInput
+  gender: ModelStringInput
+  and: [ModelDogConditionInput]
+  or: [ModelDogConditionInput]
+  not: ModelDogConditionInput
+}
+
+input CreateDogInput {
+  id: ID
+  dogName: String
+  breed: String
+  age: Int
+  weight: Int
+  neutered: Boolean
+  hobby: String
+  snack: String
+  bio: String
+  dogImage: String
+  gender: String
+  _version: Int
+}
+
+input UpdateDogInput {
+  id: ID!
+  dogName: String
+  breed: String
+  age: Int
+  weight: Int
+  neutered: Boolean
+  hobby: String
+  snack: String
+  bio: String
+  dogImage: String
+  gender: String
+  _version: Int
+}
+
+input DeleteDogInput {
+  id: ID!
+  _version: Int
+}
+
+type ModelUserConnection @aws_api_key @aws_iam @aws_cognito_user_pools {
+  items: [User]!
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelUserFilterInput {
+  id: ModelIDInput
+  name: ModelStringInput
+  imageUri: ModelStringInput
+  status: ModelStringInput
+  bio: ModelStringInput
+  age: ModelStringInput
+  distance: ModelStringInput
+  gender: ModelStringInput
+  match: ModelBooleanInput
+  and: [ModelUserFilterInput]
+  or: [ModelUserFilterInput]
+  not: ModelUserFilterInput
+  userDogId: ModelIDInput
+}
+
+input ModelUserConditionInput {
+  name: ModelStringInput
+  imageUri: ModelStringInput
+  status: ModelStringInput
+  bio: ModelStringInput
+  age: ModelStringInput
+  distance: ModelStringInput
+  gender: ModelStringInput
+  match: ModelBooleanInput
+  and: [ModelUserConditionInput]
+  or: [ModelUserConditionInput]
+  not: ModelUserConditionInput
+  userDogId: ModelIDInput
+}
+
+input CreateUserInput {
+  id: ID
+  name: String!
+  imageUri: String
+  status: String
+  bio: String
+  age: String
+  distance: String
+  gender: String
+  match: Boolean
+  _version: Int
+  userDogId: ID
+}
+
+input UpdateUserInput {
+  id: ID!
+  name: String
+  imageUri: String
+  status: String
+  bio: String
+  age: String
+  distance: String
+  gender: String
+  match: Boolean
+  _version: Int
+  userDogId: ID
+}
+
+input DeleteUserInput {
+  id: ID!
+  _version: Int
+}
+
+type ModelChatRoomUserConnection @aws_iam @aws_api_key @aws_cognito_user_pools {
+  items: [ChatRoomUser]!
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelChatRoomUserFilterInput {
+  id: ModelIDInput
+  chatRoomID: ModelIDInput
+  userID: ModelIDInput
+  and: [ModelChatRoomUserFilterInput]
+  or: [ModelChatRoomUserFilterInput]
+  not: ModelChatRoomUserFilterInput
+}
+
+input ModelChatRoomUserConditionInput {
+  chatRoomID: ModelIDInput
+  userID: ModelIDInput
+  and: [ModelChatRoomUserConditionInput]
+  or: [ModelChatRoomUserConditionInput]
+  not: ModelChatRoomUserConditionInput
+}
+
+input CreateChatRoomUserInput {
+  id: ID
+  chatRoomID: ID!
+  userID: ID!
+  _version: Int
+}
+
+input UpdateChatRoomUserInput {
+  id: ID!
+  chatRoomID: ID
+  userID: ID
+  _version: Int
+}
+
+input DeleteChatRoomUserInput {
+  id: ID!
+  _version: Int
+}
+

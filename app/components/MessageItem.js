@@ -11,7 +11,7 @@ import colors from '../config/colors';
 import AppText from './AppText';
 
 
-function MessageItem({ name, id, message, image, time, numMessages, renderRightActions }) {
+function MessageItem({ name, id, message, image, user, time, numMessages, renderRightActions }) {
 
     const navigation = useNavigation();
 
@@ -24,13 +24,13 @@ function MessageItem({ name, id, message, image, time, numMessages, renderRightA
 
         <Swipeable renderRightActions={renderRightActions}>
 
-            <TouchableHighlight
+            {user.match && < TouchableHighlight
                 underlayColor={colors.light}
                 onPress={onPress}>
 
                 <Pressable onPress={onPress} style={styles.container}>
 
-                    {image && <Image style={styles.image} source={image} />}
+                    {image && <Image style={styles.image} source={{ uri: image }} />}
 
                     {numMessages ? <View style={styles.badgeContainer}>
                         <Text style={styles.badgeText}>{numMessages}</Text>
@@ -45,7 +45,7 @@ function MessageItem({ name, id, message, image, time, numMessages, renderRightA
                         {message && <Text numberOfLines={1} style={styles.message}>{message}</Text>}
                     </View>
                 </Pressable>
-            </TouchableHighlight>
+            </TouchableHighlight>}
         </Swipeable>
     );
 }

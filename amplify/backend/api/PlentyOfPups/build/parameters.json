@@ -1,0 +1,13 @@
+{
+    "AppSyncApiName": "PlentyOfPups",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authPlentyOfPups",
+            "Outputs.UserPoolId"
+        ]
+    },
+    "S3DeploymentBucket": "amplify-plentyofpups-staging-71456-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/5e549e6ebe1ffbb9094d17448e3b5a11a8a79826"
+}

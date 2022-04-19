@@ -1,0 +1,12 @@
+{
+  "resourceName": "s3plentyofpupspics",
+  "bucketName": "plentyofpups-pics",
+  "policyUUID": "dd3c628b",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}

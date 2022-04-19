@@ -1,0 +1,117 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-plentyofpups-staging-71456-authRole",
+      "UnauthRoleArn": "arn:aws:iam::210089955236:role/amplify-plentyofpups-staging-71456-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::210089955236:role/amplify-plentyofpups-staging-71456-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-plentyofpups-staging-71456-deployment",
+      "UnauthRoleName": "amplify-plentyofpups-staging-71456-unauthRole",
+      "StackName": "amplify-plentyofpups-staging-71456",
+      "StackId": "arn:aws:cloudformation:us-east-1:210089955236:stack/amplify-plentyofpups-staging-71456/40784770-bee7-11ec-be5a-0e36f6f58e17",
+      "AmplifyAppId": "d1umhacf3b4foz"
+    }
+  },
+  "auth": {
+    "PlentyOfPups": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "signupAttributes": [],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "output": {
+        "UserPoolId": "us-east-1_KXU89tFz2",
+        "AppClientIDWeb": "2jovet4huspef8bldhtm24gsq6",
+        "AppClientID": "3djqr55vo5g7qaaq5p362a242c",
+        "IdentityPoolId": "us-east-1:afffc1f0-3812-41bb-b16a-8ca1291fa35d",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:210089955236:userpool/us-east-1_KXU89tFz2",
+        "IdentityPoolName": "testAuthIdentityPool__staging",
+        "UserPoolName": "PlentyOfPups"
+      },
+      "lastPushTimeStamp": "2022-04-19T01:24:19.804Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-plentyofpups-staging-71456-deployment/amplify-cfn-templates/auth/PlentyOfPups-cloudformation-template.json",
+        "logicalId": "authPlentyOfPups"
+      }
+    }
+  },
+  "api": {
+    "PlentyOfPups": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "PlentyOfPups",
+          "attributes": [
+            "UserPoolId"
+          ]
+        }
+      ],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            },
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authPlentyOfPups"
+              }
+            }
+          ]
+        },
+        "GraphQLAPIIdOutput": "hk6ftvtru5aonbxtipjflikgxi",
+        "GraphQLAPIEndpointOutput": "https://e4rirw7ranbtneoopzwukfqv7e.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-3fibd2sbg5d55psd5winh4j56y"
+      },
+      "lastPushTimeStamp": "2022-04-19T01:24:19.856Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-plentyofpups-staging-71456-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiPlentyOfPups"
+      },
+      "lastPushDirHash": "BudaviWSXDT/SUGNMJybVP/ug6w="
+    }
+  },
+  "storage": {
+    "s3plentyofpupspics": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "output": {
+        "BucketName": "plentyofpups-pics71456-staging",
+        "Region": "us-east-1"
+      },
+      "lastPushTimeStamp": "2022-04-19T01:24:19.807Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-plentyofpups-staging-71456-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
+        "logicalId": "storages3plentyofpupspics"
+      }
+    }
+  }
+}

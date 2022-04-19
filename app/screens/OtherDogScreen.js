@@ -8,51 +8,38 @@ import {
   TouchableOpacity,
   Image
 } from 'react-native';
+import { useRoute, useNavigation } from '@react-navigation/core';
+import colors from '../config/colors';
+import BackNavigation from '../components/BackNavigation';
 import ProfileItem from '../components/DogProfileItem.js';
 import Demo from '../assets/data/demo.js';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import Constants from "expo-constants";
 
-const OtherDogScreen = () => {
-  const {
-    age,
-    image,
-    info1,
-    breed,
-    dogName,
-    size,
-    neutered,
-    hobby,
-    snack,
-    gender,
-  } = Demo[0];
+const OtherDogScreen = ({ dog }) => {
 
+  const route = useRoute();
   return (
-    
-      <ScrollView style={styles.containerProfile}>
-        <ImageBackground source={image} style={styles.photo}>
-          <View style={styles.top}>
-            <TouchableOpacity>
-              <View style={styles.backIcon}>
-               <MaterialCommunityIcons name="keyboard-backspace" color="#F17C87" size={40} />
-              </View>
-              
-            </TouchableOpacity>
-          </View>
-          
-        </ImageBackground>
 
-        <ProfileItem
-          dogName={dogName}
-          breed={breed}
-          age={age}
-          size={size}
-          neutered={neutered}
-		      hobby={hobby}
-		      snack={snack}
-          info1={info1}
-          gender={gender} 
-        />
-      </ScrollView>
+    <ScrollView style={styles.containerProfile} paddingTop={Constants.statusBarHeight}>
+      <BackNavigation rightIconColor={colors.beigebackground} title={"Dog Profile"} />
+      <ImageBackground source={{ uri: route.params?.dog.dogImage }} style={styles.photo}>
+
+
+      </ImageBackground>
+
+      <ProfileItem
+        dogName={route.params?.dog.dogName}
+        breed={route.params?.dog.breed}
+        age={route.params?.dog.age}
+        size={route.params?.dog.weight}
+        neutered={route.params?.dog.neutered}
+        hobby={route.params?.dog.hobby}
+        snack={route.params?.dog.snack}
+        info1={route.params?.dog.bio}
+        gender={route.params?.dog.gender}
+      />
+    </ScrollView>
   );
 };
 
