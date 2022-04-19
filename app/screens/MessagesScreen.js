@@ -84,7 +84,7 @@ function MessagesScreen(props) {
           data={users}
 
           renderItem={({ item }) => (
-            <PicIcon image={item.imageUri} humanProfile={"HumanProfileScreen"} />
+            <PicIcon user={item} humanProfile={"HumanProfileScreen"} />
           )}
         ></FlatList>
       </View>
