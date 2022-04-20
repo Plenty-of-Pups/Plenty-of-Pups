@@ -34,7 +34,7 @@ const UserHomeScreen = ({ navigation }) => {
         </View>
       </View>
 
-      <PurpleAppButton title={"Add New Dog"} />
+      <PurpleAppButton title={"Add New Dog"} nextScreen={"PremiumScreen"} />
     </View>
   );
 };

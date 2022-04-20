@@ -31,7 +31,7 @@ const DiscoveryScreen = () => {
   const navigation = useNavigation();
 
   const humanProfile = () => {
-    navigation.navigate("HumanProfileScreen");
+    navigation.navigate("HumanProfileScreen", { User });
   }
   const matchScreen = () => {
     navigation.navigate("MatchScreen");
@@ -67,9 +67,9 @@ const DiscoveryScreen = () => {
           <Text style={style.dogName}>{dogName}</Text>
           <Image source={gender} style={style.genderIcon}></Image>
           <View marginTop={125}>
-            <TouchableOpacity onPress={humanProfile}>
+            <TouchableOpacity >
 
-              <Image onPress={humanProfile} source={users.imageUri} style={style.profileImage}></Image>
+              <Image source={image} style={style.profileImage}></Image>
               <Text style={style.ownerName}>My human:</Text>
               <Text style={style.ownerName2}>{name}</Text>
             </TouchableOpacity>

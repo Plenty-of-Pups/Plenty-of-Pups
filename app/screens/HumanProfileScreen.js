@@ -26,7 +26,7 @@ const HumanProfileScreen = ({ user }) => {
 
   const {
     age,
-    image,
+
     info1,
     location,
     name,

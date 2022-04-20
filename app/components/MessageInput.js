@@ -38,7 +38,7 @@ const MessageInput = () => {
         <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
             style={styles.root}
-            keyboardVerticalOffset={50}
+            keyboardVerticalOffset={90}
         >
             <View style={styles.inputContainer}>
                 <Pressable onPress={onPress} style={styles.sendButtonContainer}>

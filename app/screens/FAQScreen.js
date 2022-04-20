@@ -3,10 +3,11 @@ import {
   StyleSheet,
   View,
   Platform,
+  Button,
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Keyboard,
-  Text,
+  Alert,
   TextInput,
 } from "react-native";
 import * as Yup from "yup";
@@ -26,6 +27,7 @@ import {
 } from "../components/forms";
 
 import FormImagePicker from "../components/forms/FormImagePicker";
+import PinkAppButton from "../components/PinkAppButton";
 
 function FAQScreen(props) {
   return (
@@ -58,7 +60,8 @@ function FAQScreen(props) {
               name="Question"
               placeholder="Type your question in here and press the submit button below."
             />
-            <SubmitButton title="Submit" onPress={Keyboard.dismiss} />
+            <Button color={colors.pink} title="Submit" onPress={() => Alert.alert('Message Submited')} />
+
           </AppForm>
         </View>
       </TouchableWithoutFeedback>
@@ -86,6 +89,27 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-});
+  button: {
+    backgroundColor: colors.pink,
+    borderRadius: 25,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 15,
+    width: "80%",
+    alignSelf: "center",
+    marginVertical: 40,
+    shadowColor: "grey",
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.4,
+    shadowRadius: 3,
+  },
+  butttonText: {
+    color: colors.white,
+    fontSize: 18,
+    textTransform: "uppercase",
+    fontWeight: "bold",
+  }
+})
+
 
 export default FAQScreen;

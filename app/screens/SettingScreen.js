@@ -90,6 +90,7 @@ const help = [
 const account = [
   {
     title: "Upgrade to Premium",
+    screen: "PremiumScreen",
     lefticon: {
       name: "diamond-stone",
       backgroundColor: colors.white,
@@ -198,6 +199,7 @@ function SettingScreen(props) {
           renderItem={({ item }) => (
             <ListItem
               title={item.title}
+              nextScreen={item.screen}
               leftIconComponent={
                 <Icon
                   name={item.lefticon.name}
