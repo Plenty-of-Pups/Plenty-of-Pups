@@ -83,7 +83,7 @@ function MessagesScreen(props) {
         <FlatList
           horizontal
           data={users}
-
+          keyExtractor={(menuItem) => menuItem.id}
           renderItem={({ item }) => (
             <PicIcon user={item} humanProfile={"HumanProfileScreen"} />
           )}
@@ -102,10 +102,10 @@ function MessagesScreen(props) {
             user={item}
             id={item.id}
             name={item.name}
-            message={item.message}
+            // message={item.message}
             image={item.imageUri}
-            time={item.time}
-            numMessages={item.numMessages}
+            //  time={item.time}
+            //  numMessages={item.numMessages}
             onPress={() => console.log("Message selected", item)}
             renderRightActions={() => (
               <ListItemDeleteAction onPress={() => handleDelete(item)} />

@@ -15,12 +15,12 @@ export default function DMScreen() {
     const navigation = useNavigation();
 
     const dmHeader = (props) => {
-        const { width } = useWindowDimensions();
+
         return (
             <View style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',
-                width,
+
                 padding: 10,
                 alignItems: 'center'
             }}>
