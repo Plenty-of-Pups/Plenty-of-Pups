@@ -1,5 +1,14 @@
 import React from "react";
-import { StyleSheet, View, Image, Text, Pressable } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Image,
+  Text,
+  Pressable,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
@@ -20,13 +29,14 @@ const validationSchema = Yup.object().shape({
 });
 
 function LoginScreen(props) {
-
   const onSignInPressed = async (data) => {
     const response = await Auth.signIn(data.username, data.password);
     console.log(response);
   };
   return (
-    <View style={styles.background}>
+    <KeyboardAvoidingView style={styles.background}>
+      {/* <View style={styles.background}> */}
+
       <Screen>
         <Image style={styles.logo} source={require("../assets/PofP1.png")} />
 
@@ -67,7 +77,8 @@ function LoginScreen(props) {
         ></PurpleAppButton>
       </Screen>
       <View style={styles.bottom}></View>
-    </View>
+      {/* </View> */}
+    </KeyboardAvoidingView>
   );
 }
 
