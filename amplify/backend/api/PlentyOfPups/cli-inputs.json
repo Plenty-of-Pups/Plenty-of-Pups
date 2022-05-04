@@ -3,7 +3,7 @@
   "serviceConfiguration": {
     "apiName": "PlentyOfPups",
     "serviceName": "AppSync",
-    "gqlSchemaPath": "/tmp/amplify-6f48c1ab-2544-45e4-b2aa-f85f0ee9cb8c/amplify/backend/api/PlentyOfPups/schema.graphql",
+    "gqlSchemaPath": "/tmp/amplify-0d1e3c7d-a359-4783-ad72-41ebee5695da/amplify/backend/api/PlentyOfPups/schema.graphql",
     "defaultAuthType": {
       "mode": "API_KEY",
       "keyDescription": "api key description",

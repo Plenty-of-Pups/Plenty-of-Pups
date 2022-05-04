@@ -45,7 +45,7 @@
         "IdentityPoolName": "testAuthIdentityPool__staging",
         "UserPoolName": "PlentyOfPups"
       },
-      "lastPushTimeStamp": "2022-04-19T01:24:19.804Z",
+      "lastPushTimeStamp": "2022-05-04T08:30:55.960Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-plentyofpups-staging-71456-deployment/amplify-cfn-templates/auth/PlentyOfPups-cloudformation-template.json",
         "logicalId": "authPlentyOfPups"
@@ -90,12 +90,12 @@
         "GraphQLAPIEndpointOutput": "https://e4rirw7ranbtneoopzwukfqv7e.appsync-api.us-east-1.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-3fibd2sbg5d55psd5winh4j56y"
       },
-      "lastPushTimeStamp": "2022-04-19T01:24:19.856Z",
+      "lastPushTimeStamp": "2022-05-04T08:30:56.016Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-plentyofpups-staging-71456-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiPlentyOfPups"
       },
-      "lastPushDirHash": "BudaviWSXDT/SUGNMJybVP/ug6w="
+      "lastPushDirHash": "cA5h0O6tZkVMKryTXOrgFtwA+RI="
     }
   },
   "storage": {
@@ -107,7 +107,7 @@
         "BucketName": "plentyofpups-pics71456-staging",
         "Region": "us-east-1"
       },
-      "lastPushTimeStamp": "2022-04-19T01:24:19.807Z",
+      "lastPushTimeStamp": "2022-05-04T08:30:55.963Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-plentyofpups-staging-71456-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
         "logicalId": "storages3plentyofpupspics"

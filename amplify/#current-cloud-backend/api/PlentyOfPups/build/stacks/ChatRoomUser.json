@@ -43,19 +43,37 @@
     "referencetotransformerrootstackGraphQLAPI20497F53ApiId": {
       "Type": "String"
     },
-    "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name": {
-      "Type": "String"
-    },
     "referencetotransformerrootstackS3DeploymentBucket7592718ARef": {
       "Type": "String"
     },
     "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref": {
       "Type": "String"
     },
+    "referencetotransformerrootstackUserNestedStackUserNestedStackResource01084C14OutputstransformerrootstackUserQuerygetUserauth0FunctionQuerygetUserauth0FunctionAppSyncFunctionAE1DE713FunctionId": {
+      "Type": "String"
+    },
+    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId": {
+      "Type": "String"
+    },
     "referencetotransformerrootstackauthRoleNameFB872D50Ref": {
       "Type": "String"
     },
     "referencetotransformerrootstackunauthRoleName49F3C1FERef": {
+      "Type": "String"
+    },
+    "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name": {
+      "Type": "String"
+    },
+    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEMutationcreateMESSAGEinit0FunctionMutationcreateMESSAGEinit0FunctionAppSyncFunction4797920FFunctionId": {
+      "Type": "String"
+    },
+    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEMutationupdateMESSAGEinit0FunctionMutationupdateMESSAGEinit0FunctionAppSyncFunctionE3C4F32DFunctionId": {
+      "Type": "String"
+    },
+    "referencetotransformerrootstackUserNestedStackUserNestedStackResource01084C14OutputstransformerrootstackUserSubscriptiononCreateUserauth0FunctionSubscriptiononCreateUserauth0FunctionAppSyncFunction0FC1B29BFunctionId": {
+      "Type": "String"
+    },
+    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGESubscriptionOnCreateMESSAGEDataResolverFnSubscriptionOnCreateMESSAGEDataResolverFnAppSyncFunction5C348CEEFunctionId": {
       "Type": "String"
     }
   },
@@ -502,66 +520,6 @@
         "ChatRoomUserIAMRole682DA87C"
       ]
     },
-    "QuerygetChatRoomUserauth0FunctionQuerygetChatRoomUserauth0FunctionAppSyncFunction781CC218": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "QuerygetChatRoomUserauth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Query.getChatRoomUser.auth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "QuerygetChatRoomUserpostAuth0FunctionQuerygetChatRoomUserpostAuth0FunctionAppSyncFunctionA18EF056": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "QuerygetChatRoomUserpostAuth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Query.getChatRoomUser.postAuth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
     "QueryGetChatRoomUserDataResolverFnQueryGetChatRoomUserDataResolverFnAppSyncFunctionB02BBD7F": {
       "Type": "AWS::AppSync::FunctionConfiguration",
       "Properties": {
@@ -629,16 +587,10 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": [
-                "QuerygetChatRoomUserauth0FunctionQuerygetChatRoomUserauth0FunctionAppSyncFunction781CC218",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackUserNestedStackUserNestedStackResource01084C14OutputstransformerrootstackUserQuerygetUserauth0FunctionQuerygetUserauth0FunctionAppSyncFunctionAE1DE713FunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "QuerygetChatRoomUserpostAuth0FunctionQuerygetChatRoomUserpostAuth0FunctionAppSyncFunctionA18EF056",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -681,66 +633,6 @@
           ]
         },
         "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
-      }
-    },
-    "QuerylistChatRoomUsersauth0FunctionQuerylistChatRoomUsersauth0FunctionAppSyncFunction1D5E7359": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "QuerylistChatRoomUsersauth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Query.listChatRoomUsers.auth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "QuerylistChatRoomUserspostAuth0FunctionQuerylistChatRoomUserspostAuth0FunctionAppSyncFunctionF416AD0E": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "QuerylistChatRoomUserspostAuth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Query.listChatRoomUsers.postAuth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
       }
     },
     "QueryListChatRoomUsersDataResolverFnQueryListChatRoomUsersDataResolverFnAppSyncFunctionC6450532": {
@@ -810,16 +702,10 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": [
-                "QuerylistChatRoomUsersauth0FunctionQuerylistChatRoomUsersauth0FunctionAppSyncFunction1D5E7359",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackUserNestedStackUserNestedStackResource01084C14OutputstransformerrootstackUserQuerygetUserauth0FunctionQuerygetUserauth0FunctionAppSyncFunctionAE1DE713FunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "QuerylistChatRoomUserspostAuth0FunctionQuerylistChatRoomUserspostAuth0FunctionAppSyncFunctionF416AD0E",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -900,66 +786,6 @@
         "ChatRoomUserDataSource"
       ]
     },
-    "QuerysyncChatRoomUsersauth0FunctionQuerysyncChatRoomUsersauth0FunctionAppSyncFunctionAC904B5F": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "QuerysyncChatRoomUsersauth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Query.syncChatRoomUsers.auth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "QuerysyncChatRoomUserspostAuth0FunctionQuerysyncChatRoomUserspostAuth0FunctionAppSyncFunction1663B5F6": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "QuerysyncChatRoomUserspostAuth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Query.syncChatRoomUsers.postAuth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
     "QuerySyncChatRoomUsersDataResolverFnQuerySyncChatRoomUsersDataResolverFnAppSyncFunction2247AC91": {
       "Type": "AWS::AppSync::FunctionConfiguration",
       "Properties": {
@@ -1033,16 +859,10 @@
               ]
             },
             {
-              "Fn::GetAtt": [
-                "QuerysyncChatRoomUsersauth0FunctionQuerysyncChatRoomUsersauth0FunctionAppSyncFunctionAC904B5F",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackUserNestedStackUserNestedStackResource01084C14OutputstransformerrootstackUserQuerygetUserauth0FunctionQuerygetUserauth0FunctionAppSyncFunctionAE1DE713FunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "QuerysyncChatRoomUserspostAuth0FunctionQuerysyncChatRoomUserspostAuth0FunctionAppSyncFunction1663B5F6",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -1087,36 +907,6 @@
         "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
       }
     },
-    "MutationcreateChatRoomUserinit0FunctionMutationcreateChatRoomUserinit0FunctionAppSyncFunction4AD29E04": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "MutationcreateChatRoomUserinit0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Mutation.createChatRoomUser.init.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
     "MutationcreateChatRoomUserauth0FunctionMutationcreateChatRoomUserauth0FunctionAppSyncFunction58E5E9B1": {
       "Type": "AWS::AppSync::FunctionConfiguration",
       "Properties": {
@@ -1141,36 +931,6 @@
                 "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
               },
               "/resolvers/Mutation.createChatRoomUser.auth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "MutationcreateChatRoomUserpostAuth0FunctionMutationcreateChatRoomUserpostAuth0FunctionAppSyncFunction58D22B49": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "MutationcreateChatRoomUserpostAuth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Mutation.createChatRoomUser.postAuth.1.req.vtl"
             ]
           ]
         },
@@ -1244,10 +1004,7 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": [
-                "MutationcreateChatRoomUserinit0FunctionMutationcreateChatRoomUserinit0FunctionAppSyncFunction4AD29E04",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEMutationcreateMESSAGEinit0FunctionMutationcreateMESSAGEinit0FunctionAppSyncFunction4797920FFunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -1256,10 +1013,7 @@
               ]
             },
             {
-              "Fn::GetAtt": [
-                "MutationcreateChatRoomUserpostAuth0FunctionMutationcreateChatRoomUserpostAuth0FunctionAppSyncFunction58D22B49",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -1302,36 +1056,6 @@
           ]
         },
         "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
-      }
-    },
-    "MutationupdateChatRoomUserinit0FunctionMutationupdateChatRoomUserinit0FunctionAppSyncFunctionAAB7674B": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "MutationupdateChatRoomUserinit0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Mutation.updateChatRoomUser.init.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
       }
     },
     "MutationupdateChatRoomUserauth0FunctionMutationupdateChatRoomUserauth0FunctionAppSyncFunction7AFA385E": {
@@ -1384,36 +1108,6 @@
       "DependsOn": [
         "ChatRoomUserDataSource"
       ]
-    },
-    "MutationupdateChatRoomUserpostAuth0FunctionMutationupdateChatRoomUserpostAuth0FunctionAppSyncFunctionE8F38BA3": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "MutationupdateChatRoomUserpostAuth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Mutation.updateChatRoomUser.postAuth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
     },
     "MutationUpdateChatRoomUserDataResolverFnMutationUpdateChatRoomUserDataResolverFnAppSyncFunction29C7BC06": {
       "Type": "AWS::AppSync::FunctionConfiguration",
@@ -1482,10 +1176,7 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": [
-                "MutationupdateChatRoomUserinit0FunctionMutationupdateChatRoomUserinit0FunctionAppSyncFunctionAAB7674B",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEMutationupdateMESSAGEinit0FunctionMutationupdateMESSAGEinit0FunctionAppSyncFunctionE3C4F32DFunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -1494,10 +1185,7 @@
               ]
             },
             {
-              "Fn::GetAtt": [
-                "MutationupdateChatRoomUserpostAuth0FunctionMutationupdateChatRoomUserpostAuth0FunctionAppSyncFunctionE8F38BA3",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -1593,36 +1281,6 @@
         "ChatRoomUserDataSource"
       ]
     },
-    "MutationdeleteChatRoomUserpostAuth0FunctionMutationdeleteChatRoomUserpostAuth0FunctionAppSyncFunction38DFAFA6": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "MutationdeleteChatRoomUserpostAuth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Mutation.deleteChatRoomUser.postAuth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
     "MutationDeleteChatRoomUserDataResolverFnMutationDeleteChatRoomUserDataResolverFnAppSyncFunction5FB769C8": {
       "Type": "AWS::AppSync::FunctionConfiguration",
       "Properties": {
@@ -1696,10 +1354,7 @@
               ]
             },
             {
-              "Fn::GetAtt": [
-                "MutationdeleteChatRoomUserpostAuth0FunctionMutationdeleteChatRoomUserpostAuth0FunctionAppSyncFunction38DFAFA6",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -1744,111 +1399,6 @@
         "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
       }
     },
-    "SubscriptiononCreateChatRoomUserauth0FunctionSubscriptiononCreateChatRoomUserauth0FunctionAppSyncFunctionED42DCDE": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "SubscriptiononCreateChatRoomUserauth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onCreateChatRoomUser.auth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "SubscriptiononCreateChatRoomUserpostAuth0FunctionSubscriptiononCreateChatRoomUserpostAuth0FunctionAppSyncFunction6F4C5A54": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "SubscriptiononCreateChatRoomUserpostAuth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onCreateChatRoomUser.postAuth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "SubscriptionOnCreateChatRoomUserDataResolverFnSubscriptionOnCreateChatRoomUserDataResolverFnAppSyncFunction5EC8E7EC": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "SubscriptionOnCreateChatRoomUserDataResolverFn",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onCreateChatRoomUser.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onCreateChatRoomUser.res.vtl"
-            ]
-          ]
-        }
-      }
-    },
     "SubscriptiononCreateChatRoomUserResolver": {
       "Type": "AWS::AppSync::Resolver",
       "Properties": {
@@ -1861,22 +1411,13 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": [
-                "SubscriptiononCreateChatRoomUserauth0FunctionSubscriptiononCreateChatRoomUserauth0FunctionAppSyncFunctionED42DCDE",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackUserNestedStackUserNestedStackResource01084C14OutputstransformerrootstackUserSubscriptiononCreateUserauth0FunctionSubscriptiononCreateUserauth0FunctionAppSyncFunction0FC1B29BFunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "SubscriptiononCreateChatRoomUserpostAuth0FunctionSubscriptiononCreateChatRoomUserpostAuth0FunctionAppSyncFunction6F4C5A54",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "SubscriptionOnCreateChatRoomUserDataResolverFnSubscriptionOnCreateChatRoomUserDataResolverFnAppSyncFunction5EC8E7EC",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGESubscriptionOnCreateMESSAGEDataResolverFnSubscriptionOnCreateMESSAGEDataResolverFnAppSyncFunction5C348CEEFunctionId"
             }
           ]
         },
@@ -1911,111 +1452,6 @@
         "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
       }
     },
-    "SubscriptiononUpdateChatRoomUserauth0FunctionSubscriptiononUpdateChatRoomUserauth0FunctionAppSyncFunction70485150": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "SubscriptiononUpdateChatRoomUserauth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onUpdateChatRoomUser.auth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "SubscriptiononUpdateChatRoomUserpostAuth0FunctionSubscriptiononUpdateChatRoomUserpostAuth0FunctionAppSyncFunction69E35282": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "SubscriptiononUpdateChatRoomUserpostAuth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onUpdateChatRoomUser.postAuth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "SubscriptionOnUpdateChatRoomUserDataResolverFnSubscriptionOnUpdateChatRoomUserDataResolverFnAppSyncFunction3EC1C41B": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "SubscriptionOnUpdateChatRoomUserDataResolverFn",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onUpdateChatRoomUser.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onUpdateChatRoomUser.res.vtl"
-            ]
-          ]
-        }
-      }
-    },
     "SubscriptiononUpdateChatRoomUserResolver": {
       "Type": "AWS::AppSync::Resolver",
       "Properties": {
@@ -2028,22 +1464,13 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": [
-                "SubscriptiononUpdateChatRoomUserauth0FunctionSubscriptiononUpdateChatRoomUserauth0FunctionAppSyncFunction70485150",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackUserNestedStackUserNestedStackResource01084C14OutputstransformerrootstackUserSubscriptiononCreateUserauth0FunctionSubscriptiononCreateUserauth0FunctionAppSyncFunction0FC1B29BFunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "SubscriptiononUpdateChatRoomUserpostAuth0FunctionSubscriptiononUpdateChatRoomUserpostAuth0FunctionAppSyncFunction69E35282",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "SubscriptionOnUpdateChatRoomUserDataResolverFnSubscriptionOnUpdateChatRoomUserDataResolverFnAppSyncFunction3EC1C41B",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGESubscriptionOnCreateMESSAGEDataResolverFnSubscriptionOnCreateMESSAGEDataResolverFnAppSyncFunction5C348CEEFunctionId"
             }
           ]
         },
@@ -2078,111 +1505,6 @@
         "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
       }
     },
-    "SubscriptiononDeleteChatRoomUserauth0FunctionSubscriptiononDeleteChatRoomUserauth0FunctionAppSyncFunction46EC129B": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "SubscriptiononDeleteChatRoomUserauth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onDeleteChatRoomUser.auth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "SubscriptiononDeleteChatRoomUserpostAuth0FunctionSubscriptiononDeleteChatRoomUserpostAuth0FunctionAppSyncFunction857713F3": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "SubscriptiononDeleteChatRoomUserpostAuth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onDeleteChatRoomUser.postAuth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "SubscriptionOnDeleteChatRoomUserDataResolverFnSubscriptionOnDeleteChatRoomUserDataResolverFnAppSyncFunction685FBD25": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "SubscriptionOnDeleteChatRoomUserDataResolverFn",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onDeleteChatRoomUser.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onDeleteChatRoomUser.res.vtl"
-            ]
-          ]
-        }
-      }
-    },
     "SubscriptiononDeleteChatRoomUserResolver": {
       "Type": "AWS::AppSync::Resolver",
       "Properties": {
@@ -2195,22 +1517,13 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": [
-                "SubscriptiononDeleteChatRoomUserauth0FunctionSubscriptiononDeleteChatRoomUserauth0FunctionAppSyncFunction46EC129B",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackUserNestedStackUserNestedStackResource01084C14OutputstransformerrootstackUserSubscriptiononCreateUserauth0FunctionSubscriptiononCreateUserauth0FunctionAppSyncFunction0FC1B29BFunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "SubscriptiononDeleteChatRoomUserpostAuth0FunctionSubscriptiononDeleteChatRoomUserpostAuth0FunctionAppSyncFunction857713F3",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "SubscriptionOnDeleteChatRoomUserDataResolverFnSubscriptionOnDeleteChatRoomUserDataResolverFnAppSyncFunction685FBD25",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGESubscriptionOnCreateMESSAGEDataResolverFnSubscriptionOnCreateMESSAGEDataResolverFnAppSyncFunction5C348CEEFunctionId"
             }
           ]
         },
