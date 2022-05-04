@@ -35,7 +35,7 @@ const Tabs = () => {
       }}
     >
       <Tab.Screen
-        name="Discovery"
+        name="  "
         component={DiscoveryScreen}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -52,18 +52,20 @@ const Tabs = () => {
                 style={{
                   width: 25,
                   height: 25,
-                  tintColor: focused ? "#FF5483" : "#747c94",
+                  tintColor: focused ? "#F17C87" : "#747c94",
                 }}
               />
               <Text
-                style={{ color: focused ? "#FF5483" : "#747c94", fontSize: 12 }}
-              ></Text>
+                style={{ color: focused ? "#F17C87" : "#747c94", fontSize: 11 }}
+              >
+                Discovery
+              </Text>
             </View>
           ),
         }}
       />
       <Tab.Screen
-        name="Matches"
+        name=" "
         component={MessagesScreen}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -80,18 +82,20 @@ const Tabs = () => {
                 style={{
                   width: 25,
                   height: 25,
-                  tintColor: focused ? "#FF5483" : "#747c94",
+                  tintColor: focused ? "#F17C87" : "#747c94",
                 }}
               />
               <Text
-                style={{ color: focused ? "#FF5483" : "#747c94", fontSize: 12 }}
-              ></Text>
+                style={{ color: focused ? "#F17C87" : "#747c94", fontSize: 11 }}
+              >
+                Matches
+              </Text>
             </View>
           ),
         }}
       />
       <Tab.Screen
-        name="Your Dogs"
+        name="    "
         component={DogHomeScreen}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -108,18 +112,20 @@ const Tabs = () => {
                 style={{
                   width: 25,
                   height: 25,
-                  tintColor: focused ? "#FF5483" : "#747c94",
+                  tintColor: focused ? "#F17C87" : "#747c94",
                 }}
               />
               <Text
-                style={{ color: focused ? "#FF5483" : "#747c94", fontSize: 12 }}
-              ></Text>
+                style={{ color: focused ? "#F17C87" : "#747c94", fontSize: 11 }}
+              >
+                Your Dogs
+              </Text>
             </View>
           ),
         }}
       />
       <Tab.Screen
-        name="Your Profile"
+        name="     "
         component={UserHomeScreen}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -136,12 +142,14 @@ const Tabs = () => {
                 style={{
                   width: 25,
                   height: 25,
-                  tintColor: focused ? "#FF5483" : "#747c94",
+                  tintColor: focused ? "#F17C87" : "#747c94",
                 }}
               />
               <Text
-                style={{ color: focused ? "#FF5483" : "#747c94", fontSize: 12 }}
-              ></Text>
+                style={{ color: focused ? "#F17C87" : "#747c94", fontSize: 11 }}
+              >
+                Your Profile
+              </Text>
             </View>
           ),
         }}
