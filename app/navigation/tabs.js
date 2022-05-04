@@ -63,7 +63,7 @@ const Tabs = () => {
         }}
       />
       <Tab.Screen
-        name="Messages"
+        name="Matches"
         component={MessagesScreen}
         options={{
           tabBarIcon: ({ focused }) => (
