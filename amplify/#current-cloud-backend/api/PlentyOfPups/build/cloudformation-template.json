@@ -137,7 +137,7 @@
                     ]
                 },
                 "Description": "api key description",
-                "Expires": 1652923216
+                "Expires": 1654244723
             }
         },
         "GraphQLAPINONEDS95A13CF0": {
@@ -451,23 +451,59 @@
                             "ApiId"
                         ]
                     },
-                    "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name": {
-                        "Fn::GetAtt": [
-                            "GraphQLAPINONEDS95A13CF0",
-                            "Name"
-                        ]
-                    },
                     "referencetotransformerrootstackS3DeploymentBucket7592718ARef": {
                         "Ref": "S3DeploymentBucket"
                     },
                     "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref": {
                         "Ref": "S3DeploymentRootKey"
                     },
+                    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEauth0FunctionQuerygetMESSAGEauth0FunctionAppSyncFunction94B055BCFunctionId": {
+                        "Fn::GetAtt": [
+                            "MESSAGE",
+                            "Outputs.transformerrootstackMESSAGEQuerygetMESSAGEauth0FunctionQuerygetMESSAGEauth0FunctionAppSyncFunction94B055BCFunctionId"
+                        ]
+                    },
+                    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId": {
+                        "Fn::GetAtt": [
+                            "MESSAGE",
+                            "Outputs.transformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId"
+                        ]
+                    },
                     "referencetotransformerrootstackauthRoleNameFB872D50Ref": {
                         "Ref": "authRoleName"
                     },
                     "referencetotransformerrootstackunauthRoleName49F3C1FERef": {
                         "Ref": "unauthRoleName"
+                    },
+                    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEMutationcreateMESSAGEinit0FunctionMutationcreateMESSAGEinit0FunctionAppSyncFunction4797920FFunctionId": {
+                        "Fn::GetAtt": [
+                            "MESSAGE",
+                            "Outputs.transformerrootstackMESSAGEMutationcreateMESSAGEinit0FunctionMutationcreateMESSAGEinit0FunctionAppSyncFunction4797920FFunctionId"
+                        ]
+                    },
+                    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEMutationcreateMESSAGEauth0FunctionMutationcreateMESSAGEauth0FunctionAppSyncFunctionBE3E8D17FunctionId": {
+                        "Fn::GetAtt": [
+                            "MESSAGE",
+                            "Outputs.transformerrootstackMESSAGEMutationcreateMESSAGEauth0FunctionMutationcreateMESSAGEauth0FunctionAppSyncFunctionBE3E8D17FunctionId"
+                        ]
+                    },
+                    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEMutationupdateMESSAGEinit0FunctionMutationupdateMESSAGEinit0FunctionAppSyncFunctionE3C4F32DFunctionId": {
+                        "Fn::GetAtt": [
+                            "MESSAGE",
+                            "Outputs.transformerrootstackMESSAGEMutationupdateMESSAGEinit0FunctionMutationupdateMESSAGEinit0FunctionAppSyncFunctionE3C4F32DFunctionId"
+                        ]
+                    },
+                    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGESubscriptiononCreateMESSAGEauth0FunctionSubscriptiononCreateMESSAGEauth0FunctionAppSyncFunction83D66F15FunctionId": {
+                        "Fn::GetAtt": [
+                            "MESSAGE",
+                            "Outputs.transformerrootstackMESSAGESubscriptiononCreateMESSAGEauth0FunctionSubscriptiononCreateMESSAGEauth0FunctionAppSyncFunction83D66F15FunctionId"
+                        ]
+                    },
+                    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGESubscriptionOnCreateMESSAGEDataResolverFnSubscriptionOnCreateMESSAGEDataResolverFnAppSyncFunction5C348CEEFunctionId": {
+                        "Fn::GetAtt": [
+                            "MESSAGE",
+                            "Outputs.transformerrootstackMESSAGESubscriptionOnCreateMESSAGEDataResolverFnSubscriptionOnCreateMESSAGEDataResolverFnAppSyncFunction5C348CEEFunctionId"
+                        ]
                     }
                 }
             },
@@ -527,23 +563,59 @@
                             "ApiId"
                         ]
                     },
-                    "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name": {
-                        "Fn::GetAtt": [
-                            "GraphQLAPINONEDS95A13CF0",
-                            "Name"
-                        ]
-                    },
                     "referencetotransformerrootstackS3DeploymentBucket7592718ARef": {
                         "Ref": "S3DeploymentBucket"
                     },
                     "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref": {
                         "Ref": "S3DeploymentRootKey"
                     },
+                    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEauth0FunctionQuerygetMESSAGEauth0FunctionAppSyncFunction94B055BCFunctionId": {
+                        "Fn::GetAtt": [
+                            "MESSAGE",
+                            "Outputs.transformerrootstackMESSAGEQuerygetMESSAGEauth0FunctionQuerygetMESSAGEauth0FunctionAppSyncFunction94B055BCFunctionId"
+                        ]
+                    },
+                    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId": {
+                        "Fn::GetAtt": [
+                            "MESSAGE",
+                            "Outputs.transformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId"
+                        ]
+                    },
                     "referencetotransformerrootstackauthRoleNameFB872D50Ref": {
                         "Ref": "authRoleName"
                     },
                     "referencetotransformerrootstackunauthRoleName49F3C1FERef": {
                         "Ref": "unauthRoleName"
+                    },
+                    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEMutationcreateMESSAGEinit0FunctionMutationcreateMESSAGEinit0FunctionAppSyncFunction4797920FFunctionId": {
+                        "Fn::GetAtt": [
+                            "MESSAGE",
+                            "Outputs.transformerrootstackMESSAGEMutationcreateMESSAGEinit0FunctionMutationcreateMESSAGEinit0FunctionAppSyncFunction4797920FFunctionId"
+                        ]
+                    },
+                    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEMutationcreateMESSAGEauth0FunctionMutationcreateMESSAGEauth0FunctionAppSyncFunctionBE3E8D17FunctionId": {
+                        "Fn::GetAtt": [
+                            "MESSAGE",
+                            "Outputs.transformerrootstackMESSAGEMutationcreateMESSAGEauth0FunctionMutationcreateMESSAGEauth0FunctionAppSyncFunctionBE3E8D17FunctionId"
+                        ]
+                    },
+                    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEMutationupdateMESSAGEinit0FunctionMutationupdateMESSAGEinit0FunctionAppSyncFunctionE3C4F32DFunctionId": {
+                        "Fn::GetAtt": [
+                            "MESSAGE",
+                            "Outputs.transformerrootstackMESSAGEMutationupdateMESSAGEinit0FunctionMutationupdateMESSAGEinit0FunctionAppSyncFunctionE3C4F32DFunctionId"
+                        ]
+                    },
+                    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGESubscriptiononCreateMESSAGEauth0FunctionSubscriptiononCreateMESSAGEauth0FunctionAppSyncFunction83D66F15FunctionId": {
+                        "Fn::GetAtt": [
+                            "MESSAGE",
+                            "Outputs.transformerrootstackMESSAGESubscriptiononCreateMESSAGEauth0FunctionSubscriptiononCreateMESSAGEauth0FunctionAppSyncFunction83D66F15FunctionId"
+                        ]
+                    },
+                    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGESubscriptionOnCreateMESSAGEDataResolverFnSubscriptionOnCreateMESSAGEDataResolverFnAppSyncFunction5C348CEEFunctionId": {
+                        "Fn::GetAtt": [
+                            "MESSAGE",
+                            "Outputs.transformerrootstackMESSAGESubscriptionOnCreateMESSAGEDataResolverFnSubscriptionOnCreateMESSAGEDataResolverFnAppSyncFunction5C348CEEFunctionId"
+                        ]
                     }
                 }
             },
@@ -615,11 +687,35 @@
                     "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref": {
                         "Ref": "S3DeploymentRootKey"
                     },
+                    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId": {
+                        "Fn::GetAtt": [
+                            "MESSAGE",
+                            "Outputs.transformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId"
+                        ]
+                    },
                     "referencetotransformerrootstackauthRoleNameFB872D50Ref": {
                         "Ref": "authRoleName"
                     },
                     "referencetotransformerrootstackunauthRoleName49F3C1FERef": {
                         "Ref": "unauthRoleName"
+                    },
+                    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEMutationcreateMESSAGEinit0FunctionMutationcreateMESSAGEinit0FunctionAppSyncFunction4797920FFunctionId": {
+                        "Fn::GetAtt": [
+                            "MESSAGE",
+                            "Outputs.transformerrootstackMESSAGEMutationcreateMESSAGEinit0FunctionMutationcreateMESSAGEinit0FunctionAppSyncFunction4797920FFunctionId"
+                        ]
+                    },
+                    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEMutationupdateMESSAGEinit0FunctionMutationupdateMESSAGEinit0FunctionAppSyncFunctionE3C4F32DFunctionId": {
+                        "Fn::GetAtt": [
+                            "MESSAGE",
+                            "Outputs.transformerrootstackMESSAGEMutationupdateMESSAGEinit0FunctionMutationupdateMESSAGEinit0FunctionAppSyncFunctionE3C4F32DFunctionId"
+                        ]
+                    },
+                    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGESubscriptionOnCreateMESSAGEDataResolverFnSubscriptionOnCreateMESSAGEDataResolverFnAppSyncFunction5C348CEEFunctionId": {
+                        "Fn::GetAtt": [
+                            "MESSAGE",
+                            "Outputs.transformerrootstackMESSAGESubscriptionOnCreateMESSAGEDataResolverFnSubscriptionOnCreateMESSAGEDataResolverFnAppSyncFunction5C348CEEFunctionId"
+                        ]
                     }
                 }
             },
@@ -679,23 +775,59 @@
                             "ApiId"
                         ]
                     },
-                    "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name": {
-                        "Fn::GetAtt": [
-                            "GraphQLAPINONEDS95A13CF0",
-                            "Name"
-                        ]
-                    },
                     "referencetotransformerrootstackS3DeploymentBucket7592718ARef": {
                         "Ref": "S3DeploymentBucket"
                     },
                     "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref": {
                         "Ref": "S3DeploymentRootKey"
                     },
+                    "referencetotransformerrootstackUserNestedStackUserNestedStackResource01084C14OutputstransformerrootstackUserQuerygetUserauth0FunctionQuerygetUserauth0FunctionAppSyncFunctionAE1DE713FunctionId": {
+                        "Fn::GetAtt": [
+                            "User",
+                            "Outputs.transformerrootstackUserQuerygetUserauth0FunctionQuerygetUserauth0FunctionAppSyncFunctionAE1DE713FunctionId"
+                        ]
+                    },
+                    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId": {
+                        "Fn::GetAtt": [
+                            "MESSAGE",
+                            "Outputs.transformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId"
+                        ]
+                    },
                     "referencetotransformerrootstackauthRoleNameFB872D50Ref": {
                         "Ref": "authRoleName"
                     },
                     "referencetotransformerrootstackunauthRoleName49F3C1FERef": {
                         "Ref": "unauthRoleName"
+                    },
+                    "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name": {
+                        "Fn::GetAtt": [
+                            "GraphQLAPINONEDS95A13CF0",
+                            "Name"
+                        ]
+                    },
+                    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEMutationcreateMESSAGEinit0FunctionMutationcreateMESSAGEinit0FunctionAppSyncFunction4797920FFunctionId": {
+                        "Fn::GetAtt": [
+                            "MESSAGE",
+                            "Outputs.transformerrootstackMESSAGEMutationcreateMESSAGEinit0FunctionMutationcreateMESSAGEinit0FunctionAppSyncFunction4797920FFunctionId"
+                        ]
+                    },
+                    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEMutationupdateMESSAGEinit0FunctionMutationupdateMESSAGEinit0FunctionAppSyncFunctionE3C4F32DFunctionId": {
+                        "Fn::GetAtt": [
+                            "MESSAGE",
+                            "Outputs.transformerrootstackMESSAGEMutationupdateMESSAGEinit0FunctionMutationupdateMESSAGEinit0FunctionAppSyncFunctionE3C4F32DFunctionId"
+                        ]
+                    },
+                    "referencetotransformerrootstackUserNestedStackUserNestedStackResource01084C14OutputstransformerrootstackUserSubscriptiononCreateUserauth0FunctionSubscriptiononCreateUserauth0FunctionAppSyncFunction0FC1B29BFunctionId": {
+                        "Fn::GetAtt": [
+                            "User",
+                            "Outputs.transformerrootstackUserSubscriptiononCreateUserauth0FunctionSubscriptiononCreateUserauth0FunctionAppSyncFunction0FC1B29BFunctionId"
+                        ]
+                    },
+                    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGESubscriptionOnCreateMESSAGEDataResolverFnSubscriptionOnCreateMESSAGEDataResolverFnAppSyncFunction5C348CEEFunctionId": {
+                        "Fn::GetAtt": [
+                            "MESSAGE",
+                            "Outputs.transformerrootstackMESSAGESubscriptionOnCreateMESSAGEDataResolverFnSubscriptionOnCreateMESSAGEDataResolverFnAppSyncFunction5C348CEEFunctionId"
+                        ]
                     }
                 }
             },

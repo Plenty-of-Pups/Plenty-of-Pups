@@ -43,19 +43,37 @@
     "referencetotransformerrootstackGraphQLAPI20497F53ApiId": {
       "Type": "String"
     },
-    "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name": {
-      "Type": "String"
-    },
     "referencetotransformerrootstackS3DeploymentBucket7592718ARef": {
       "Type": "String"
     },
     "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref": {
       "Type": "String"
     },
+    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEauth0FunctionQuerygetMESSAGEauth0FunctionAppSyncFunction94B055BCFunctionId": {
+      "Type": "String"
+    },
+    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId": {
+      "Type": "String"
+    },
     "referencetotransformerrootstackauthRoleNameFB872D50Ref": {
       "Type": "String"
     },
     "referencetotransformerrootstackunauthRoleName49F3C1FERef": {
+      "Type": "String"
+    },
+    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEMutationcreateMESSAGEinit0FunctionMutationcreateMESSAGEinit0FunctionAppSyncFunction4797920FFunctionId": {
+      "Type": "String"
+    },
+    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEMutationcreateMESSAGEauth0FunctionMutationcreateMESSAGEauth0FunctionAppSyncFunctionBE3E8D17FunctionId": {
+      "Type": "String"
+    },
+    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEMutationupdateMESSAGEinit0FunctionMutationupdateMESSAGEinit0FunctionAppSyncFunctionE3C4F32DFunctionId": {
+      "Type": "String"
+    },
+    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGESubscriptiononCreateMESSAGEauth0FunctionSubscriptiononCreateMESSAGEauth0FunctionAppSyncFunction83D66F15FunctionId": {
+      "Type": "String"
+    },
+    "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGESubscriptionOnCreateMESSAGEDataResolverFnSubscriptionOnCreateMESSAGEDataResolverFnAppSyncFunction5C348CEEFunctionId": {
       "Type": "String"
     }
   },
@@ -425,66 +443,6 @@
         "DogIAMRoleCD7928AF"
       ]
     },
-    "QuerygetDogauth0FunctionQuerygetDogauth0FunctionAppSyncFunctionEF855CCE": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "QuerygetDogauth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Query.getDog.auth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "QuerygetDogpostAuth0FunctionQuerygetDogpostAuth0FunctionAppSyncFunction44827FF4": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "QuerygetDogpostAuth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Query.getDog.postAuth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
     "QueryGetDogDataResolverFnQueryGetDogDataResolverFnAppSyncFunctionBC4FCC92": {
       "Type": "AWS::AppSync::FunctionConfiguration",
       "Properties": {
@@ -552,16 +510,10 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": [
-                "QuerygetDogauth0FunctionQuerygetDogauth0FunctionAppSyncFunctionEF855CCE",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEauth0FunctionQuerygetMESSAGEauth0FunctionAppSyncFunction94B055BCFunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "QuerygetDogpostAuth0FunctionQuerygetDogpostAuth0FunctionAppSyncFunction44827FF4",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -604,66 +556,6 @@
           ]
         },
         "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
-      }
-    },
-    "QuerylistDogsauth0FunctionQuerylistDogsauth0FunctionAppSyncFunction7DBAA72F": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "QuerylistDogsauth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Query.listDogs.auth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "QuerylistDogspostAuth0FunctionQuerylistDogspostAuth0FunctionAppSyncFunction50CCC9DC": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "QuerylistDogspostAuth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Query.listDogs.postAuth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
       }
     },
     "QueryListDogsDataResolverFnQueryListDogsDataResolverFnAppSyncFunction9AB8B29C": {
@@ -733,16 +625,10 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": [
-                "QuerylistDogsauth0FunctionQuerylistDogsauth0FunctionAppSyncFunction7DBAA72F",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEauth0FunctionQuerygetMESSAGEauth0FunctionAppSyncFunction94B055BCFunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "QuerylistDogspostAuth0FunctionQuerylistDogspostAuth0FunctionAppSyncFunction50CCC9DC",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -785,66 +671,6 @@
           ]
         },
         "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
-      }
-    },
-    "QuerysyncDogsauth0FunctionQuerysyncDogsauth0FunctionAppSyncFunction21BC9B52": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "QuerysyncDogsauth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Query.syncDogs.auth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "QuerysyncDogspostAuth0FunctionQuerysyncDogspostAuth0FunctionAppSyncFunctionBF931991": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "QuerysyncDogspostAuth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Query.syncDogs.postAuth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
       }
     },
     "QuerySyncDogsDataResolverFnQuerySyncDogsDataResolverFnAppSyncFunction88DD033B": {
@@ -914,16 +740,10 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": [
-                "QuerysyncDogsauth0FunctionQuerysyncDogsauth0FunctionAppSyncFunction21BC9B52",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEauth0FunctionQuerygetMESSAGEauth0FunctionAppSyncFunction94B055BCFunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "QuerysyncDogspostAuth0FunctionQuerysyncDogspostAuth0FunctionAppSyncFunctionBF931991",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -966,96 +786,6 @@
           ]
         },
         "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
-      }
-    },
-    "MutationcreateDoginit0FunctionMutationcreateDoginit0FunctionAppSyncFunctionB3230DF7": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "MutationcreateDoginit0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Mutation.createDog.init.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "MutationcreateDogauth0FunctionMutationcreateDogauth0FunctionAppSyncFunctionE4AA7AF9": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "MutationcreateDogauth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Mutation.createDog.auth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "MutationcreateDogpostAuth0FunctionMutationcreateDogpostAuth0FunctionAppSyncFunction9D4CB889": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "MutationcreateDogpostAuth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Mutation.createDog.postAuth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
       }
     },
     "MutationCreateDogDataResolverFnMutationCreateDogDataResolverFnAppSyncFunction32ED1739": {
@@ -1125,22 +855,13 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": [
-                "MutationcreateDoginit0FunctionMutationcreateDoginit0FunctionAppSyncFunctionB3230DF7",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEMutationcreateMESSAGEinit0FunctionMutationcreateMESSAGEinit0FunctionAppSyncFunction4797920FFunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "MutationcreateDogauth0FunctionMutationcreateDogauth0FunctionAppSyncFunctionE4AA7AF9",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEMutationcreateMESSAGEauth0FunctionMutationcreateMESSAGEauth0FunctionAppSyncFunctionBE3E8D17FunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "MutationcreateDogpostAuth0FunctionMutationcreateDogpostAuth0FunctionAppSyncFunction9D4CB889",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -1183,36 +904,6 @@
           ]
         },
         "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
-      }
-    },
-    "MutationupdateDoginit0FunctionMutationupdateDoginit0FunctionAppSyncFunction2A95199B": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "MutationupdateDoginit0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Mutation.updateDog.init.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
       }
     },
     "MutationupdateDogauth0FunctionMutationupdateDogauth0FunctionAppSyncFunctionDD3E835C": {
@@ -1265,36 +956,6 @@
       "DependsOn": [
         "DogDataSource"
       ]
-    },
-    "MutationupdateDogpostAuth0FunctionMutationupdateDogpostAuth0FunctionAppSyncFunction0FADC347": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "MutationupdateDogpostAuth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Mutation.updateDog.postAuth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
     },
     "MutationUpdateDogDataResolverFnMutationUpdateDogDataResolverFnAppSyncFunctionAAF5AFEE": {
       "Type": "AWS::AppSync::FunctionConfiguration",
@@ -1363,10 +1024,7 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": [
-                "MutationupdateDoginit0FunctionMutationupdateDoginit0FunctionAppSyncFunction2A95199B",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEMutationupdateMESSAGEinit0FunctionMutationupdateMESSAGEinit0FunctionAppSyncFunctionE3C4F32DFunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -1375,10 +1033,7 @@
               ]
             },
             {
-              "Fn::GetAtt": [
-                "MutationupdateDogpostAuth0FunctionMutationupdateDogpostAuth0FunctionAppSyncFunction0FADC347",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -1474,36 +1129,6 @@
         "DogDataSource"
       ]
     },
-    "MutationdeleteDogpostAuth0FunctionMutationdeleteDogpostAuth0FunctionAppSyncFunction4A2B256E": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "MutationdeleteDogpostAuth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Mutation.deleteDog.postAuth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
     "MutationDeleteDogDataResolverFnMutationDeleteDogDataResolverFnAppSyncFunction9F265BFD": {
       "Type": "AWS::AppSync::FunctionConfiguration",
       "Properties": {
@@ -1577,10 +1202,7 @@
               ]
             },
             {
-              "Fn::GetAtt": [
-                "MutationdeleteDogpostAuth0FunctionMutationdeleteDogpostAuth0FunctionAppSyncFunction4A2B256E",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -1625,111 +1247,6 @@
         "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
       }
     },
-    "SubscriptiononCreateDogauth0FunctionSubscriptiononCreateDogauth0FunctionAppSyncFunctionE630867E": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "SubscriptiononCreateDogauth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onCreateDog.auth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "SubscriptiononCreateDogpostAuth0FunctionSubscriptiononCreateDogpostAuth0FunctionAppSyncFunctionB8F65C30": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "SubscriptiononCreateDogpostAuth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onCreateDog.postAuth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "SubscriptionOnCreateDogDataResolverFnSubscriptionOnCreateDogDataResolverFnAppSyncFunction03A1DAF4": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "SubscriptionOnCreateDogDataResolverFn",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onCreateDog.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onCreateDog.res.vtl"
-            ]
-          ]
-        }
-      }
-    },
     "SubscriptiononCreateDogResolver": {
       "Type": "AWS::AppSync::Resolver",
       "Properties": {
@@ -1742,22 +1259,13 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": [
-                "SubscriptiononCreateDogauth0FunctionSubscriptiononCreateDogauth0FunctionAppSyncFunctionE630867E",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGESubscriptiononCreateMESSAGEauth0FunctionSubscriptiononCreateMESSAGEauth0FunctionAppSyncFunction83D66F15FunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "SubscriptiononCreateDogpostAuth0FunctionSubscriptiononCreateDogpostAuth0FunctionAppSyncFunctionB8F65C30",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "SubscriptionOnCreateDogDataResolverFnSubscriptionOnCreateDogDataResolverFnAppSyncFunction03A1DAF4",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGESubscriptionOnCreateMESSAGEDataResolverFnSubscriptionOnCreateMESSAGEDataResolverFnAppSyncFunction5C348CEEFunctionId"
             }
           ]
         },
@@ -1792,111 +1300,6 @@
         "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
       }
     },
-    "SubscriptiononUpdateDogauth0FunctionSubscriptiononUpdateDogauth0FunctionAppSyncFunction73E1E3D3": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "SubscriptiononUpdateDogauth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onUpdateDog.auth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "SubscriptiononUpdateDogpostAuth0FunctionSubscriptiononUpdateDogpostAuth0FunctionAppSyncFunctionA7E035DC": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "SubscriptiononUpdateDogpostAuth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onUpdateDog.postAuth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "SubscriptionOnUpdateDogDataResolverFnSubscriptionOnUpdateDogDataResolverFnAppSyncFunction0D354438": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "SubscriptionOnUpdateDogDataResolverFn",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onUpdateDog.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onUpdateDog.res.vtl"
-            ]
-          ]
-        }
-      }
-    },
     "SubscriptiononUpdateDogResolver": {
       "Type": "AWS::AppSync::Resolver",
       "Properties": {
@@ -1909,22 +1312,13 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": [
-                "SubscriptiononUpdateDogauth0FunctionSubscriptiononUpdateDogauth0FunctionAppSyncFunction73E1E3D3",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGESubscriptiononCreateMESSAGEauth0FunctionSubscriptiononCreateMESSAGEauth0FunctionAppSyncFunction83D66F15FunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "SubscriptiononUpdateDogpostAuth0FunctionSubscriptiononUpdateDogpostAuth0FunctionAppSyncFunctionA7E035DC",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "SubscriptionOnUpdateDogDataResolverFnSubscriptionOnUpdateDogDataResolverFnAppSyncFunction0D354438",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGESubscriptionOnCreateMESSAGEDataResolverFnSubscriptionOnCreateMESSAGEDataResolverFnAppSyncFunction5C348CEEFunctionId"
             }
           ]
         },
@@ -1959,111 +1353,6 @@
         "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
       }
     },
-    "SubscriptiononDeleteDogauth0FunctionSubscriptiononDeleteDogauth0FunctionAppSyncFunction2D1765D2": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "SubscriptiononDeleteDogauth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onDeleteDog.auth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "SubscriptiononDeleteDogpostAuth0FunctionSubscriptiononDeleteDogpostAuth0FunctionAppSyncFunction702BB1F0": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "SubscriptiononDeleteDogpostAuth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onDeleteDog.postAuth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "SubscriptionOnDeleteDogDataResolverFnSubscriptionOnDeleteDogDataResolverFnAppSyncFunctionAD472CF7": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "SubscriptionOnDeleteDogDataResolverFn",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onDeleteDog.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onDeleteDog.res.vtl"
-            ]
-          ]
-        }
-      }
-    },
     "SubscriptiononDeleteDogResolver": {
       "Type": "AWS::AppSync::Resolver",
       "Properties": {
@@ -2076,22 +1365,13 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": [
-                "SubscriptiononDeleteDogauth0FunctionSubscriptiononDeleteDogauth0FunctionAppSyncFunction2D1765D2",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGESubscriptiononCreateMESSAGEauth0FunctionSubscriptiononCreateMESSAGEauth0FunctionAppSyncFunction83D66F15FunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "SubscriptiononDeleteDogpostAuth0FunctionSubscriptiononDeleteDogpostAuth0FunctionAppSyncFunction702BB1F0",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGEQuerygetMESSAGEpostAuth0FunctionQuerygetMESSAGEpostAuth0FunctionAppSyncFunction06D333B9FunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "SubscriptionOnDeleteDogDataResolverFnSubscriptionOnDeleteDogDataResolverFnAppSyncFunctionAD472CF7",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackMESSAGENestedStackMESSAGENestedStackResourceBB9BBF71OutputstransformerrootstackMESSAGESubscriptionOnCreateMESSAGEDataResolverFnSubscriptionOnCreateMESSAGEDataResolverFnAppSyncFunction5C348CEEFunctionId"
             }
           ]
         },

@@ -61,6 +61,8 @@ export declare class User {
   readonly chatrooms?: (ChatRoomUser | null)[] | null;
   readonly gender?: string | null;
   readonly match?: boolean | null;
+  readonly time?: string | null;
+  readonly message?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   readonly userDogId?: string | null;

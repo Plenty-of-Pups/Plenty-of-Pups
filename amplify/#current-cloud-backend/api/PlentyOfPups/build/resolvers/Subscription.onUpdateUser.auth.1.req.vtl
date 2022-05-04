@@ -14,10 +14,11 @@ $util.qr($ctx.stash.put("hasAuth", true))
 $util.unauthorized()
 #end
 #if( $util.authType() == "User Pool Authorization" )
-  #set( $ownerEntity0 = $util.defaultIfNull($ctx.args.owner.split(":")[0], null) )
+  #set( $ownerClaim0 = $util.defaultIfNull($ctx.identity.claims.get("username"), $util.defaultIfNull($ctx.identity.claims.get("cognito:username"), "___xamznone____")) )
+  #set( $ownerClaimsList0 = [] )
+  #set( $ownerEntity0 = $util.defaultIfNull($ctx.args.owner, null) )
   #if( !$isAuthorized )
-    #set( $ownerClaim0_0 = $util.defaultIfNull($ctx.identity.claims.get("username"), $util.defaultIfNull($ctx.identity.claims.get("cognito:username"), "___xamznone____")) )
-    #if( $ownerEntity0 == $ownerClaim0_0 )
+    #if( $ownerEntity0 == $ownerClaim0 || $ownerClaimsList0.contains($ownerEntity0) )
       #set( $isAuthorized = true )
     #end
   #end

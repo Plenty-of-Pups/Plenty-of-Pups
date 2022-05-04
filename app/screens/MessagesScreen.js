@@ -72,8 +72,13 @@ function MessagesScreen(props) {
   const [refreshing, setRefreshing] = useState(false);
 
   const handleDelete = (message) => {
-    //delete the message from messages
-    setMessages(messages.filter((m) => m.id !== message.id));
+
+    setUsers(users.filter((m) => m.id !== message.id));
+  };
+
+  const handlePress = (message) => {
+
+    setUsers(users.filter((m) => m.status !== message.status));
   };
 
   return (
@@ -96,17 +101,17 @@ function MessagesScreen(props) {
           </View>
         )}
         data={users}
-
+        keyExtractor={(menuItem) => menuItem.id}
         renderItem={({ item }) => (
           <MessageItem
             user={item}
             id={item.id}
             name={item.name}
-            // message={item.message}
+            message={item.message}
             image={item.imageUri}
-            //  time={item.time}
-            //  numMessages={item.numMessages}
-            onPress={() => console.log("Message selected", item)}
+            time={item.time}
+            numMessages={item.status}
+            onPress={() => item.status == 0}
             renderRightActions={() => (
               <ListItemDeleteAction onPress={() => handleDelete(item)} />
             )}

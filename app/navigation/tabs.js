@@ -63,7 +63,7 @@ const Tabs = () => {
         }}
       />
       <Tab.Screen
-        name="Messages"
+        name=" "
         component={MessagesScreen}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -85,7 +85,7 @@ const Tabs = () => {
               />
               <Text
                 style={{ color: focused ? "#FF5483" : "#747c94", fontSize: 12 }}
-              ></Text>
+              >Messages</Text>
             </View>
           ),
         }}
