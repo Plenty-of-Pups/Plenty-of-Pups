@@ -2,7 +2,7 @@ import React from "react";
 import { NavigationContainer, StackActions } from "@react-navigation/native";
 import Amplify from "aws-amplify";
 import config from "./src/aws-exports";
-import { withAuthenticator } from "aws-amplify-react-native"
+import { withAuthenticator } from "aws-amplify-react-native";
 import Tabs from "./app/navigation/tabs";
 import { View } from "react-native";
 import LoginScreen from "./app/screens/LoginScreen";
@@ -28,19 +28,15 @@ import MatchScreen from "./app/screens/MatchScreen";
 import UserHomeScreen from "./app/screens/UserHomeScreen";
 import DogHomeScreen from "./app/screens/DogHomeScreen";
 import Navigation from "./app/navigation/Navigation";
-
-
+import { LogBox } from "react-native";
+LogBox.ignoreLogs(["Warning: ..."]); // Ignore log notification by message
+LogBox.ignoreAllLogs();
 
 //Amplify.configure(config);
 Amplify.configure(config);
 
 export default function App() {
-  return (
-
-    <Navigation />
-
-  );
-
+  return <Navigation />;
 }
 
 /*// uncomment to test bottom tab navigation
